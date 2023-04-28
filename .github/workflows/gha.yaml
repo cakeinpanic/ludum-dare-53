@@ -34,11 +34,8 @@ jobs:
 
       - run: npm i
       - run: npm run build
-#      - run: |
-#          git config --global user.name "Robot"
-#          git config --global user.email "ro@bot.com"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build # The folder the action should deploy.
+          folder: build
