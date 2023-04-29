@@ -1,47 +1,48 @@
-import React, { useCallback, useEffect } from "react";
-import { moveFromRoom, RoomName } from "../../rooms/rooms";
-import { CharacterView } from "../CharacterView/CharacterView";
-import { Controls } from "../Controls/Controls";
-import { House } from "../House/House";
-import styles from "./Game.module.scss";
-import { useGame } from "./useGame";
+import React, { useCallback, useEffect } from 'react';
+import { CharacterView } from '../CharacterView/CharacterView';
+import { Controls } from '../Controls/Controls';
+import { House } from '../House/House';
+import styles from './Game.module.scss';
+import { AvailableWays } from './types';
+import { useGame } from './useGame';
 
 const MAX_SCALE = 5;
 
 export function Game() {
-  const [currentRoom, setCurrentRoom] = React.useState<RoomName>(
-    RoomName.living
-  );
-
+  const [debugMode, setDebugMode] = React.useState<boolean>(false);
   const [scale, setScale] = React.useState(MAX_SCALE);
-  const { gameState, characters } = useGame();
+
+  const { gameState, characters, move, setCurrentRoom } = useGame();
 
   const moveOnMap = useCallback(
     (e) => {
       const coordinates = { x: 0, y: 0 };
+      let direction: keyof AvailableWays | undefined;
 
       if (e.key === "s" || e.key === "ArrowDown") {
-        coordinates.y = 1;
+        direction = "down";
         e.preventDefault();
       }
       if (e.key === "a" || e.key === "ArrowLeft") {
-        coordinates.x = -1;
+        direction = "left";
         e.preventDefault();
       }
       if (e.key === "d" || e.key === "ArrowRight") {
-        coordinates.x = 1;
+        direction = "right";
         e.preventDefault();
       }
       if (e.key === "w" || e.key === "ArrowUp") {
-        coordinates.y = -1;
+        direction = "up";
         e.preventDefault();
       }
+      if (direction) {
+        move(direction);
+      }
 
-      const newRoom = moveFromRoom(currentRoom, coordinates);
-      console.log(currentRoom, newRoom);
-      setCurrentRoom(newRoom);
+      //   const newRoom = moveFromRoom(gameState.currentRoom, coordinates);
+      //   setCurrentRoom(newRoom);
     },
-    [currentRoom, setCurrentRoom]
+    [move]
   );
 
   useEffect(() => {
@@ -65,8 +66,20 @@ export function Game() {
           setScale={setScale}
           className={styles.house}
           setCurrentRoom={setCurrentRoom}
-          currentRoom={currentRoom}
+          currentRoom={gameState.currentRoom}
         />
+
+        <CharacterView
+          character={{
+            name: "main",
+            room: gameState.currentRoom,
+            roomPosition: { x: 0, y: 0 },
+          }}
+          scale={scale}
+        />
+        {characters.map((character) => (
+          <CharacterView character={character} scale={scale} />
+        ))}
 
         <CharacterView
           character={{

@@ -7,6 +7,7 @@ import kitchen from "./kitchen.png";
 import yard from "./yard.png";
 import basement from "./basement.png";
 import attick from "./attick.png";
+import { AvailableWays } from "../components/Game/types";
 
 export const scale = 1.2;
 
@@ -72,8 +73,22 @@ export const getRoomCoordinates = (
 
 export const moveFromRoom = (
   currentRoom: RoomName,
-  { x, y } = { x: 0, y: 0 }
+  direction: keyof AvailableWays
 ) => {
+  let { x, y } = { x: 0, y: 0 };
+  if (direction === "up") {
+    y = -1;
+  }
+  if (direction === "down") {
+    y = 1;
+  }
+  if (direction === "left") {
+    x = -1;
+  }
+  if (direction === "right") {
+    x = 1;
+  }
+
   const { x: x1, y: y1 } = getTileCoordinates(currentRoom);
   console.log("katya");
   const { x: x2, y: y2 } = { x: x1 + x, y: y1 + y };
