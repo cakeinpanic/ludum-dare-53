@@ -1,39 +1,13 @@
 import React, { useEffect } from 'react';
+import { RoomName, rooms } from '../../rooms/rooms';
 import { Hero } from '../Hero/Hero';
 import { House } from '../House/House';
 import styles from './Game.module.scss';
-
-enum RoomName {
-    attic = 'attic',
-    toilet = 'toilet',
-    cabinet = 'cabinet'
-}
-
-const rooms = {
-    [RoomName.attic]: {
-        left: 72,
-        top: 103,
-        width: 350,
-        height: 125
-    },
-    [RoomName.toilet]: {
-        left: 72,
-        top: 232,
-        width: 93,
-        height: 105,
-    },
-    [RoomName.cabinet]: {
-        left: 162,
-        top: 232,
-        width: 258,
-        height: 105,
-    },
-};
-
+import suburb from './suburb.png';
 export function Game() {
-    const [currentRoom, setCurrentRoom] = React.useState<RoomName>(RoomName.attic);
+    const [currentRoom, setCurrentRoom] = React.useState<RoomName>(RoomName.living);
     const [heroPosition, setHeroPosition] = React.useState<{ left: number, top: number }>({ left: 0, top: 0 });
-    const [debugMode, setDebugMode] = React.useState<boolean>(false);
+    const [debugMode, setDebugMode] = React.useState<boolean>(true);
 
     const moveToRoom = (room: RoomName) => () => {
         setCurrentRoom(room);
@@ -46,10 +20,11 @@ export function Game() {
 
     return (
         <div className={styles.game}>
+            <img className={styles.bg} src={suburb}/>
             <House className={styles.house}/>
             {Object.keys(rooms).map((room: RoomName) => {
                 const { left, top, width, height } = rooms[room];
-                return <div key={room} className={styles.roomDummie} style={{ left, top, width, height, opacity: debugMode ? .5: 0 }} onClick={moveToRoom(room)}/>;
+                return <div key={room} className={styles.roomDummie} style={{ left, top, width, height, display: debugMode ? 'block': 'none' }} onClick={moveToRoom(room)}/>;
             })}
             <Hero style={{ left: heroPosition.left, top: heroPosition.top }}/>
         </div>
