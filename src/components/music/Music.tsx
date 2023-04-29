@@ -14,11 +14,11 @@ enum Sound {
     default = 'default'
 }
 
-function doSound(currentSound: Sound | null, soundState: Sound, howlerObject: any, isAllMuted: boolean) {
+function doSound(howlerObject: any, isAllMuted: boolean) {
     if (!howlerObject) {
         return;
     }
-    if (currentSound === soundState && !isAllMuted) {
+    if (!isAllMuted) {
         howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION);
     } else {
         howlerObject.fade(howlerObject.volume(), 0, FADE_DURATION);
@@ -37,7 +37,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
         if (neutralSound?.state() === 'loaded') {
             neutralSound.play();
         }
-        return () => neutralSound.stop();
+        return () => neutralSound?.stop();
 
     }, [neutralSound]);
 
@@ -51,7 +51,7 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
     );
 
     useEffect(() => {
-        doSound(currentSound, Sound.default, neutralSound, isAllMuted);
+        doSound(neutralSound, isAllMuted);
     }, [isAllMuted, currentSound, neutralSound]);
 
     const muteAll = () => {

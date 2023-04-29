@@ -69,8 +69,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "DISABLE_ESLINT_PLUGIN=true npm run build",
+    "deploy": "DISABLE_ESLINT_PLUGIN=true gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
