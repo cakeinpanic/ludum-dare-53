@@ -8,5 +8,6 @@
   position: fixed;
 
   bottom: calc(10px + 32px);
+  pointer-events: none;
   // right: 50%;
 }
