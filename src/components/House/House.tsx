@@ -10,7 +10,7 @@ export function House({ currentRoom, setCurrentRoom, scale, setScale, ...props }
 
     useEffect(() => {
         requestAnimationFrame(() => document.getElementById(currentRoom)?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }));
-    }, [currentRoom]);
+    }, [currentRoom,scale]);
 
     return (
         <div className={props.className + ' ' + styles.House}>

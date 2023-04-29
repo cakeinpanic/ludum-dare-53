@@ -4,7 +4,6 @@
   width: 950px;
   height: $houseHeight;
   position: relative;
-  
 }
 
 
@@ -24,4 +23,20 @@
   width: $gameWidth;
   position: absolute;
   filter: blur(2px);
+}
+
+.zoom{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: white;
+  mask-image: url(./zoom-in.svg);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  &.out {
+    mask-image: url(./zoom-out.svg);
+  }
 }

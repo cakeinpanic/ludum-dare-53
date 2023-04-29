@@ -12,6 +12,7 @@ export const scale = 1.2;
 
 export const shiftX = 160;
 export const shiftY = 220;
+const H = 95;
 
 const gap = 4;
 
@@ -29,7 +30,6 @@ export enum RoomName {
     attick = 'attick'
 }
 
-const H = 95;
 
 export interface IRoom {
     img: string;
