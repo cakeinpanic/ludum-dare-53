@@ -1,9 +1,16 @@
 @import "../../variables";
 
 .game {
-  width: 950px;
-  height: $houseHeight;
+  width: $gameWidth;
+  height: $gameHeight;
   position: relative;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 700px) {
+  .game {
+    transform: scale(0.8);
+  }
 }
 
 .house {
@@ -34,6 +41,7 @@
   mask-image: url(./zoom-in.svg);
   mask-repeat: no-repeat;
   mask-size: contain;
+
   &.out {
     mask-image: url(./zoom-out.svg);
   }

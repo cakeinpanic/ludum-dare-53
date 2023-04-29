@@ -57,27 +57,28 @@ export function Game() {
   }, [scale]);
 
   return (
-    <div className={styles.game}>
-      <House
-        scale={scale}
-        setScale={setScale}
-        className={styles.house}
-        setCurrentRoom={setCurrentRoom}
-        currentRoom={currentRoom}
-      />
+    <>
+      <div className={styles.game}>
+        <House
+          scale={scale}
+          setScale={setScale}
+          className={styles.house}
+          setCurrentRoom={setCurrentRoom}
+          currentRoom={currentRoom}
+        />
 
-      <CharacterView
-        character={{
-          name: "main",
-          room: gameState.currentRoom,
-          roomPosition: { x: 0, y: 0 },
-        }}
-        scale={scale}
-      />
-      {characters.map((character) => (
-        <CharacterView character={character} scale={scale} />
-      ))}
-
+        <CharacterView
+          character={{
+            name: "main",
+            room: gameState.currentRoom,
+            roomPosition: { x: 0, y: 0 },
+          }}
+          scale={scale}
+        />
+        {characters.map((character) => (
+          <CharacterView character={character} scale={scale} />
+        ))}
+      </div>
       <div
         className={styles.zoom + " " + (scale === MAX_SCALE ? styles.out : "")}
         onClick={() =>
@@ -86,6 +87,6 @@ export function Game() {
       >
         -
       </div>
-    </div>
+    </>
   );
 }
