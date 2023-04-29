@@ -4,13 +4,12 @@
   width: 950px;
   height: $houseHeight;
   position: relative;
-  left: 236px;
-  top: 21px;
 }
 
 
 .house {
   position: absolute;
+ 
 }
 
 .roomDummie {
@@ -21,9 +20,7 @@
 }
 
 .bg {
-  width: 950px;
+  width: $gameWidth;
   position: absolute;
-  left: -236px;
-  top: -21px;
   filter: blur(2px);
 }

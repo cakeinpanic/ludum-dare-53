@@ -4,7 +4,8 @@ import { Hero } from '../Hero/Hero';
 import { House } from '../House/House';
 import { Music } from '../music/Music';
 import styles from './Game.module.scss';
-import suburb from './suburb.png';
+import suburb from './suburb2.png';
+
 export function Game() {
     const [currentRoom, setCurrentRoom] = React.useState<RoomName>(RoomName.living);
     const [heroPosition, setHeroPosition] = React.useState<{ left: number, top: number }>({ left: 0, top: 0 });
@@ -21,7 +22,7 @@ export function Game() {
 
     return (
         <div className={styles.game}>
-            <img className={styles.bg} src={suburb}/>
+            {/*<img className={styles.bg} src={suburb}/>*/}
             <House className={styles.house}/>
             {Object.keys(rooms).map((room: RoomName) => {
                 const { left, top, width, height } = rooms[room];
