@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from 'react'
 import {
   getRoomCoordinates,
   getTileCoordinates,
@@ -6,42 +6,34 @@ import {
   moveFromRoom,
   RoomName,
   ROOMS,
-} from "../../rooms/rooms";
-import { Hero, HeroName } from "../Hero/Hero";
-import { House } from "../House/House";
-import styles from "./Game.module.scss";
+} from '../../rooms/rooms'
+import { CharacterView } from '../CharacterView/CharacterView'
+import { House } from '../House/House'
+import styles from './Game.module.scss'
+import { useGame } from './useGame'
 
-const MAX_SCALE = 5;
+const MAX_SCALE = 5
 
 export function Game() {
   const [currentRoom, setCurrentRoom] = React.useState<RoomName>(
-    RoomName.living
-  );
+    RoomName.living,
+  )
   const [heroPosition, setHeroPosition] = React.useState<{
-    left: number;
-    top: number;
-  }>({ left: 0, top: 0 });
+    left: number
+    top: number
+  }>({ left: 0, top: 0 })
   const [motherPosition, setMotherPosition] = React.useState<{
-    left: number;
-    top: number;
-  }>({ left: 0, top: 0 });
+    left: number
+    top: number
+  }>({ left: 0, top: 0 })
   const [fatherPosition, setFatherosition] = React.useState<{
-    left: number;
-    top: number;
-  }>({ left: 0, top: 0 });
-  const [debugMode, setDebugMode] = React.useState<boolean>(false);
-  const [scale, setScale] = React.useState(MAX_SCALE);
+    left: number
+    top: number
+  }>({ left: 0, top: 0 })
+  const [debugMode, setDebugMode] = React.useState<boolean>(false)
+  const [scale, setScale] = React.useState(MAX_SCALE)
 
-  const calculatePositionForAHero = useCallback(
-    (room: RoomName, { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }) => {
-      const { left, top, width, height } = getRoomCoordinates(room);
-      return {
-        left: (left + width / 2) * scale - 20 + shiftX,
-        top: (top + height / 2) * scale - 20 + shiftY,
-      };
-    },
-    [scale]
-  );
+  const { gameState, characters } = useGame()
 
   const moveOnMap = useCallback(
     (e) => {
@@ -79,15 +71,9 @@ export function Game() {
   }, [moveOnMap]);
 
   useEffect(() => {
-    const shift = { shiftX: -100, shiftY: 0 };
-    setMotherPosition(calculatePositionForAHero(RoomName.living, shift));
-    setFatherosition(calculatePositionForAHero(RoomName.attick, shift));
-  }, [scale]);
-
-  useEffect(() => {
-    console.log(currentRoom);
-    setHeroPosition(calculatePositionForAHero(currentRoom));
-  }, [currentRoom, scale]);
+    // setMotherPosition(calculatePositionForAHero(RoomName.living, shift))
+    // setFatherosition(calculatePositionForAHero(RoomName.attick, shift))
+  }, [scale])
 
   return (
     <div className={styles.game}>
@@ -98,20 +84,24 @@ export function Game() {
         setCurrentRoom={setCurrentRoom}
         currentRoom={currentRoom}
       />
-      <Hero
-        name={HeroName.main}
-        style={{ left: heroPosition.left, top: heroPosition.top }}
+
+      <CharacterView
+        character={{
+          name: 'main',
+          room: gameState.currentRoom,
+          roomPosition: { x: 0, y: 0 },
+        }}
+        scale={scale}
       />
-      <Hero
-        name={HeroName.mother}
-        style={{ left: motherPosition.left, top: motherPosition.top }}
-      />
-      <Hero
-        name={HeroName.father}
-        style={{ left: fatherPosition.left, top: fatherPosition.top }}
-      />
+      {characters.map((character) => 
+        (<CharacterView
+            character={character}
+            scale={scale}
+        />))
+      }
+
       <div
-        className={styles.zoom + " " + (scale === MAX_SCALE ? styles.out : "")}
+        className={styles.zoom + ' ' + (scale === MAX_SCALE ? styles.out : '')}
         onClick={() =>
           scale === MAX_SCALE ? setScale(2) : setScale(MAX_SCALE)
         }
@@ -119,5 +109,5 @@ export function Game() {
         -
       </div>
     </div>
-  );
+  )
 }
