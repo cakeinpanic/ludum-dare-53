@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/ludum-dare-53/static/css/main.508fc988.css",
-    "main.js": "/ludum-dare-53/static/js/main.d0f7747e.js",
+    "main.css": "/ludum-dare-53/static/css/main.9a92dd28.css",
+    "main.js": "/ludum-dare-53/static/js/main.d4924b13.js",
     "static/js/926.4e69f33a.chunk.js": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js",
     "static/js/5.de7056da.chunk.js": "/ludum-dare-53/static/js/5.de7056da.chunk.js",
-    "static/media/kids.png": "/ludum-dare-53/static/media/kids.1cc785e012c051014082.png",
-    "static/media/pantry.png": "/ludum-dare-53/static/media/pantry.195317bb5a21a1eab5be.png",
+    "static/media/attick.png": "/ludum-dare-53/static/media/attick.0cbaf17793fd3812d28b.png",
+    "static/media/kitchen.png": "/ludum-dare-53/static/media/kitchen.f9d6b4eac271a4f93780.png",
+    "static/media/basement.png": "/ludum-dare-53/static/media/basement.a4b2119d1de1f8d0d058.png",
+    "static/media/bedroom.png": "/ludum-dare-53/static/media/bedroom.35123645087a307aa0b5.png",
+    "static/media/yard.png": "/ludum-dare-53/static/media/yard.0f559b1ac59affd30605.png",
     "static/media/paper.png": "/ludum-dare-53/static/media/paper.b3e2a84ab806f0742b56.png",
-    "static/media/living.png": "/ludum-dare-53/static/media/living.693fcb58a71390e095e8.png",
-    "static/media/suburb.png": "/ludum-dare-53/static/media/suburb.cff59e72902821133de5.png",
+    "static/media/living.png": "/ludum-dare-53/static/media/living.45aa5ca692857704ad39.png",
+    "static/media/library.png": "/ludum-dare-53/static/media/library.2f9eca622d0f15fe8aff.png",
     "ludum_dare_beta_0.mp3": "/ludum-dare-53/411e9063d5571dac1f0799b74de1534c.mp3",
     "ludum_dare_beta_minus.mp3": "/ludum-dare-53/1badcb277ed35576d75c4bb4657c863b.mp3",
-    "static/media/house_bg.svg": "/ludum-dare-53/static/media/house_bg.9d4b99e9db9a57f171fc2c9fed2e9471.svg",
     "index.html": "/ludum-dare-53/index.html",
-    "main.508fc988.css.map": "/ludum-dare-53/static/css/main.508fc988.css.map",
-    "main.d0f7747e.js.map": "/ludum-dare-53/static/js/main.d0f7747e.js.map",
+    "main.9a92dd28.css.map": "/ludum-dare-53/static/css/main.9a92dd28.css.map",
+    "main.d4924b13.js.map": "/ludum-dare-53/static/js/main.d4924b13.js.map",
     "926.4e69f33a.chunk.js.map": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js.map",
     "5.de7056da.chunk.js.map": "/ludum-dare-53/static/js/5.de7056da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.508fc988.css",
-    "static/js/main.d0f7747e.js"
+    "static/css/main.9a92dd28.css",
+    "static/js/main.d4924b13.js"
   ]
 }
