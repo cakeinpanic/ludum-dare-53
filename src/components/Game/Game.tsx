@@ -35,8 +35,8 @@ export function Game() {
     (room: RoomName, { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }) => {
       const { left, top, width, height } = getRoomCoordinates(room);
       return {
-        left: (left + width / 2 - 20 + shiftX) * scale,
-        top: (top + height / 2 + shiftY - 20) * scale,
+        left: (left + width / 2) * scale - 20 + shiftX,
+        top: (top + height / 2) * scale - 20 + shiftY,
       };
     },
     [scale]
