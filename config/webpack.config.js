@@ -388,7 +388,22 @@ module.exports = function (webpackEnv) {
                     },
                   },
                 },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [
+                        [
+                          "postcss-preset-env",
+                          "autoprefixer"
+                        ],
+                      ],
+                    },
+                  },
+                },
                 'sass-loader',
+
+
               ],
             },
             {
