@@ -1,0 +1,10 @@
+@import "../../variables";
+
+.game {
+  width: $houseWidth;
+  height: $houseHeight;
+}
+.house {
+  position: absolute;
+}
+
