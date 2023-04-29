@@ -1,30 +1,44 @@
 @import "../../variables";
 
 .letter {
-  width: $gameWidth * 0.8;
-  height: $gameHeight * 0.8;
+  width: $gameWidth;
+  height: $gameHeight;
   text-align: center;
   box-sizing: border-box;
   position: relative;
   padding-top: 40px;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Caveat", cursive;
   display: flex;
   align-items: center;
   cursor: pointer;
+  background: black;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.container {
+  width: $gameHeight * 0.9;
+  height: $gameHeight * 0.9;
+  position: relative;
+  text-align: left;
 }
 
 .text {
-  font-size: 30px;
+  font-size: 29px;
   position: absolute;
+  width: $gameHeight * 0.5;
+  left: 109px;
+  top: 130px;
   user-select: none;
+  transform: rotate(10deg);
 }
 
 .bg {
-  width: 100%;
-  height: 100%;
-  background-image: url("./paper.png");
+  width: $gameHeight * 0.9;
+  height: $gameHeight * 0.9;
+  background-image: url("./letter.png");
   background-size: cover;
   position: absolute;
-  filter: blur(1px);
+
   border-radius: 10px;
 }
