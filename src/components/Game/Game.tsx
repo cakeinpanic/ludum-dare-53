@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect } from "react";
 import { CharacterView } from "../CharacterView/CharacterView";
-import { Controls } from "../Controls/Controls";
+import { Controls, MAX_SCALE } from "../Controls/Controls";
 import { House } from "../House/House";
 import styles from "./Game.module.scss";
 import { AvailableWays } from "./types";
 import { useGame } from "./useGame";
 import { HelpText } from "../HelpText/HelpText";
-
-const MAX_SCALE = 5;
 
 export function Game() {
   const [debugMode, setDebugMode] = React.useState<boolean>(false);

@@ -32,8 +32,8 @@ export const startState: StartState = {
     helpText: "Help text for debug",
   },
   availableWays: {
-    up: false,
-    down: false,
+    up: true,
+    down: true,
     left: false,
     right: false,
   },
