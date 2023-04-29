@@ -1,15 +1,25 @@
 {
   "files": {
-    "main.css": "/ludum-dare-53/static/css/main.e743c796.css",
-    "main.js": "/ludum-dare-53/static/js/main.315f7119.js",
-    "static/js/304.ade6a4d7.chunk.js": "/ludum-dare-53/static/js/304.ade6a4d7.chunk.js",
+    "main.css": "/ludum-dare-53/static/css/main.508fc988.css",
+    "main.js": "/ludum-dare-53/static/js/main.4ad850ed.js",
+    "static/js/926.4e69f33a.chunk.js": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js",
+    "static/js/5.de7056da.chunk.js": "/ludum-dare-53/static/js/5.de7056da.chunk.js",
+    "static/media/kids.png": "/ludum-dare-53/static/media/kids.1cc785e012c051014082.png",
+    "static/media/pantry.png": "/ludum-dare-53/static/media/pantry.195317bb5a21a1eab5be.png",
+    "static/media/paper.png": "/ludum-dare-53/static/media/paper.b3e2a84ab806f0742b56.png",
+    "static/media/living.png": "/ludum-dare-53/static/media/living.693fcb58a71390e095e8.png",
+    "static/media/suburb.png": "/ludum-dare-53/static/media/suburb.cff59e72902821133de5.png",
+    "ludum_dare_beta_0.mp3": "/ludum-dare-53/411e9063d5571dac1f0799b74de1534c.mp3",
+    "ludum_dare_beta_minus.mp3": "/ludum-dare-53/1badcb277ed35576d75c4bb4657c863b.mp3",
+    "static/media/house_bg.svg": "/ludum-dare-53/static/media/house_bg.9d4b99e9db9a57f171fc2c9fed2e9471.svg",
     "index.html": "/ludum-dare-53/index.html",
-    "main.e743c796.css.map": "/ludum-dare-53/static/css/main.e743c796.css.map",
-    "main.315f7119.js.map": "/ludum-dare-53/static/js/main.315f7119.js.map",
-    "304.ade6a4d7.chunk.js.map": "/ludum-dare-53/static/js/304.ade6a4d7.chunk.js.map"
+    "main.508fc988.css.map": "/ludum-dare-53/static/css/main.508fc988.css.map",
+    "main.4ad850ed.js.map": "/ludum-dare-53/static/js/main.4ad850ed.js.map",
+    "926.4e69f33a.chunk.js.map": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js.map",
+    "5.de7056da.chunk.js.map": "/ludum-dare-53/static/js/5.de7056da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e743c796.css",
-    "static/js/main.315f7119.js"
+    "static/css/main.508fc988.css",
+    "static/js/main.4ad850ed.js"
   ]
 }
