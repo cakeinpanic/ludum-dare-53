@@ -40,10 +40,6 @@ function _CharacterView({
       ? calculatePositionForAHero(room, scale)
       : calculatePositionForAHero(room, scale, shift);
 
-  console.log("room", room);
-
-  console.log("name", name);
-  console.log("position", position);
   return (
     <div className={styles.Hero} style={{ ...position }}>
       {SPRITES[name] ? (

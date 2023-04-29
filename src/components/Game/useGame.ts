@@ -30,10 +30,11 @@ export const useGame = (): useGameReturn => {
 
   const setHelpText = useCallback((text: string) => {
     setGameState((prevState) => ({
-        ...prevState,
-        helpText: text,
-        }))
-    }, [])
+      ...prevState,
+      helpText: text,
+    }))
+  }, [])
+
   // calc available ways
   useEffect(() => {
     const availableWays = {

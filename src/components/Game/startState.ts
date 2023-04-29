@@ -3,23 +3,33 @@ import { AvailableWays, Character, CharacterName, Game, Item } from "./types";
 
 interface StartState {
   game: Game;
-  currentRoom: RoomName;
   availableWays: AvailableWays;
   characters: Character[];
   items: Item[];
   currentItem: Item | null;
 }
 
+const Letter: Item =  {
+    id: "letter",
+    isActive: true,
+    isVisible: true,
+    room: RoomName.living,
+    roomPosition: {
+      x: 0,
+      y: 0,
+    },
+  };
+
 export const startState: StartState = {
   game: {
     act: 1,
-    currentRoom: RoomName.living,
+    currentRoom: RoomName.yard,
     status: {
       upstairsIsBlockedByMa: true,
       atticIsHidden: true,
       basementIsLocked: true,
     },
-    helpText: "",
+    helpText: "Help text for debug",
   },
   availableWays: {
     up: false,
@@ -46,15 +56,7 @@ export const startState: StartState = {
     },
   ],
   items: [
-    {
-      id: "letter",
-      isActive: true,
-      isVisible: true,
-      room: RoomName.living,
-      roomPosition: {
-        x: 0,
-        y: 0,
-      },
-    },
+    Letter,
   ],
+  currentItem: Letter,
 };

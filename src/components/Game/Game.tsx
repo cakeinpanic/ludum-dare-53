@@ -5,6 +5,7 @@ import { House } from "../House/House";
 import styles from "./Game.module.scss";
 import { AvailableWays } from "./types";
 import { useGame } from "./useGame";
+import { HelpText } from "../HelpText/HelpText";
 
 const MAX_SCALE = 5;
 
@@ -39,9 +40,6 @@ export function Game() {
       if (direction) {
         move(direction);
       }
-
-      //   const newRoom = moveFromRoom(gameState.currentRoom, coordinates);
-      //   setCurrentRoom(newRoom);
     },
     [move]
   );
@@ -52,12 +50,6 @@ export function Game() {
       document.removeEventListener("keydown", moveOnMap);
     };
   }, [moveOnMap]);
-
-  useEffect(() => {
-    const shift = { shiftX: -100, shiftY: 0 };
-    // setMotherPosition(calculatePositionForAHero(RoomName.living, shift))
-    // setFatherosition(calculatePositionForAHero(RoomName.attick, shift))
-  }, [scale]);
 
   return (
     <>
@@ -77,21 +69,11 @@ export function Game() {
             roomPosition: { x: 0, y: 0 },
           }}
           scale={scale}
+          key="main"
         />
-        {characters.map((character) => (
-          <CharacterView character={character} scale={scale} />
-        ))}
 
-        <CharacterView
-          character={{
-            name: "main",
-            room: gameState.currentRoom,
-            roomPosition: { x: 0, y: 0 },
-          }}
-          scale={scale}
-        />
         {characters.map((character) => (
-          <CharacterView character={character} scale={scale} />
+          <CharacterView character={character} scale={scale} key={character.name} />
         ))}
       </div>
       <Controls
@@ -100,6 +82,7 @@ export function Game() {
         move={move}
         availableWays={availableWays}
       />
+      <HelpText text={gameState.helpText} />
     </>
   );
 }

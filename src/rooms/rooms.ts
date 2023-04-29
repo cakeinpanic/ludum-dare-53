@@ -47,7 +47,6 @@ export const roomPositions: RoomName[][] = [
 export const getTileCoordinates = (
   roomName: RoomName
 ): { x: number; y: number } => {
-  console.log("aaa", roomName);
   const y = roomPositions.findIndex((row) => row.includes(roomName));
   const x = roomPositions[y].findIndex((r) => r === roomName);
   return { x, y };
@@ -90,9 +89,8 @@ export const moveFromRoom = (
   }
 
   const { x: x1, y: y1 } = getTileCoordinates(currentRoom);
-  console.log("katya");
   const { x: x2, y: y2 } = { x: x1 + x, y: y1 + y };
-  console.log(
+  console.debug(
     "move from",
     currentRoom,
     " on ",
