@@ -11,7 +11,6 @@ function App() {
     };
     return (
         <div className={styles.App}>
-            {/*<h1 className={styles.title}> Game</h1>*/}
             {showMenu ? <Letter onClick={() => menuClick()}/> : <Game/>}
             <Music gameStarted={!showMenu}/>
         </div>

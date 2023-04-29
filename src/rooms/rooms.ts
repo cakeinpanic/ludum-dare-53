@@ -30,7 +30,16 @@ export enum RoomName {
 }
 
 const H = 95;
-export const rooms = {
+
+export interface IRoom {
+    img: string;
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+}
+
+export const rooms: { [key: string]: IRoom } = {
 
     [RoomName.library]: {
         img: library,
@@ -56,7 +65,7 @@ export const rooms = {
     },
     [RoomName.yard]: {
         img: yard,
-        left: -H * 2 - gap*2,
+        left: -H * 2 - gap * 2,
         top: H,
         width: H * 2,
         height: H
@@ -78,7 +87,7 @@ export const rooms = {
     [RoomName.attick]: {
         img: attick,
         left: H * 4 / 3 - H / 2,
-        top: -H - gap*2,
+        top: -H - gap * 2,
         width: H * 2,
         height: H
     },
