@@ -20,7 +20,7 @@
     right: 50%;
     @media only screen and (min-width: 700px) {
       & {
-        bottom: calc(50% + #{$gameHeight * $downscale/2 + 60px});
+        bottom: calc(50% + #{$gameHeight * $downscale * 0.5 + 60px});
         top: auto;
       }
     }
@@ -32,7 +32,7 @@
     right: 10px;
     @media only screen and (min-width: 700px) {
       & {
-        left: calc(50% + #{$gameWidth * $downscale/2 + 110px});
+        left: calc(50% + #{$gameWidth * $downscale * 0.5 + 110px});
         right: auto;
       }
     }
@@ -44,7 +44,7 @@
     right: 50%;
     @media only screen and (min-width: 700px) {
       & {
-        top: calc(50% + #{$gameHeight * $downscale/2 + 60px});
+        top: calc(50% + #{$gameHeight * $downscale * 0.5+ 60px});
         bottom: auto;
       }
     }
@@ -55,7 +55,7 @@
     left: 10px;
     @media only screen and (min-width: 700px) {
       & {
-        right: calc(50% + #{$gameWidth * $downscale/2 + 110px});
+        right: calc(50% + #{$gameWidth * $downscale * 0.5 + 110px});
         left: auto;
       }
     }
