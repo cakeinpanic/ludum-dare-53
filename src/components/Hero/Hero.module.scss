@@ -1,0 +1,7 @@
+@import "../../variables";
+
+.Hero {
+  width: $heroWidth;
+  height: $heroHeight;
+  transform: scaleX(-1);
+}
