@@ -74,7 +74,18 @@ export const moveFromRoom = (
   { x, y } = { x: 0, y: 0 }
 ) => {
   const { x: x1, y: y1 } = getTileCoordinates(currentRoom);
+  console.log("katya");
   const { x: x2, y: y2 } = { x: x1 + x, y: y1 + y };
+  console.log(
+    "move from",
+    currentRoom,
+    " on ",
+    { x, y },
+    "result",
+    { x1, y1 },
+    "into",
+    { x2, y2 }
+  );
   const room = roomPositions[y2]?.[x2];
 
   if (room && room !== RoomName.none) {

@@ -42,9 +42,11 @@ export function Game() {
     },
     [scale]
   );
+
   const moveOnMap = useCallback(
     (e) => {
       const coordinates = { x: 0, y: 0 };
+
       if (e.key === "s" || e.key === "ArrowDown") {
         coordinates.y = 1;
         e.preventDefault();
@@ -61,18 +63,21 @@ export function Game() {
         coordinates.y = -1;
         e.preventDefault();
       }
+
       const newRoom = moveFromRoom(currentRoom, coordinates);
-      console.log(e.key, newRoom, coordinates);
+      console.log(currentRoom, newRoom);
       setCurrentRoom(newRoom);
     },
-    [currentRoom]
+    [currentRoom, setCurrentRoom]
   );
+
   useEffect(() => {
     document.addEventListener("keydown", moveOnMap);
     return () => {
       document.removeEventListener("keydown", moveOnMap);
     };
-  }, []);
+  }, [moveOnMap]);
+
   useEffect(() => {
     const shift = { shiftX: -100, shiftY: 0 };
     setMotherPosition(calculatePositionForAHero(RoomName.living, shift));
@@ -80,6 +85,7 @@ export function Game() {
   }, [scale]);
 
   useEffect(() => {
+    console.log(currentRoom);
     setHeroPosition(calculatePositionForAHero(currentRoom));
   }, [currentRoom, scale]);
 
