@@ -22,8 +22,8 @@ export const startState: StartState = {
     helpText: "",
   },
   availableWays: {
-    up: false,
-    down: false,
+    up: true,
+    down: true,
     left: false,
     right: false,
   },

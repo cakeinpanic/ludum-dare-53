@@ -11,40 +11,26 @@ import styles from "./Controls.module.scss";
 const MAX_SCALE = 5;
 
 export function Controls({ scale, setScale, move, availableWays }) {
+  const directions = ["up", "down", "left", "right"];
+  console.log(availableWays);
   return (
     <>
-      {availableWays.up && (
-        <div
-          className={styles.button + " " + styles.up}
-          onClick={() => {
-            move("up");
-          }}
-        />
-      )}
-      {availableWays.down && (
-        <div
-          className={styles.button + " " + styles.down}
-          onClick={() => {
-            move("down");
-          }}
-        />
-      )}
-      {availableWays.left && (
-        <div
-          className={styles.button + " " + styles.left}
-          onClick={() => {
-            move("left");
-          }}
-        />
-      )}
-      {availableWays.right && (
-        <div
-          className={styles.button + " " + styles.right}
-          onClick={() => {
-            move("right");
-          }}
-        />
-      )}
+      {directions.map((direction) => {
+        return (
+          <div
+            className={
+              styles.button +
+              " " +
+              styles[direction] +
+              " " +
+              (!availableWays[direction] ? styles.disabled : "")
+            }
+            onClick={() => {
+              move(direction);
+            }}
+          />
+        );
+      })}
       <div
         className={styles.zoom + " " + (scale === MAX_SCALE ? styles.out : "")}
         onClick={() =>
