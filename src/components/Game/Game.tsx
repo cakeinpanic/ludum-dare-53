@@ -3,6 +3,7 @@ import {
   getRoomCoordinates,
   getTileCoordinates,
   IRoom,
+  moveFromRoom,
   RoomName,
   ROOMS,
 } from "../../rooms/rooms";
@@ -41,7 +42,37 @@ export function Game() {
     },
     [scale]
   );
-
+  const moveOnMap = useCallback(
+    (e) => {
+      const coordinates = { x: 0, y: 0 };
+      if (e.key === "s" || e.key === "ArrowDown") {
+        coordinates.y = 1;
+        e.preventDefault();
+      }
+      if (e.key === "a" || e.key === "ArrowLeft") {
+        coordinates.x = -1;
+        e.preventDefault();
+      }
+      if (e.key === "d" || e.key === "ArrowRight") {
+        coordinates.x = 1;
+        e.preventDefault();
+      }
+      if (e.key === "w" || e.key === "ArrowUp") {
+        coordinates.y = -1;
+        e.preventDefault();
+      }
+      const newRoom = moveFromRoom(currentRoom, coordinates);
+      console.log(e.key, newRoom, coordinates);
+      setCurrentRoom(newRoom);
+    },
+    [currentRoom]
+  );
+  useEffect(() => {
+    document.addEventListener("keydown", moveOnMap);
+    return () => {
+      document.removeEventListener("keydown", moveOnMap);
+    };
+  }, []);
   useEffect(() => {
     const shift = { shiftX: -100, shiftY: 0 };
     setMotherPosition(calculatePositionForAHero(RoomName.living, shift));

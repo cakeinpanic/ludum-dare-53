@@ -69,6 +69,20 @@ export const getRoomCoordinates = (
   return { left: left, top: top, width: width, height: height };
 };
 
+export const moveFromRoom = (
+  currentRoom: RoomName,
+  { x, y } = { x: 0, y: 0 }
+) => {
+  const { x: x1, y: y1 } = getTileCoordinates(currentRoom);
+  const { x: x2, y: y2 } = { x: x1 + x, y: y1 + y };
+  const room = roomPositions[y2]?.[x2];
+
+  if (room && room !== RoomName.none) {
+    return room;
+  }
+  return currentRoom;
+};
+
 export const ROOMS: { [key: string]: IRoom } = {
   [RoomName.library]: {
     img: library,
