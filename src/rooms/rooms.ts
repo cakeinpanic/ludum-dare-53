@@ -107,7 +107,7 @@ export const moveFromRoom = (
   if (room && room !== RoomName.none) {
     return room;
   }
-  return currentRoom;
+  return false;
 };
 
 export const ROOMS: { [key: string]: IRoom } = {
