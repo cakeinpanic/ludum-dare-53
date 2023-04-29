@@ -20,7 +20,7 @@
     right: 50%;
     @media only screen and (min-width: 700px) {
       & {
-        bottom: calc(50% + #{$gameHeight * $downscale/2 + 50px});
+        bottom: calc(50% + #{$gameHeight * $downscale/2 + 60px});
         top: auto;
       }
     }
@@ -44,7 +44,7 @@
     right: 50%;
     @media only screen and (min-width: 700px) {
       & {
-        top: calc(50% + #{$gameHeight * $downscale/2 + 50px});
+        top: calc(50% + #{$gameHeight * $downscale/2 + 60px});
         bottom: auto;
       }
     }

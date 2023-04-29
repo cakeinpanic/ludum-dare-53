@@ -1,21 +1,19 @@
-import living from "./living.png";
-import kids from "./kids.png";
-import pantry from "./pantry.png";
-import library from "./library.png";
+import { AvailableWays } from "../components/Game/types";
+import attick from "./attick.png";
+import basement from "./basement.png";
 import bedroom from "./bedroom.png";
 import kitchen from "./kitchen.png";
+import library from "./library.png";
+import living from "./living.png";
 import yard from "./yard.png";
-import basement from "./basement.png";
-import attick from "./attick.png";
-import { AvailableWays } from "../components/Game/types";
 
-export const scale = 1.2;
+export const scale = 1;
 
-export const shiftX = 160;
-export const shiftY = 220;
-export const H = 95;
+export const shiftX = 0;
+export const shiftY = 0;
+export const H = 500;
 
-export const gap = 4;
+export const gap = 0;
 
 export enum RoomName {
   cabinet = "cabinet",
@@ -90,18 +88,9 @@ export const moveFromRoom = (
   }
 
   const { x: x1, y: y1 } = getTileCoordinates(currentRoom);
-  console.log("katya");
+
   const { x: x2, y: y2 } = { x: x1 + x, y: y1 + y };
-  console.log(
-    "move from",
-    currentRoom,
-    " on ",
-    { x, y },
-    "result",
-    { x1, y1 },
-    "into",
-    { x2, y2 }
-  );
+
   const room = roomPositions[y2]?.[x2];
 
   if (room && room !== RoomName.none) {
