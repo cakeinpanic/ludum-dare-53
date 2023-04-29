@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { RoomName, rooms } from '../../rooms/rooms';
 import { Hero } from '../Hero/Hero';
 import { House } from '../House/House';
+import { Music } from '../music/Music';
 import styles from './Game.module.scss';
 import suburb from './suburb.png';
 export function Game() {
@@ -27,6 +28,7 @@ export function Game() {
                 return <div key={room} className={styles.roomDummie} style={{ left, top, width, height, display: debugMode ? 'block': 'none' }} onClick={moveToRoom(room)}/>;
             })}
             <Hero style={{ left: heroPosition.left, top: heroPosition.top }}/>
+
         </div>
 
     );

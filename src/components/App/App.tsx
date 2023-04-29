@@ -1,6 +1,7 @@
 import React from 'react';
 import { Game } from '../Game/Game';
 import { Letter } from '../Letter/Letter';
+import { Music } from '../music/Music';
 import styles from './App.module.scss';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <div className={styles.App}>
             {/*<h1 className={styles.title}> Game</h1>*/}
             {showMenu ? <Letter onClick={() => menuClick()}/> : <Game/>}
+            <Music gameStarted={!showMenu}/>
         </div>
 
     );

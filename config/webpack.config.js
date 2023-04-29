@@ -407,6 +407,11 @@ module.exports = function (webpackEnv) {
               ],
             },
             {
+              test: /\.mp3$/,
+              //include: SRC,
+              loader: 'file-loader'
+            },
+            {
               test: /\.scss$/,
               exclude: /\.module\.scss$/,
               use: ['style-loader', 'css-loader', 'sass-loader'],
