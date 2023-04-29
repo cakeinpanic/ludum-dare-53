@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ludum-dare-53/static/css/main.508fc988.css",
-    "main.js": "/ludum-dare-53/static/js/main.4ad850ed.js",
+    "main.js": "/ludum-dare-53/static/js/main.d0f7747e.js",
     "static/js/926.4e69f33a.chunk.js": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js",
     "static/js/5.de7056da.chunk.js": "/ludum-dare-53/static/js/5.de7056da.chunk.js",
     "static/media/kids.png": "/ludum-dare-53/static/media/kids.1cc785e012c051014082.png",
@@ -14,12 +14,12 @@
     "static/media/house_bg.svg": "/ludum-dare-53/static/media/house_bg.9d4b99e9db9a57f171fc2c9fed2e9471.svg",
     "index.html": "/ludum-dare-53/index.html",
     "main.508fc988.css.map": "/ludum-dare-53/static/css/main.508fc988.css.map",
-    "main.4ad850ed.js.map": "/ludum-dare-53/static/js/main.4ad850ed.js.map",
+    "main.d0f7747e.js.map": "/ludum-dare-53/static/js/main.d0f7747e.js.map",
     "926.4e69f33a.chunk.js.map": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js.map",
     "5.de7056da.chunk.js.map": "/ludum-dare-53/static/js/5.de7056da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.508fc988.css",
-    "static/js/main.4ad850ed.js"
+    "static/js/main.d0f7747e.js"
   ]
 }
