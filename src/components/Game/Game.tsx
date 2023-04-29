@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 import { RoomName, rooms } from '../../rooms/rooms';
 import { Hero } from '../Hero/Hero';
 import { House } from '../House/House';
-import { Music } from '../music/Music';
 import styles from './Game.module.scss';
-import suburb from './suburb2.png';
 
 export function Game() {
     const [currentRoom, setCurrentRoom] = React.useState<RoomName>(RoomName.living);
     const [heroPosition, setHeroPosition] = React.useState<{ left: number, top: number }>({ left: 0, top: 0 });
-    const [debugMode, setDebugMode] = React.useState<boolean>(true);
+    const [debugMode, setDebugMode] = React.useState<boolean>(false);
 
     const moveToRoom = (room: RoomName) => () => {
         setCurrentRoom(room);
