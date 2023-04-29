@@ -12,24 +12,21 @@ export const scale = 1.2;
 
 export const shiftX = 160;
 export const shiftY = 220;
-const H = 95;
+export const H = 95;
 
-const gap = 4;
+export const gap = 4;
 
 export enum RoomName {
-    attic = 'attic',
-    toilet = 'toilet',
     cabinet = 'cabinet',
     library = 'library',
     yard = 'yard',
     kitchen = 'kitchen',
     bedroom = 'bedroom',
-    pantry = 'pantry',
     living = 'living',
     basement = 'basement',
-    attick = 'attick'
+    attick = 'attick',
+    none = 'none'
 }
-
 
 export interface IRoom {
     img: string;
@@ -39,62 +36,67 @@ export interface IRoom {
     height: number;
 }
 
-export const rooms: { [key: string]: IRoom } = {
+export const roomPositions: RoomName[][] = [
+    [RoomName.none, RoomName.none, RoomName.attick],
+    [RoomName.none, RoomName.library, RoomName.bedroom],
+    [RoomName.yard, RoomName.living, RoomName.kitchen],
+    [RoomName.none, RoomName.none, RoomName.basement],
+];
 
+export const getTileCoordinates = (roomName: RoomName): { x: number, y: number } => {
+    const y = roomPositions.findIndex(row => row.includes(roomName));
+    const x = roomPositions[y].findIndex(r => r === roomName);
+    return { x, y };
+};
+
+export const getRoomCoordinates = (roomName: RoomName, { x, y } = { x: 0, y: 0 }): { left: number, top: number, width: number, height: number } => {
+    const height = H;
+    const width = H * 2;
+
+    if (roomName !== RoomName.none) {
+        x = getTileCoordinates(roomName).x;
+        y = getTileCoordinates(roomName).y;
+    }
+
+    const left = x * (width + gap);
+    const top = y * (H + gap);
+
+    return { left: left, top: top, width: width, height: height, };
+};
+
+export const ROOMS: { [key: string]: IRoom } = {
     [RoomName.library]: {
         img: library,
-        left: -gap,
-        top: -gap,
-        width: H * 4 / 3,
-        height: H
+        ...getRoomCoordinates(RoomName.library)
     },
     [RoomName.living]: {
         img: living,
-        left: -gap,
-        top: H,
-        width: H * 4 / 3,
-        height: H
+        ...getRoomCoordinates(RoomName.living)
     },
-
     [RoomName.bedroom]: {
         img: bedroom,
-        left: H * 4 / 3,
-        top: -gap,
-        width: H * 2,
-        height: H
+        ...getRoomCoordinates(RoomName.bedroom)
     },
     [RoomName.yard]: {
         img: yard,
-        left: -H * 2 - gap * 2,
-        top: H,
-        width: H * 2,
-        height: H
+        ...getRoomCoordinates(RoomName.yard)
     },
     [RoomName.kitchen]: {
         img: kitchen,
-        left: H * 4 / 3,
-        top: H,
-        width: H * 2,
-        height: H
+        ...getRoomCoordinates(RoomName.kitchen)
     },
     [RoomName.basement]: {
         img: basement,
-        left: H * 4 / 3 ,
-        top: H * 2 + gap,
-        width: H * 2,
-        height: H
+        ...getRoomCoordinates(RoomName.basement)
     },
     [RoomName.attick]: {
         img: attick,
-        left: H * 4 / 3 ,
-        top: -H - gap * 2,
-        width: H * 2,
-        height: H
+        ...getRoomCoordinates(RoomName.attick)
     },
 };
 
-Object.keys(rooms).forEach(roomName => {
-    const room = rooms[roomName];
+Object.keys(ROOMS).forEach(roomName => {
+    const room = ROOMS[roomName];
     room.left = room.left * scale + shiftX;
     room.top = room.top * scale + shiftY;
     room.width = room.width * scale;

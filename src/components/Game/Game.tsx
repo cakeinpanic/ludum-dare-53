@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { IRoom, RoomName, rooms } from '../../rooms/rooms';
+import { getRoomCoordinates, getTileCoordinates, IRoom, RoomName, ROOMS } from '../../rooms/rooms';
 import { Hero, HeroName } from '../Hero/Hero';
 import { House } from '../House/House';
 import styles from './Game.module.scss';
@@ -14,19 +14,19 @@ export function Game() {
     const [debugMode, setDebugMode] = React.useState<boolean>(false);
     const [scale, setScale] = React.useState(MAX_SCALE);
 
-    const calculatePositionForAHero = useCallback((room: IRoom, { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }) => {
-        const { left, top, width, height } = room;
+    const calculatePositionForAHero = useCallback((room:RoomName, { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }) => {
+        const { left, top, width, height } = getRoomCoordinates(room)
         return { left: left * scale + width * scale / 2 - 20 + shiftX, top: top * scale + height * scale / 2 + shiftY - 20 };
     }, [scale]);
 
     useEffect(() => {
         const shift = { shiftX: -100, shiftY: 0 };
-        setMotherPosition(calculatePositionForAHero(rooms[RoomName.living], shift),);
-        setFatherosition(calculatePositionForAHero(rooms[RoomName.attick], shift));
+        setMotherPosition(calculatePositionForAHero(RoomName.living, shift),);
+        setFatherosition(calculatePositionForAHero(RoomName.attick, shift));
     }, [scale]);
 
     useEffect(() => {
-        setHeroPosition(calculatePositionForAHero(rooms[currentRoom]));
+        setHeroPosition(calculatePositionForAHero(currentRoom));
     }, [currentRoom, scale]);
 
     return (
@@ -36,10 +36,6 @@ export function Game() {
                    className={styles.house}
                    setCurrentRoom={setCurrentRoom}
                    currentRoom={currentRoom}/>
-            {/*{Object.keys(rooms).map((room: RoomName) => {*/}
-            {/*    const { left, top, width, height } = rooms[room];*/}
-            {/*    return <div key={room} className={styles.roomDummie} style={{ left, top, width, height, display: debugMode ? 'block': 'none' }} onClick={moveToRoom(room)}/>;*/}
-            {/*})}*/}
             <Hero name={HeroName.main} style={{ left: heroPosition.left, top: heroPosition.top }}/>
             <Hero name={HeroName.mother} style={{ left: motherPosition.left, top: motherPosition.top }}/>
             <Hero name={HeroName.father} style={{ left: fatherPosition.left, top: fatherPosition.top }}/>
