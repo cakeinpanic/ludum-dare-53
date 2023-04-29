@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { RoomName, rooms } from '../../rooms/rooms';
 import styles from './House.module.scss';
 
-export function House({ currentRoom, setCurrentRoom,scale, setScale, ...props }) {
+export function House({ currentRoom, setCurrentRoom, scale, setScale, ...props }) {
 
     const zoom = (e: MouseEvent, room: RoomName) => {
         setCurrentRoom(room);
@@ -19,12 +19,13 @@ export function House({ currentRoom, setCurrentRoom,scale, setScale, ...props })
 
             {Object.keys(rooms).map((room: RoomName) => {
                 const { left, top, width, height, img } = rooms[room];
-                return <img key={room}
-                            id={room}
-                            className={styles.img + ' ' + (room === currentRoom ? styles.active : '')}
-                            style={{ left: left * scale, top: top * scale, width: width * scale, height: height * scale, }}
-                            onClick={(e) => zoom(e, room)}
-                            src={img}/>;
+                return <div className={styles.img + ' ' + (room === currentRoom ? styles.active : '')}
+                            style={{ left: left * scale, top: top * scale, width: width * scale, height: height * scale, }}>
+                    <img key={room}
+                         id={room}
+                         onClick={(e) => zoom(e, room)}
+                         src={img}/>
+                </div>;
             })}
 
         </div>
