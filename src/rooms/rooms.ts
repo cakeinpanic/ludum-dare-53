@@ -79,14 +79,14 @@ export const rooms: { [key: string]: IRoom } = {
     },
     [RoomName.basement]: {
         img: basement,
-        left: H * 4 / 3 - H / 2,
+        left: H * 4 / 3 ,
         top: H * 2 + gap,
         width: H * 2,
         height: H
     },
     [RoomName.attick]: {
         img: attick,
-        left: H * 4 / 3 - H / 2,
+        left: H * 4 / 3 ,
         top: -H - gap * 2,
         width: H * 2,
         height: H
