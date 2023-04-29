@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import { moveFromRoom, RoomName } from "../../rooms/rooms";
 import { CharacterView } from "../CharacterView/CharacterView";
+import { Controls } from "../Controls/Controls";
 import { House } from "../House/House";
 import styles from "./Game.module.scss";
 import { useGame } from "./useGame";
@@ -79,14 +80,7 @@ export function Game() {
           <CharacterView character={character} scale={scale} />
         ))}
       </div>
-      <div
-        className={styles.zoom + " " + (scale === MAX_SCALE ? styles.out : "")}
-        onClick={() =>
-          scale === MAX_SCALE ? setScale(2) : setScale(MAX_SCALE)
-        }
-      >
-        -
-      </div>
+      <Controls scale={scale} setScale={setScale} />
     </>
   );
 }
