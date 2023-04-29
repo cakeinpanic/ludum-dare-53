@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect } from 'react';
-import { CharacterView } from '../CharacterView/CharacterView';
-import { Controls } from '../Controls/Controls';
-import { House } from '../House/House';
-import styles from './Game.module.scss';
-import { AvailableWays } from './types';
-import { useGame } from './useGame';
+import React, { useCallback, useEffect } from "react";
+import { CharacterView } from "../CharacterView/CharacterView";
+import { Controls } from "../Controls/Controls";
+import { House } from "../House/House";
+import styles from "./Game.module.scss";
+import { AvailableWays } from "./types";
+import { useGame } from "./useGame";
 
 const MAX_SCALE = 5;
 
@@ -12,7 +12,8 @@ export function Game() {
   const [debugMode, setDebugMode] = React.useState<boolean>(false);
   const [scale, setScale] = React.useState(MAX_SCALE);
 
-  const { gameState, characters, move, setCurrentRoom } = useGame();
+  const { gameState, characters, move, setCurrentRoom, availableWays } =
+    useGame();
 
   const moveOnMap = useCallback(
     (e) => {
@@ -93,7 +94,12 @@ export function Game() {
           <CharacterView character={character} scale={scale} />
         ))}
       </div>
-      <Controls scale={scale} setScale={setScale} />
+      <Controls
+        scale={scale}
+        setScale={setScale}
+        move={move}
+        availableWays={availableWays}
+      />
     </>
   );
 }
