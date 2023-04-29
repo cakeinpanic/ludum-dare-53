@@ -16,7 +16,7 @@ export function Game() {
 
     const calculatePositionForAHero = useCallback((room:RoomName, { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }) => {
         const { left, top, width, height } = getRoomCoordinates(room)
-        return { left: left * scale + width * scale / 2 - 20 + shiftX, top: top * scale + height * scale / 2 + shiftY - 20 };
+        return { left: (left  + width  / 2 - 20 + shiftX)*scale, top: (top  + height / 2 + shiftY - 20)*scale };
     }, [scale]);
 
     useEffect(() => {
