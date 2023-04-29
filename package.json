@@ -72,6 +72,9 @@
     "predeploy": "DISABLE_ESLINT_PLUGIN=true npm run build",
     "deploy": "DISABLE_ESLINT_PLUGIN=true gh-pages -d build"
   },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -94,11 +97,14 @@
     "autoprefixer": "^10.4.14",
     "file-loader": "^6.2.0",
     "gh-pages": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "node-sass": "^4.14.1",
     "postcss": "^8.4.23",
     "postcss-loader": "^7.3.0",
     "postcss-preset-env": "^7.8.3",
     "postcss-sass-loader": "^1.1.0",
+    "prettier": "2.8.8",
     "sass-loader": "^10.1.1"
   },
   "jest": {

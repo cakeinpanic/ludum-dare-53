@@ -4,13 +4,7 @@
     "esModuleInterop": true,
     "allowImportingTsExtensions": true,
     "throwIfNamespace": false,
-    "typeRoots": [
-      "node_modules/@types",
-      "node_module/phaser/types"
-    ]
+    "typeRoots": ["node_modules/@types", "node_module/phaser/types"]
   },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }
