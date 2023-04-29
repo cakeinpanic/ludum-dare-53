@@ -23,8 +23,12 @@
 }
 
 .active {
-  filter: none;
+  
+  img {
+    filter: none;
+  }
 }
+
 
 .bg {
   position: absolute;
