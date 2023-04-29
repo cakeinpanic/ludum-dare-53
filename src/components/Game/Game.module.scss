@@ -3,8 +3,17 @@
 .game {
   width: $houseWidth;
   height: $houseHeight;
+  position: relative;
 }
+
 .house {
   position: absolute;
 }
 
+
+.roomDummie {
+  display: block;
+  background-color: red;
+  position: absolute;
+  opacity: .5;
+}
