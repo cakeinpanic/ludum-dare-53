@@ -65,6 +65,10 @@ export interface Item {
     shiftX: number;
     shiftY: number;
   };
+  size?: {
+    width: number;
+    height: number;
+  };
 }
 
 export interface Game {

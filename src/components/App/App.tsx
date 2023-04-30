@@ -9,7 +9,7 @@ import styles from "./App.module.scss";
 
 function App() {
   const [showMenu, setShowMenu] = React.useState<boolean>(true);
-  const [loaded, setLoaded] = React.useState<boolean>(false);
+  const [loaded, setLoaded] = React.useState<boolean>(true);
 
   const gameProps: useGameReturn = useGame();
   const { scale, setScale, move, currentItem, availableWays, gameState } =

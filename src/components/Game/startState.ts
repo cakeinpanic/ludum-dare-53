@@ -1,6 +1,6 @@
 import { RoomName } from "../../rooms/rooms";
 import { characters } from "./characters";
-import { items } from "./items";
+import { items } from "../../items/items";
 import {
   AvailableWays,
   Character,

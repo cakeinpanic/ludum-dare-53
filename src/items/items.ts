@@ -1,5 +1,7 @@
-import { RoomName } from "../../rooms/rooms";
-import { Item, ItemName, ItemsCollection } from "./types";
+import { RoomName } from "../rooms/rooms";
+import { Item, ItemName, ItemsCollection } from "../components/Game/types";
+import birdCage from "./birdCage.png";
+import mailbox from "./mailbox.png";
 
 export const items: ItemsCollection = {
   [ItemName.letter]: {
@@ -14,9 +16,14 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     room: RoomName.yard,
+    sprite: mailbox,
     roomPosition: {
       shiftX: 200,
-      shiftY: 80,
+      shiftY: -80,
+    },
+    size: {
+      width: 130,
+      height: 260,
     },
   },
   [ItemName.tree]: {
@@ -62,12 +69,21 @@ export const items: ItemsCollection = {
   [ItemName.birdCage]: {
     id: ItemName.birdCage,
     isActive: false,
-    isVisible: false,
+    isVisible: true,
     collectable: false,
+    sprite: birdCage,
     room: RoomName.kitchen,
+    roomPosition: {
+      shiftX: 200,
+      shiftY: -100,
+    },
+    size: {
+      width: 150,
+      height: 150,
+    },
   },
   [ItemName.bar]: {
-    id: ItemName.birdCage,
+    id: ItemName.bar,
     isActive: false,
     isVisible: false,
     collectable: false,
