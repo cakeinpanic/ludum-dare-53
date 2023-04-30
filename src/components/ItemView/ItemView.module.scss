@@ -5,10 +5,15 @@
   height: $heroHeight;
 
   position: absolute;
-  cursor: pointer;
+
+  &:hover {
+    filter: brightness(120%);
+    transition: all 0.2s;
+  }
 }
 
 .sprite {
+  cursor: pointer;
 }
 
 .debug {
@@ -16,6 +21,8 @@
   width: 100%;
   height: 200%;
   transform: none;
+  cursor: pointer;
+  user-select: none;
 }
 
 .name {
