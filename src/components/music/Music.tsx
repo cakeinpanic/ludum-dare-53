@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import mute from "./mute.png";
 import styles from "./Music.module.scss";
-import neutral from "./ludum_dare_beta_0.mp3";
+import firstActMain from "./ld_53_main_1.mp3";
 
-const minus = require("./ludum_dare_beta_minus.mp3").default;
+// const minus = require("./ludum_dare_beta_minus.mp3").default;
 
 const VOLUME = 0.3;
 const FADE_DURATION = 800;
@@ -27,12 +27,12 @@ function doSound(howlerObject: any, isAllMuted: boolean) {
 
 export function Music({ gameStarted }: { gameStarted: boolean }) {
   const [isAllMuted, setIsAllMuted] = useState(false);
-  const [, { sound: neutralSound }] = useSound(neutral, params);
+  const [, { sound: neutralSound }] = useSound(firstActMain, params);
 
-  const [, { sound: minusJingle }] = useSound(minus, {
-    loop: false,
-    volume: VOLUME,
-  });
+//   const [, { sound: minusJingle }] = useSound(minus, {
+//     loop: false,
+//     volume: VOLUME,
+//   });
 
   const [currentSound, setCurrentSound] = useState<Sound | null>(null);
 
