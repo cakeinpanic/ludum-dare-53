@@ -1,11 +1,11 @@
 import { AvailableWays } from "../components/Game/types";
-import attick from "./attick.png";
-import basement from "./basement.png";
-import bedroom from "./bedroom.png";
-import kitchen from "./kitchen.png";
-import library from "./library.png";
-import living from "./living.png";
-import yard from "./yard.png";
+import attick from "./attick.jpg";
+import basement from "./basement.jpg";
+import bedroom from "./bedroom.jpg";
+import kitchen from "./kitchen.jpg";
+import library from "./library.jpg";
+import living from "./living.jpg";
+import yard from "./yard.jpg";
 
 export const scale = 1;
 
