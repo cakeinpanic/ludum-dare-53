@@ -28,7 +28,7 @@ export const startState: StartState = {
       atticIsHidden: true,
       basementIsLocked: true,
     },
-    helpText: "Help text for debug",
+    helpText: "You have arrived to your parents house",
   },
   availableWays: {
     up: true,

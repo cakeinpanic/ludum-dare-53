@@ -39,7 +39,9 @@ export const useGame = (): useGameReturn => {
     startState.characters
   );
   const [items, setItems] = useState<ItemsCollection>(startState.items);
-  const [currentItem, setCurrentItem] = useState<Item | null>(null);
+  const [currentItem, setCurrentItem] = useState<Item | null>(
+    startState.currentItem
+  );
 
   const setHelpText = useCallback((text: string) => {
     setGameState((prevState) => ({

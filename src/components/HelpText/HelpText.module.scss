@@ -1,13 +1,39 @@
 @import "../../variables";
 
 .helpText {
-  width: 100vw;
+  width: 100%;
+  text-align: center;
   height: 32px;
   color: aliceblue;
-
   position: absolute;
+  bottom: -45px;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
 
-  bottom: -40px;
-  pointer-events: none;
-  // right: 50%;
+.inventory,
+.subs {
+  width: 50%;
+  flex-shrink: 1;
+  text-align: left;
+}
+
+.subs {
+  padding-left: 20px;
+  width: 100%;
+}
+
+.inventory {
+  text-align: end;
+  opacity: 0.6;
+  font-style: italic;
+  padding-right: 20px;
+
+  &:before {
+    content: "|";
+    margin-right: 15px;
+  }
 }

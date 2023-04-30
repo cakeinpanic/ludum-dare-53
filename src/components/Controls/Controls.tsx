@@ -44,6 +44,7 @@ export function Controls({ scale, setScale, move, availableWays }) {
       {directions.map((direction) => {
         return (
           <div
+            key={direction}
             className={
               styles.button +
               " " +

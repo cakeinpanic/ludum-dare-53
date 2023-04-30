@@ -10,8 +10,9 @@ import styles from "./App.module.scss";
 function App() {
   const [showMenu, setShowMenu] = React.useState<boolean>(true);
   const gameProps: useGameReturn = useGame();
-  const { scale, setScale, move, availableWays, gameState } = gameProps;
-  console.log(gameProps);
+  const { scale, setScale, move, currentItem, availableWays, gameState } =
+    gameProps;
+  console.log(currentItem);
   const menuClick = () => {
     setShowMenu(false);
   };
@@ -28,10 +29,12 @@ function App() {
             move={move}
             availableWays={availableWays}
           />
-          <HelpText text={gameState.helpText} />
         </>
       )}
 
+      {!showMenu && (
+        <HelpText text={gameState.helpText} inventory={currentItem?.id} />
+      )}
       <Music gameStarted={!showMenu} />
     </div>
   );
