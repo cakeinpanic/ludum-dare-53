@@ -1,8 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { RoomName, moveFromRoom } from "../../rooms/rooms";
+
 import {
   AvailableWays,
   Character,
+  CharactersCollection,
   Game,
   Item,
   ItemName,
@@ -10,7 +12,10 @@ import {
 } from "./types";
 import { startState } from "./startState";
 
-interface useGameReturn {
+export const MAX_SCALE = 1;
+export const MIN_SCALE = 0.5;
+
+export interface useGameReturn {
   gameState: Game;
   availableWays: AvailableWays;
   characters: Character[];
@@ -25,12 +30,12 @@ interface useGameReturn {
 
 export const useGame = (): useGameReturn => {
   const [gameState, setGameState] = useState<Game>(startState.game);
-
+  const [scale, setScale] = React.useState(MAX_SCALE);
   const [availableWays, setAvailableWays] = useState<AvailableWays>(
     startState.availableWays
   );
 
-  const [characters, setCharacters] = useState<Character[]>(
+  const [characters, setCharacters] = useState<CharactersCollection>(
     startState.characters
   );
   const [items, setItems] = useState<ItemsCollection>(startState.items);
@@ -83,6 +88,8 @@ export const useGame = (): useGameReturn => {
   }, []);
 
   return {
+    scale,
+    setScale,
     gameState,
     availableWays,
     characters,

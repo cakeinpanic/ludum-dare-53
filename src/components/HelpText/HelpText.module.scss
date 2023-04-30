@@ -5,9 +5,9 @@
   height: 32px;
   color: aliceblue;
 
-  position: fixed;
+  position: absolute;
 
-  bottom: calc(10px + 32px);
+  bottom: -40px;
   pointer-events: none;
   // right: 50%;
 }
