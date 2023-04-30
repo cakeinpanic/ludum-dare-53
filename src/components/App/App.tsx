@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Controls } from "../Controls/Controls";
 import { Game } from "../Game/Game";
 import { useGame, useGameReturn } from "../Game/useGame";
@@ -9,13 +9,30 @@ import styles from "./App.module.scss";
 
 function App() {
   const [showMenu, setShowMenu] = React.useState<boolean>(true);
+  const [loaded, setLoaded] = React.useState<boolean>(false);
+
   const gameProps: useGameReturn = useGame();
   const { scale, setScale, move, currentItem, availableWays, gameState } =
     gameProps;
-  console.log(currentItem);
+
   const menuClick = () => {
     setShowMenu(false);
   };
+  useEffect(() => {
+    if (loaded) {
+      return;
+    }
+    setTimeout(() => {
+      setLoaded(true);
+    }, 2000);
+  }, []);
+  if (!loaded) {
+    return (
+      <div className={styles.App}>
+        <div className={styles.loader}>Loading...</div>
+      </div>
+    );
+  }
   return (
     <div className={styles.App}>
       {showMenu ? (
