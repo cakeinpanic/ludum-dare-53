@@ -1,9 +1,11 @@
 import { RoomName } from "../../rooms/rooms";
+import { characters } from "./characters";
 import { items } from "./items";
 import {
   AvailableWays,
   Character,
   CharacterName,
+  CharactersCollection,
   Game,
   Item,
   ItemName,
@@ -12,7 +14,7 @@ import {
 interface StartState {
   game: Game;
   availableWays: AvailableWays;
-  characters: Character[];
+  characters: CharactersCollection;
   items: { [key: ItemName]: Item };
   currentItem: Item | null;
 }
@@ -34,24 +36,7 @@ export const startState: StartState = {
     left: false,
     right: false,
   },
-  characters: [
-    {
-      name: CharacterName.ma,
-      room: RoomName.living,
-      roomPosition: {
-        x: 0,
-        y: 0,
-      },
-    },
-    {
-      name: CharacterName.uncle,
-      room: RoomName.attick,
-      roomPosition: {
-        x: 0,
-        y: 0,
-      },
-    },
-  ],
+  characters: characters,
   items: items,
   currentItem: items[ItemName.letter],
 };
