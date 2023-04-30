@@ -1,21 +1,9 @@
-import React, { ComponentProps, memo, useEffect } from "react";
+import React, { ComponentProps, memo } from "react";
 import { SpriteAnimator } from "react-sprite-animator";
+import { calculatePositionForSomething, RoomName } from "../../rooms/rooms";
+import { Character, CharacterName } from "../Game/types";
 import bird from "./bird.png";
 import styles from "./CharacterView.module.scss";
-import { Character, CharacterName } from "../Game/types";
-import { RoomName, getRoomCoordinates } from "../../rooms/rooms";
-
-const calculatePositionForAHero = (
-  room: RoomName,
-  scale: number,
-  { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }
-) => {
-  const { left, top, width, height } = getRoomCoordinates(room);
-  return {
-    left: (left + width / 2) * scale - 20 + shiftX,
-    top: (top + height / 2) * scale - 20 + shiftY,
-  };
-};
 
 const shift = { shiftX: -100, shiftY: 0 };
 
@@ -37,8 +25,8 @@ function _CharacterView({
   // const left: number = character.roomPosition.x;
   const position =
     name === CharacterName.main
-      ? calculatePositionForAHero(room, scale)
-      : calculatePositionForAHero(room, scale, shift);
+      ? calculatePositionForSomething(room, scale)
+      : calculatePositionForSomething(room, scale, shift);
 
   return (
     <div className={styles.Hero} style={{ ...position }}>

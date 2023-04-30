@@ -42,6 +42,18 @@ export const roomPositions: RoomName[][] = [
   [RoomName.none, RoomName.none, RoomName.basement],
 ];
 
+export const calculatePositionForSomething = (
+  room: RoomName,
+  scale: number,
+  { shiftX, shiftY } = { shiftX: 0, shiftY: 0 }
+) => {
+  const { left, top, width, height } = getRoomCoordinates(room);
+  return {
+    left: (left + width / 2) * scale - 20 + shiftX,
+    top: (top + height / 2) * scale - 20 + shiftY,
+  };
+};
+
 export const getTileCoordinates = (
   roomName: RoomName
 ): { x: number; y: number } => {
