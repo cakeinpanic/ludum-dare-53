@@ -81,10 +81,8 @@ export const useGame = (): useGameReturn => {
 
   const clickOnItem = useCallback(
     (itemId: Item["id"]) => {
-      const { newCurrentItem, updateItemsObject } = clickOnItemInteraction(
-        items[itemId],
-        currentItem
-      );
+      const { newCurrentItem, updateItemsObject, newHelpText } =
+        clickOnItemInteraction(items[itemId], currentItem);
 
       setCurrentItem(newCurrentItem);
 
@@ -92,6 +90,9 @@ export const useGame = (): useGameReturn => {
         ...items,
         ...updateItemsObject,
       });
+      if (newHelpText) {
+        setHelpText(newHelpText);
+      }
     },
     [items, currentItem]
   );
