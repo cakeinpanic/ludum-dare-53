@@ -9,6 +9,10 @@
   &:hover {
     filter: brightness(120%);
     transition: all 0.2s;
+    .tooltip{
+      opacity: .7;
+      transition: all 0.5s;
+    }
   }
 }
 
@@ -32,4 +36,18 @@
   color: white;
   display: block;
   transform: rotate(90deg);
+}
+
+.tooltip{
+  display: block;
+  color :white;
+  background: black;
+  position: absolute;
+  padding: 10px;
+  font-size: 12px;
+  bottom:50%;
+  right: 50%;
+  border-radius: 3px;
+  opacity: 0;
+  max-width:200px;
 }

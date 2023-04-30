@@ -33,6 +33,7 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     room: RoomName.yard,
+    description: "An old tree my father and I planted when I was 6",
     sprite: tree,
     roomPosition: {
       shiftX: 97 - 480 - 87 - 30 - 10,

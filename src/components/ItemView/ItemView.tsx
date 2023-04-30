@@ -24,7 +24,11 @@ function _ItemView({
   );
   const size = item.size || { width: 50, height: 50 };
   return (
-    <div className={styles.Item} id={item.id} style={{ ...position }}>
+    <div
+      className={styles.Item}
+      id={item.id}
+      style={{ ...position, width: size.width, height: size.height }}
+    >
       {item.sprite ? (
         <img
           src={item.sprite}
@@ -43,6 +47,7 @@ function _ItemView({
           <span className={styles.name}>{name}</span>{" "}
         </div>
       )}
+      <div className={styles.tooltip}>{item.description || item.id}</div>
     </div>
   );
 }
