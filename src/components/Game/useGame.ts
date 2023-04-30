@@ -79,24 +79,11 @@ export const useGame = (): useGameReturn => {
     [gameState.currentRoom]
   );
 
-  const addCurrentItem = useCallback(
-    (newCurrentItem: Item) => {
-      setCurrentItem(_uniq([...currentItem, newCurrentItem]));
-    },
-    [currentItem, setCurrentItem]
-  );
-
-  const removeCurrentItem = useCallback(
-    (newCurrentItem: Item) => {
-      setCurrentItem(_filter(currentItem, newCurrentItem));
-    },
-    [currentItem, setCurrentItem]
-  );
-
   const clickOnItem = useCallback(
     (itemId: Item["id"]) => {
       const { newCurrentItem, updateItemsObject } = clickOnItemInteraction(
-        items[itemId]
+        items[itemId],
+        currentItem
       );
 
       setCurrentItem(newCurrentItem);

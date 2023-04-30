@@ -115,7 +115,7 @@ export const items: ItemsCollection = {
     id: ItemName.flowers,
     isActive: true,
     isVisible: true,
-    collectable: true,
+    collectable: false,
     sprite: flowers,
     room: RoomName.yard,
     roomPosition: {
@@ -126,6 +126,12 @@ export const items: ItemsCollection = {
       width: 100,
       height: 100,
     },
+  },
+  [ItemName.scissors]: {
+    id: ItemName.scissors,
+    isActive: true,
+    isVisible: false,
+    collectable: true,
   },
   [ItemName.blanket]: {
     id: ItemName.blanket,

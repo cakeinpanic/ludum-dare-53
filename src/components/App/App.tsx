@@ -59,10 +59,7 @@ function App() {
       )}
 
       {!showMenu && (
-        <HelpText
-          text={gameState.helpText}
-          inventory={currentItem.id}
-        />
+        <HelpText text={gameState.helpText} inventory={currentItem?.id} />
       )}
       <Music gameStarted={!showMenu} />
       {blackAnimation && <div className={styles.blackAnimation}></div>}
