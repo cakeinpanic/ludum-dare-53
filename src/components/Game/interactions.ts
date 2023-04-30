@@ -40,7 +40,7 @@ export const clickOnCharacterInteraction = (
   characterName: CharacterName,
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item[]
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: null,
@@ -49,16 +49,17 @@ export const clickOnCharacterInteraction = (
     newHelpText: null,
   };
   if (characterName === "ma") {
-    if (currentItem.id === "flowers") {
+    if (currentItem.find(({ id }) => id === "flowers")) {
       return giveFlowersToMother(items, characters, currentItem);
     }
   }
   return result;
 };
+
 const giveFlowersToMother = (
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item[]
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: null,

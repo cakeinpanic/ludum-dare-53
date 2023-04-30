@@ -5,7 +5,7 @@ import {
   clickOnItemInteraction,
 } from "./interactions";
 import { startState } from "./startState";
-
+import { uniq as _uniq, filter as _filter } from "lodash";
 import {
   AvailableWays,
   Character,
@@ -43,7 +43,7 @@ export const useGame = (): useGameReturn => {
     startState.characters
   );
   const [items, setItems] = useState<ItemsCollection>(startState.items);
-  const [currentItem, setCurrentItem] = useState<Item | null>(
+  const [currentItem, setCurrentItem] = useState<Item[]>(
     startState.currentItem
   );
 
@@ -79,6 +79,20 @@ export const useGame = (): useGameReturn => {
     [gameState.currentRoom]
   );
 
+  const addCurrentItem = useCallback(
+    (newCurrentItem: Item) => {
+      setCurrentItem(_uniq([...currentItem, newCurrentItem]));
+    },
+    [currentItem, setCurrentItem]
+  );
+
+  const removeCurrentItem = useCallback(
+    (newCurrentItem: Item) => {
+      setCurrentItem(_filter(currentItem, newCurrentItem));
+    },
+    [currentItem, setCurrentItem]
+  );
+
   const clickOnItem = useCallback(
     (itemId: Item["id"]) => {
       const { newCurrentItem, updateItemsObject } = clickOnItemInteraction(
@@ -86,7 +100,7 @@ export const useGame = (): useGameReturn => {
       );
 
       if (newCurrentItem) {
-        setCurrentItem(newCurrentItem);
+        addCurrentItem(newCurrentItem);
       }
 
       setItems({
@@ -94,7 +108,7 @@ export const useGame = (): useGameReturn => {
         ...updateItemsObject,
       });
     },
-    [items]
+    [items, currentItem]
   );
 
   const clickOnCharacter = useCallback(
@@ -111,7 +125,7 @@ export const useGame = (): useGameReturn => {
         currentItem
       );
       if (newCurrentItem) {
-        setCurrentItem(newCurrentItem);
+        addCurrentItem(newCurrentItem);
       }
 
       setItems({

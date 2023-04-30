@@ -18,7 +18,7 @@ export function Game({ gameProps }) {
     clickOnCharacter,
     clickOnItem,
   } = gameProps;
-  console.log((characters["ma"], items[ItemName.flowers]));
+
   return (
     <>
       <div className={styles.game}>

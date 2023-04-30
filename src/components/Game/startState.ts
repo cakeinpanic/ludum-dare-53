@@ -16,7 +16,7 @@ interface StartState {
   availableWays: AvailableWays;
   characters: CharactersCollection;
   items: { [key: ItemName]: Item };
-  currentItem: Item | null;
+  currentItem: Item[];
 }
 
 export const startState: StartState = {
@@ -38,5 +38,5 @@ export const startState: StartState = {
   },
   characters: characters,
   items: items,
-  currentItem: items[ItemName.letter],
+  currentItem: [items[ItemName.letter]],
 };
