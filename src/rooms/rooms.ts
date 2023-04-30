@@ -1,4 +1,10 @@
-import { AvailableWays } from "../components/Game/types";
+import {
+  AvailableWays,
+  CharactersCollection,
+  Item,
+  ItemName,
+  ItemsCollection,
+} from "../components/Game/types";
 import attick from "./attick.jpg";
 import basement from "./basement.jpg";
 import bedroom from "./bedroom.jpg";
@@ -82,8 +88,28 @@ export const getRoomCoordinates = (
 
 export const moveFromRoom = (
   currentRoom: RoomName,
-  direction: keyof AvailableWays
+  direction: keyof AvailableWays,
+  characters: CharactersCollection,
+  items: ItemsCollection,
+  currentItem: Item
 ) => {
+  if (
+    currentRoom === RoomName.living &&
+    characters["ma"].room === RoomName.living &&
+    direction === "up"
+  ) {
+    return false;
+  }
+  if (currentRoom === RoomName.kitchen && direction === "up") {
+    return false;
+  }
+  if (
+    currentRoom === RoomName.kitchen &&
+    direction === "down" &&
+    currentItem.id !== ItemName.key
+  ) {
+    return false;
+  }
   let { x, y } = { x: 0, y: 0 };
   if (direction === "up") {
     y = -1;

@@ -35,6 +35,7 @@ export enum ItemName {
   dirtPile = "dirtPile",
   scissors = "scissors",
   letter = "letter",
+  key = "key",
   glass = "glass",
   atticKey = "atticKey",
   basementKey = "basementKey",

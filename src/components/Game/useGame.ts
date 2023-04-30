@@ -57,17 +57,47 @@ export const useGame = (): useGameReturn => {
   // calc available ways
   useEffect(() => {
     const availableWays = {
-      up: !!moveFromRoom(gameState.currentRoom, "up"),
-      down: !!moveFromRoom(gameState.currentRoom, "down"),
-      left: !!moveFromRoom(gameState.currentRoom, "left"),
-      right: !!moveFromRoom(gameState.currentRoom, "right"),
+      up: !!moveFromRoom(
+        gameState.currentRoom,
+        "up",
+        characters,
+        items,
+        currentItem
+      ),
+      down: !!moveFromRoom(
+        gameState.currentRoom,
+        "down",
+        characters,
+        items,
+        currentItem
+      ),
+      left: !!moveFromRoom(
+        gameState.currentRoom,
+        "left",
+        characters,
+        items,
+        currentItem
+      ),
+      right: !!moveFromRoom(
+        gameState.currentRoom,
+        "right",
+        characters,
+        items,
+        currentItem
+      ),
     };
     setAvailableWays(availableWays);
   }, [gameState.currentRoom]);
 
   const move = useCallback(
     (direction: keyof AvailableWays) => {
-      const newRoom = moveFromRoom(gameState.currentRoom, direction);
+      const newRoom = moveFromRoom(
+        gameState.currentRoom,
+        direction,
+        characters,
+        items,
+        currentItem
+      );
       if (!newRoom) {
         return setHelpText("You can not go there");
       }
