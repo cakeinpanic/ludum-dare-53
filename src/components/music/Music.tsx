@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import mute from "./mute.png";
 import styles from "./Music.module.scss";
-import firstActMain from "./ld_53_main_1.mp3";
+
+import firstActMainMusic from "./ld_53_main_1.mp3";
+import AmbienceGardenMusic from "./ld_53_amb_garden.mp3";
+import { RoomName } from "../../rooms/rooms";
 
 // const minus = require("./ludum_dare_beta_minus.mp3").default;
 
@@ -25,9 +28,11 @@ function doSound(howlerObject: any, isAllMuted: boolean) {
   }
 }
 
-export function Music({ gameStarted }: { gameStarted: boolean }) {
+export function Music({ gameStarted, room, act }: { gameStarted: boolean, room: RoomName, act: number }) {
+
   const [isAllMuted, setIsAllMuted] = useState(false);
-  const [, { sound: neutralSound }] = useSound(firstActMain, params);
+  const [, { sound: actSound }] = useSound(firstActMainMusic, params);
+  const [, { sound: ambientSound }] = useSound(AmbienceGardenMusic, params);
 
 //   const [, { sound: minusJingle }] = useSound(minus, {
 //     loop: false,
@@ -37,11 +42,11 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   const [currentSound, setCurrentSound] = useState<Sound | null>(null);
 
   useEffect(() => {
-    if (neutralSound?.state() === "loaded") {
-      neutralSound.play();
+    if (actSound?.state() === "loaded") {
+        actSound.play();
     }
-    return () => neutralSound?.stop();
-  }, [neutralSound]);
+    return () => actSound?.stop();
+  }, [actSound]);
 
   useEffect(() => {
     if (!gameStarted) {
@@ -51,8 +56,8 @@ export function Music({ gameStarted }: { gameStarted: boolean }) {
   }, [gameStarted]);
 
   useEffect(() => {
-    doSound(neutralSound, isAllMuted);
-  }, [isAllMuted, currentSound, neutralSound]);
+    doSound(actSound, isAllMuted);
+  }, [isAllMuted, currentSound, actSound]);
 
   const muteAll = () => {
     setIsAllMuted(!isAllMuted);
