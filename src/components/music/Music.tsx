@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
-import useSound from "use-sound";
-import { RoomName } from "../../rooms/rooms";
-import AmbienceKitchenMusic from "./ld_53_amb_dining.mp3";
-import AmbienceGardenMusic from "./ld_53_amb_garden.mp3";
-import AmbienceLivingMusic from "./ld_53_amb_living.mp3";
+import { useEffect, useState } from 'react'
+import useSound from 'use-sound'
+import { RoomName } from '../../rooms/rooms'
 
-import firstActMainMusic from "./ld_53_main_1.mp3";
-import secondActMainMusic from "./ld_53_main_2.mp3";
-import styles from "./Music.module.scss";
+import AmbienceKitchenMusic from './ld_53_amb_dining.mp3'
+import AmbienceGardenMusic from './ld_53_amb_garden.mp3'
+import AmbienceLivingMusic from './ld_53_amb_living.mp3'
+import AmbienceAtticMusic from './ld_53_amb_attic.mp3'
+import AmbienceBasementMusic from './ld_53_amb_basement.mp3'
 
-const VOLUME = 0.3;
-const FADE_DURATION = 800;
-const params = { loop: true, soundEnabled: true, volume: VOLUME };
+import firstActMainMusic from './ld_53_main_1.mp3'
+import secondActMainMusic from './ld_53_main_2.mp3'
+import styles from './Music.module.scss'
+
+const VOLUME = 0.3
+const FADE_DURATION = 800
+const params = { loop: true, soundEnabled: true, volume: VOLUME }
 
 function muteSound(howlerObject: any, isAllMuted: boolean) {
   if (!howlerObject) {
-    return;
+    return
   }
 
   if (isAllMuted) {
-    howlerObject.fade(howlerObject.volume(), 0, FADE_DURATION);
+    howlerObject.fade(howlerObject.volume(), 0, FADE_DURATION)
   } else {
-    howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION);
+    howlerObject.fade(howlerObject.volume(), VOLUME, FADE_DURATION)
   }
 }
 
@@ -30,107 +33,115 @@ export function Music({
   room,
   act,
 }: {
-  gameStarted: boolean;
-  room: RoomName;
-  act: number;
+  gameStarted: boolean
+  room: RoomName
+  act: number
 }) {
-  const [isAllMuted, setIsAllMuted] = useState(true);
+  const [isAllMuted, setIsAllMuted] = useState(true)
   const [, { sound: firstActSound }] = useSound(firstActMainMusic, {
     ...params,
-    id: "act1",
-  });
+    id: 'act1',
+  })
   const [, { sound: secondActSound }] = useSound(secondActMainMusic, {
     ...params,
-    id: "act1",
-  });
+    id: 'act2',
+  })
   const [, { sound: ambientGardenSound }] = useSound(AmbienceGardenMusic, {
     ...params,
-    id: "garden",
-  });
+    id: 'garden',
+  })
   const [, { sound: ambientLivingSound }] = useSound(AmbienceLivingMusic, {
     ...params,
-    id: "living",
-  });
-  const [, { sound: ambientKitchenMusic }] = useSound(AmbienceKitchenMusic, {
+    id: 'living',
+  })
+  const [, { sound: ambientKitchenSound }] = useSound(AmbienceKitchenMusic, {
     ...params,
-    id: "kitchen",
-  });
+    id: 'kitchen',
+  })
+  const [, { sound: ambientAtticSound }] = useSound(AmbienceAtticMusic, {
+    ...params,
+    id: 'attic',
+  })
+  const [, { sound: ambientBasementSound }] = useSound(AmbienceBasementMusic, {
+    ...params,
+    id: 'basement',
+  })
 
-  const [currentActSound, setCurrentActSound] = useState<Howl | null>(null);
-  const [currentRoomSound, setCurrentRoomSound] = useState<Howl | null>(null);
+  const [currentActSound, setCurrentActSound] = useState<Howl | null>(null)
+  const [currentRoomSound, setCurrentRoomSound] = useState<Howl | null>(null)
 
   useEffect(() => {
-    currentRoomSound?.play();
+    currentRoomSound?.play()
     return () => {
-        currentRoomSound?.stop();
-    };
-  }, [
-    currentRoomSound,
-  ]);
+      currentRoomSound?.stop()
+    }
+  }, [currentRoomSound])
 
   useEffect(() => {
-    currentActSound?.play();
+    currentActSound?.play()
     return () => {
-        currentActSound?.stop();
-    };
-  }, [
-    currentActSound
-  ]);
+      currentActSound?.stop()
+    }
+  }, [currentActSound])
 
   useEffect(() => {
-    muteSound(currentActSound, isAllMuted);
-    muteSound(currentRoomSound, isAllMuted);
-  
-  }, [currentActSound, currentRoomSound, isAllMuted]);
+    muteSound(currentActSound, isAllMuted)
+    muteSound(currentRoomSound, isAllMuted)
+  }, [currentActSound, currentRoomSound, isAllMuted])
 
   useEffect(() => {
-    
     switch (act) {
       case 1:
-        setCurrentActSound(firstActSound);
-        return;
+        setCurrentActSound(firstActSound)
+        return
       case 2:
-        setCurrentActSound(secondActSound);
-        return;
+        setCurrentActSound(secondActSound)
+        return
       case 3:
-        return;
+        return
       default:
     }
-  }, [act, firstActSound, secondActSound, setCurrentActSound]);
+  }, [act, firstActSound, secondActSound, setCurrentActSound])
 
   useEffect(() => {
     switch (room) {
       case RoomName.yard:
-        setCurrentRoomSound(ambientGardenSound);
-        return;
+        setCurrentRoomSound(ambientGardenSound)
+        return
       case RoomName.living:
-        setCurrentRoomSound(ambientLivingSound);
-        return;
+        setCurrentRoomSound(ambientLivingSound)
+        return
       case RoomName.kitchen:
-        setCurrentRoomSound(ambientKitchenMusic);
-        return;
+        setCurrentRoomSound(ambientKitchenSound)
+        return
+      case RoomName.attick:
+        setCurrentRoomSound(ambientAtticSound)
+        return
+      case RoomName.basement:
+        setCurrentRoomSound(ambientBasementSound)
+        return
       default:
-        setCurrentRoomSound(null);
+        setCurrentRoomSound(null)
     }
-  }, [ambientGardenSound, ambientKitchenMusic, ambientLivingSound, room]);
+  }, [ambientGardenSound, ambientLivingSound, room, ambientKitchenSound, ambientAtticSound, ambientBasementSound])
 
   const muteAll = () => {
-    setIsAllMuted(!isAllMuted);
-    localStorage.setItem("mute", "" + !isAllMuted);
-  };
+    setIsAllMuted(!isAllMuted)
+    localStorage.setItem('mute', '' + !isAllMuted)
+  }
 
   useEffect(() => {
-    setIsAllMuted(localStorage.getItem("mute") === "true");
-  }, []);
+    setIsAllMuted(localStorage.getItem('mute') === 'true')
+  }, [])
 
   return (
     <>
       <div
-        className={styles.muteBtn + " " + (isAllMuted && styles.muted)}
+        className={styles.muteBtn + ' ' + (isAllMuted && styles.muted)}
         onClick={muteAll}
       >
-        <span> {isAllMuted ? "unmute" : "mute"}</span>
+        <span> {isAllMuted ? 'unmute' : 'mute'}</span>
       </div>
     </>
-  );
+  )
 }
