@@ -11,6 +11,9 @@ function _ItemView({
   scale,
   ...props
 }: { item: Item; scale: number } & ComponentProps<typeof SpriteAnimator>) {
+  if (!item.isVisible) {
+    return <></>;
+  }
   const name = item.id;
 
   const { room, roomPosition } = item;
@@ -23,9 +26,7 @@ function _ItemView({
     roomPosition || defaultShift
   );
   const size = item.size || { width: 50, height: 50 };
-  if (!item.isVisible) {
-    return <></>;
-  }
+
   return (
     <div
       className={styles.Item + " " + (item.isActive ? styles.active : "")}

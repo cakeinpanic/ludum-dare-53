@@ -1,5 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { moveFromRoom, RoomName } from "../../rooms/rooms";
+import {
+  clickOnCharacterInteraction,
+  clickOnItemInteraction,
+} from "./interactions";
 import { startState } from "./startState";
 
 import {
@@ -77,49 +81,46 @@ export const useGame = (): useGameReturn => {
 
   const clickOnItem = useCallback(
     (itemId: Item["id"]) => {
-      const item: Item = items[itemId];
-      if (!item.isActive || !item.isVisible) {
-        return false;
-      }
-      if (item.collectable) {
-        setCurrentItem(item);
+      const { newCurrentItem, updateItemsObject } = clickOnItemInteraction(
+        items[itemId]
+      );
 
-        setItems({
-          ...items,
-          [itemId]: { ...item, isVisible: false, isActive: false },
-        });
-        return;
+      if (newCurrentItem) {
+        setCurrentItem(newCurrentItem);
       }
+
+      setItems({
+        ...items,
+        ...updateItemsObject,
+      });
     },
     [items]
   );
 
   const clickOnCharacter = useCallback(
     (character: Character) => {
-      if (character.name === "ma") {
-        if (currentItem.id === "flowers") {
-          setCharacters({
-            ...characters,
-            ["ma"]: { ...character, room: RoomName.kitchen },
-          });
-          setItems({
-            ...items,
-            [ItemName.flowers]: {
-              ...items[ItemName.flowers],
-              room: RoomName.kitchen,
-              roomPosition: {
-                shiftX: 300,
-                shiftY: -100,
-              },
-              isVisible: true,
-              isActive: false,
-            },
-            [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
-          });
-          setHelpText(
-            "You have given flowers to your mother. She is happy now."
-          );
-        }
+      const {
+        newCurrentItem,
+        updateItemsObject,
+        updateCharactersObject,
+        newHelpText,
+      } = clickOnCharacterInteraction(character, items, currentItem);
+      if (newCurrentItem) {
+        setCurrentItem(newCurrentItem);
+      }
+
+      setItems({
+        ...items,
+        ...updateItemsObject,
+      });
+
+      setCharacters({
+        ...characters,
+        ...updateCharactersObject,
+      });
+
+      if (newHelpText) {
+        setHelpText(newHelpText);
       }
     },
     [currentItem, items, characters]
