@@ -67,6 +67,7 @@ export const clickOnCharacterInteraction = (
     if (currentItem.id === "flowers") {
       return giveFlowersToMother(items, characters, currentItem);
     }
+    return talkToMother(items, characters, currentItem);
   }
   if (characterName === "sister") {
     if (currentItem.id === "letter") {
@@ -114,5 +115,18 @@ const giveFlowersToMother = (
       ["ma"]: { ...characters["ma"], room: RoomName.kitchen },
     },
     newHelpText: "Mother went to put flowers in the vase.",
+  };
+};
+
+const talkToMother = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText: "Mother: hi, did not see you for a while. Missed your family?",
   };
 };
