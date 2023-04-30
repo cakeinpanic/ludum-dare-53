@@ -1,11 +1,10 @@
-import React, { ComponentProps, memo } from 'react';
-import { SpriteAnimator } from 'react-sprite-animator';
-import { calculatePositionForSomething, RoomName, } from '../../rooms/rooms';
-import { CharacterName, Item } from '../Game/types';
-import styles from './ItemView.module.scss'
+import React, { ComponentProps, memo } from "react";
+import { SpriteAnimator } from "react-sprite-animator";
+import { calculatePositionForSomething, RoomName } from "../../rooms/rooms";
+import { CharacterName, Item } from "../Game/types";
+import styles from "./ItemView.module.scss";
 
-const shift = { shiftX: -200, shiftY: 0 };
-
+const defaultShift = { shiftX: -200, shiftY: 0 };
 
 function _ItemView({
   item,
@@ -14,11 +13,15 @@ function _ItemView({
 }: { item: Item; scale: number } & ComponentProps<typeof SpriteAnimator>) {
   const name = item.id;
 
-  const room: RoomName = item.room;
-  const position =
-    name === CharacterName.main
-      ? calculatePositionForSomething(room, scale)
-      : calculatePositionForSomething(room, scale, shift);
+  const { room, roomPosition } = item;
+  if (!room) {
+    return;
+  }
+  const position = calculatePositionForSomething(
+    room,
+    scale,
+    roomPosition || defaultShift
+  );
 
   return (
     <div className={styles.Item} style={{ ...position }}>

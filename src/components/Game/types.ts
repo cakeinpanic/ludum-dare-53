@@ -56,8 +56,8 @@ export interface Item {
   sprite?: string;
   roomPosition?: {
     // maybe just , left , right , center
-    x: number;
-    y: number;
+    shiftX: number;
+    shiftY: number;
   };
 }
 

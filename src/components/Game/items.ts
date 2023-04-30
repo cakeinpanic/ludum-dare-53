@@ -7,11 +7,6 @@ export const items: ItemsCollection = {
     isActive: false,
     isVisible: true,
     collectable: true,
-    room: RoomName.living,
-    roomPosition: {
-      x: 0,
-      y: 0,
-    },
   },
   [ItemName.mailbox]: {
     id: ItemName.mailbox,
@@ -20,8 +15,8 @@ export const items: ItemsCollection = {
     collectable: false,
     room: RoomName.yard,
     roomPosition: {
-      x: 0,
-      y: 0,
+      shiftX: 200,
+      shiftY: 80,
     },
   },
   [ItemName.tree]: {
@@ -31,8 +26,8 @@ export const items: ItemsCollection = {
     collectable: false,
     room: RoomName.yard,
     roomPosition: {
-      x: 0,
-      y: 0,
+      shiftX: -300,
+      shiftY: 0,
     },
   },
   [ItemName.chest]: {
@@ -42,8 +37,8 @@ export const items: ItemsCollection = {
     collectable: false,
     room: RoomName.basement,
     roomPosition: {
-      x: 0,
-      y: 0,
+      shiftX: 0,
+      shiftY: 0,
     },
   },
 };
