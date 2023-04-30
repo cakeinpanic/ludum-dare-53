@@ -15,10 +15,10 @@ export function Game({ gameProps }) {
     characters,
     move,
     setCurrentRoom,
+    clickOnCharacter,
     clickOnItem,
   } = gameProps;
-  console.log(items[ItemName.flowers]);
-
+  console.log((characters["ma"], items[ItemName.flowers]));
   return (
     <>
       <div className={styles.game}>
@@ -46,6 +46,7 @@ export function Game({ gameProps }) {
             character={character}
             scale={scale}
             key={character.name}
+            onClick={() => clickOnCharacter(character)}
           />
         ))}
         {Object.values(items).map((item) => (

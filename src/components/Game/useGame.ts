@@ -8,6 +8,7 @@ import {
   CharactersCollection,
   Game,
   Item,
+  ItemName,
   ItemsCollection,
 } from "./types";
 
@@ -74,24 +75,56 @@ export const useGame = (): useGameReturn => {
     [gameState.currentRoom]
   );
 
-  const clickOnItem = useCallback((itemId: Item["id"]) => {
-    const item: Item = items[itemId];
-    if (!item.isActive || !item.isVisible) {
-      return false;
-    }
-    if (item.collectable) {
-      setCurrentItem(item);
+  const clickOnItem = useCallback(
+    (itemId: Item["id"]) => {
+      const item: Item = items[itemId];
+      if (!item.isActive || !item.isVisible) {
+        return false;
+      }
+      if (item.collectable) {
+        setCurrentItem(item);
 
-      setItems({
-        ...items,
-        [itemId]: { ...item, isVisible: false, isActive: false },
-      });
-      return;
-    }
-  }, []);
+        setItems({
+          ...items,
+          [itemId]: { ...item, isVisible: false, isActive: false },
+        });
+        return;
+      }
+    },
+    [items]
+  );
 
-  const clickOnCharacter = useCallback((character: Character["name"]) => {},
-  []);
+  const clickOnCharacter = useCallback(
+    (character: Character) => {
+      if (character.name === "ma") {
+        if (currentItem.id === "flowers") {
+          setCharacters({
+            ...characters,
+            ["ma"]: { ...character, room: RoomName.kitchen },
+          });
+          setItems({
+            ...items,
+            [ItemName.flowers]: {
+              ...items[ItemName.flowers],
+              room: RoomName.kitchen,
+              roomPosition: {
+                shiftX: 300,
+                shiftY: -100,
+              },
+              isVisible: true,
+              isActive: false,
+            },
+            [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
+          });
+          setHelpText(
+            "You have given flowers to your mother. She is happy now."
+          );
+        }
+      }
+    },
+    [currentItem, items, characters]
+  );
+
   //   const teleport = useCallback((room: RoomName) => {}, []);
   const setCurrentRoom = useCallback((room: RoomName) => {
     setGameState((prevState) => ({
