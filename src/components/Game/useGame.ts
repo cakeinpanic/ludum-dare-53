@@ -121,10 +121,7 @@ export const useGame = (): useGameReturn => {
         ...updateItemsObject,
       });
       if (nextAct) {
-        setGameState((prevState) => ({
-          ...prevState,
-          act: prevState.act + 1 < 4 ? prevState.act + 1 : 3,
-        }));
+        goToNextAct();
       }
       if (newHelpText) {
         setHelpText(newHelpText);
@@ -132,6 +129,25 @@ export const useGame = (): useGameReturn => {
     },
     [items, currentItem]
   );
+
+  const goToNextAct = useCallback(() => {
+    setGameState((prevState) => ({
+      ...prevState,
+      act: prevState.act + 1 < 4 ? prevState.act + 1 : 3,
+    }));
+  }, [setGameState]);
+
+  useEffect(() => {
+    if (gameState.act === 2) {
+      setItems((currentItems) => ({
+        ...currentItems,
+        [ItemName.blanket]: {
+          ...currentItems[ItemName.blanket],
+          isVisible: true,
+        },
+      }));
+    }
+  }, [gameState.act]);
 
   const clickOnCharacter = useCallback(
     (character: Character) => {
@@ -150,10 +166,7 @@ export const useGame = (): useGameReturn => {
 
       setCurrentItem(newCurrentItem);
       if (nextAct) {
-        setGameState((prevState) => ({
-          ...prevState,
-          act: prevState.act + 1 < 4 ? prevState.act + 1 : 3,
-        }));
+        goToNextAct();
       }
       setItems({
         ...items,

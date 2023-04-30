@@ -96,7 +96,7 @@ export const items: ItemsCollection = {
   [ItemName.table]: {
     id: ItemName.table,
     isActive: true,
-    isVisible: true,
+    isVisible: false,
     collectable: false,
     room: RoomName.living,
   },
@@ -137,7 +137,7 @@ export const items: ItemsCollection = {
     id: ItemName.blanket,
     isActive: true,
     isVisible: false,
-    collectable: false,
+    collectable: true,
     sprite: blanket,
     room: RoomName.living,
     roomPosition: {
