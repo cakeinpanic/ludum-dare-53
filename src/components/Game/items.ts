@@ -41,4 +41,36 @@ export const items: ItemsCollection = {
       shiftY: 0,
     },
   },
+  [ItemName.table]: {
+    id: ItemName.table,
+    isActive: false,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.living,
+  },
+  [ItemName.cabinet]: {
+    id: ItemName.cabinet,
+    isActive: false,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.living,
+    roomPosition: {
+      shiftX: 250,
+      shiftY: -40,
+    },
+  },
+  [ItemName.birdCage]: {
+    id: ItemName.birdCage,
+    isActive: false,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.kitchen,
+  },
+  [ItemName.bar]: {
+    id: ItemName.birdCage,
+    isActive: false,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.kitchen,
+  },
 };
