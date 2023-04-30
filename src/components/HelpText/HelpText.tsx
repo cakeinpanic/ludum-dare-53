@@ -9,7 +9,6 @@ export function HelpText({
   text: string;
   inventory: string;
 }) {
-  console.log(inventory);
   return (
     <div className={styles.helpText}>
       <div className={styles.subs}>{text}</div>

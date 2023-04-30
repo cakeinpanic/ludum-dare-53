@@ -10,14 +10,22 @@ import styles from "./App.module.scss";
 function App() {
   const [showMenu, setShowMenu] = React.useState<boolean>(true);
   const [loaded, setLoaded] = React.useState<boolean>(true);
+  const [blackAnimation, setBlackAnimation] = React.useState<boolean>(false);
 
   const gameProps: useGameReturn = useGame();
   const { scale, setScale, move, currentItem, availableWays, gameState } =
     gameProps;
 
   const menuClick = () => {
-    setShowMenu(false);
+    setBlackAnimation(true);
+    setTimeout(() => {
+      setShowMenu(false);
+    }, 1000);
+    setTimeout(() => {
+      setBlackAnimation(false);
+    }, 2000);
   };
+
   useEffect(() => {
     if (loaded) {
       return;
@@ -26,6 +34,7 @@ function App() {
       setLoaded(true);
     }, 2000);
   }, []);
+
   if (!loaded) {
     return (
       <div className={styles.App}>
@@ -53,6 +62,7 @@ function App() {
         <HelpText text={gameState.helpText} inventory={currentItem?.id} />
       )}
       <Music gameStarted={!showMenu} />
+      {blackAnimation && <div className={styles.blackAnimation}></div>}
     </div>
   );
 }

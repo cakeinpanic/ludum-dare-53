@@ -22,6 +22,10 @@
   position: relative;
   text-align: left;
   cursor: pointer;
+
+  animation-name: fade2;
+  animation-duration: 1.5s;
+  opacity: 1;
 }
 
 .text {
@@ -34,6 +38,7 @@
   transform: rotate(10deg);
   text-align: left;
 }
+
 .signature {
   text-align: right;
   width: 100%;
@@ -49,4 +54,13 @@
   position: absolute;
   cursor: pointer;
   border-radius: 10px;
+}
+
+@keyframes fade2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
