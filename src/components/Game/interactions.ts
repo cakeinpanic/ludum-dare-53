@@ -7,6 +7,7 @@ import {
   ItemName,
   ItemsCollection,
 } from "./types";
+import { merge as _merge } from "lodash";
 
 export interface InteractionResult {
   newCurrentItem?: Item | null;
@@ -132,4 +133,16 @@ const talkToMother = (
     updateCharactersObject: {},
     newHelpText: "Mother: hi, did not see you for a while. Missed your family?",
   };
+};
+
+export const expressTo2 = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item
+): InteractionResult => {
+  const o2 = talkToSisterAboutLetter(items, characters, currentItem);
+  const o3 = clickOnItemInteraction(items[ItemName.flowers], o2.newCurrentItem);
+  const o1 = giveFlowersToMother(items, characters, o3.newCurrentItem);
+
+  return _merge(o2, o3, o1);
 };

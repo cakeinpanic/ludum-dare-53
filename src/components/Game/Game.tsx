@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import bird from "../CharacterView/bird.png";
 import { CharacterView } from "../CharacterView/CharacterView";
 import { House } from "../House/House";
@@ -19,8 +19,32 @@ export function Game({ gameProps }) {
     clickOnItem,
   } = gameProps;
 
+  const express = [
+    () => clickOnCharacter(CharacterName.sister),
+    () => clickOnItem(ItemName.flowers),
+    () => clickOnCharacter(CharacterName.ma),
+  ];
+
+  const [currentExpress, setCurrentExpress] = useState(0);
+
+  const onExpressClick = () => {
+    console.log("express jump to act 2");
+    const expressStep = express[currentExpress];
+    if (!expressStep) {
+      return;
+    }
+    expressStep();
+
+    setCurrentExpress(currentExpress + 1);
+  };
+
   return (
     <>
+      {currentExpress < express.length && (
+        <div onClick={onExpressClick} className={styles.express}>
+          DEbug: Next move express({express.length - currentExpress} left)
+        </div>
+      )}
       <div className={styles.game}>
         <House
           scale={scale}
@@ -52,7 +76,7 @@ export function Game({ gameProps }) {
             character={character}
             scale={scale}
             key={character.name}
-            onClick={() => clickOnCharacter(character)}
+            onClick={() => clickOnCharacter(character.name)}
           />
         ))}
         {Object.values(items).map((item) => (

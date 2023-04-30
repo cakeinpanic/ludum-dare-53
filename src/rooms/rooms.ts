@@ -106,7 +106,7 @@ export const moveFromRoom = (
   if (
     currentRoom === RoomName.kitchen &&
     direction === "down" &&
-    currentItem.id !== ItemName.key
+    currentItem?.id !== ItemName.key
   ) {
     return false;
   }
