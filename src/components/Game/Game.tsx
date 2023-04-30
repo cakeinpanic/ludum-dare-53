@@ -25,7 +25,13 @@ export function Game({ gameProps }) {
         <House
           scale={scale}
           setScale={setScale}
-          className={styles.house}
+          className={
+            styles.house +
+            " " +
+            (gameState.act === 2 ? styles.darker : "") +
+            " " +
+            (gameState.act === 3 ? styles.darkest : "")
+          }
           setCurrentRoom={setCurrentRoom}
           currentRoom={gameState.currentRoom}
         />

@@ -15,6 +15,13 @@
 
 .house {
   position: absolute;
+
+  &.darker {
+    filter: brightness(0.8);
+  }
+  &.darkest {
+    filter: brightness(0.6);
+  }
 }
 
 .roomDummie {

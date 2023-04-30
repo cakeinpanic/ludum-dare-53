@@ -13,11 +13,13 @@ export interface InteractionResult {
   updateItemsObject: ItemsCollection;
   updateCharactersObject: CharactersCollection;
   newHelpText?: string | null;
+  nextAct?: boolean;
 }
 
 const interactionPrerequisites = {
   [ItemName.flowers]: ItemName.scissors,
 };
+
 export const clickOnItemInteraction = (
   item: Item,
   currentItem: Item
@@ -115,6 +117,7 @@ const giveFlowersToMother = (
       ["ma"]: { ...characters["ma"], room: RoomName.kitchen },
     },
     newHelpText: "Mother went to put flowers in the vase.",
+    nextAct: true,
   };
 };
 

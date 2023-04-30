@@ -81,7 +81,7 @@ export const useGame = (): useGameReturn => {
 
   const clickOnItem = useCallback(
     (itemId: Item["id"]) => {
-      const { newCurrentItem, updateItemsObject, newHelpText } =
+      const { newCurrentItem, updateItemsObject, newHelpText, nextAct } =
         clickOnItemInteraction(items[itemId], currentItem);
 
       setCurrentItem(newCurrentItem);
@@ -90,6 +90,12 @@ export const useGame = (): useGameReturn => {
         ...items,
         ...updateItemsObject,
       });
+      if (nextAct) {
+        setGameState((prevState) => ({
+          ...prevState,
+          act: prevState.act + 1 < 4 ? prevState.act + 1 : 3,
+        }));
+      }
       if (newHelpText) {
         setHelpText(newHelpText);
       }
@@ -104,6 +110,7 @@ export const useGame = (): useGameReturn => {
         updateItemsObject,
         updateCharactersObject,
         newHelpText,
+        nextAct,
       } = clickOnCharacterInteraction(
         character.name,
         items,
@@ -112,7 +119,12 @@ export const useGame = (): useGameReturn => {
       );
 
       setCurrentItem(newCurrentItem);
-
+      if (nextAct) {
+        setGameState((prevState) => ({
+          ...prevState,
+          act: prevState.act + 1 < 4 ? prevState.act + 1 : 3,
+        }));
+      }
       setItems({
         ...items,
         ...updateItemsObject,
