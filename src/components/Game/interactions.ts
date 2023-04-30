@@ -64,8 +64,7 @@ export const clickOnCharacterInteraction = (
         },
         [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
       };
-      result.newHelpText =
-        "You have given flowers to your mother. She is happy now.";
+      result.newHelpText = "Mother went to put flowers in the vase.";
       return result;
     }
   }
