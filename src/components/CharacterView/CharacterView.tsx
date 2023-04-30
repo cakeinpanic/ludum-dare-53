@@ -38,6 +38,9 @@ function _CharacterView({
           <span className={styles.name}>{name}</span>{" "}
         </div>
       )}
+      <div className={styles.tooltip}>
+        {character.description || character.name}
+      </div>
     </div>
   );
 }
