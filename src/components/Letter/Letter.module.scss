@@ -21,16 +21,24 @@
   height: $gameHeight * 0.9;
   position: relative;
   text-align: left;
+  cursor: pointer;
 }
 
 .text {
-  font-size: 29px;
+  font-size: 26px;
   position: absolute;
   width: $gameHeight * 0.5;
   left: 109px;
   top: 130px;
   user-select: none;
   transform: rotate(10deg);
+  text-align: left;
+}
+.signature {
+  text-align: right;
+  width: 100%;
+  display: inline-block;
+  padding-right: 5px;
 }
 
 .bg {
@@ -39,6 +47,6 @@
   background-image: url("./letter.jpg");
   background-size: cover;
   position: absolute;
-
+  cursor: pointer;
   border-radius: 10px;
 }

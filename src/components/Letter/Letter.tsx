@@ -8,8 +8,13 @@ export function Letter({ ...rest }) {
       <div className={styles.container}>
         <div className={styles.bg}></div>
         <span className={styles.text}>
-          Hi! <br /> Writing you in a rush – there's something weird going in
-          your parents house, please come and check it out ASAP.
+          Hi! <br />
+          <span>
+            Writing you in a rush – there's something weird going in your
+            parents house, please come and check it out ASAP.
+          </span>
+          <br />
+          <span className={styles.signature}>Love, J</span>
         </span>
       </div>
     </div>
