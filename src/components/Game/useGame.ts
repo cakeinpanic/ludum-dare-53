@@ -104,7 +104,12 @@ export const useGame = (): useGameReturn => {
         updateItemsObject,
         updateCharactersObject,
         newHelpText,
-      } = clickOnCharacterInteraction(character, items, currentItem);
+      } = clickOnCharacterInteraction(
+        character.name,
+        items,
+        characters,
+        currentItem
+      );
       if (newCurrentItem) {
         setCurrentItem(newCurrentItem);
       }
