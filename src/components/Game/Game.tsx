@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import bird from "../CharacterView/bird.png";
+import character from "../CharacterView/character.png";
 import { CharacterView } from "../CharacterView/CharacterView";
 import { House } from "../House/House";
 import { ItemView } from "../ItemView/ItemView";
@@ -64,7 +64,7 @@ export function Game({ gameProps }) {
           character={{
             name: CharacterName.main,
             room: gameState.currentRoom,
-            sprite: bird,
+            sprite: character,
             roomPosition: { x: 0, y: 0 },
           }}
           scale={scale}

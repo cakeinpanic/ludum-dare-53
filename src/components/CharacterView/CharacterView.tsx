@@ -25,14 +25,15 @@ function _CharacterView({
   return (
     <div className={styles.Hero} style={{ ...position }} {...props}>
       {sprite ? (
-        <SpriteAnimator
-          className={styles.sprite}
-          sprite={sprite}
-          fps={10}
-          width={62}
-          height={50}
-        />
+        <img className={styles.sprite} src={sprite} />
       ) : (
+        //<SpriteAnimator
+        //  className={styles.sprite}
+        //  sprite={sprite}
+        //  fps={10}
+        //  width={62}
+        //  height={50}
+        ///>
         <div className={styles.debug}>
           <span className={styles.name}>{name}</span>{" "}
         </div>
