@@ -61,7 +61,11 @@ function App() {
       {!showMenu && (
         <HelpText text={gameState.helpText} inventory={currentItem?.id} />
       )}
-      <Music gameStarted={!showMenu} />
+      <Music
+        gameStarted={true}
+        room={gameState.currentRoom}
+        act={gameState.act}
+      />
       {blackAnimation && <div className={styles.blackAnimation}></div>}
     </div>
   );

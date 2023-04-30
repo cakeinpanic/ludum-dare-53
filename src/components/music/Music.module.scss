@@ -2,12 +2,13 @@
 
 .muteBtn {
   position: fixed;
-  filter: invert(1);
-  width: 30px;
-  height: 30px;
+  color: white;
   cursor: pointer;
-  right: 10px;
-  top: 10px;
+  right: 30px;
+  width: 100px;
+  top: 20px;
+  font-size: 20px;
+  text-align: right;
 }
 
 .muted {
