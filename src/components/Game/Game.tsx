@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect } from "react";
 import { CharacterView } from "../CharacterView/CharacterView";
 import { Controls, MAX_SCALE } from "../Controls/Controls";
+import { HelpText } from "../HelpText/HelpText";
 import { House } from "../House/House";
-import { ItemView } from '../ItemView/ItemView';
+import { ItemView } from "../ItemView/ItemView";
 import styles from "./Game.module.scss";
 import { AvailableWays } from "./types";
 import { useGame } from "./useGame";
-import { HelpText } from "../HelpText/HelpText";
 
 export function Game() {
   const [debugMode, setDebugMode] = React.useState<boolean>(false);
   const [scale, setScale] = React.useState(MAX_SCALE);
 
-  const { gameState, items,characters, move, setCurrentRoom, availableWays } =
+  const { gameState, items, characters, move, setCurrentRoom, availableWays } =
     useGame();
 
   const moveOnMap = useCallback(
@@ -72,11 +72,15 @@ export function Game() {
         />
 
         {characters.map((character) => (
-          <CharacterView character={character} scale={scale} key={character.name} />
+          <CharacterView
+            character={character}
+            scale={scale}
+            key={character.name}
+          />
         ))}
-      {items.map((item) => (
+        {Object.values(items).map((item) => (
           <ItemView item={item} scale={scale} key={item.id} />
-      ))}
+        ))}
       </div>
       <Controls
         scale={scale}
