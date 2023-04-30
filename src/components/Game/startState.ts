@@ -16,7 +16,7 @@ interface StartState {
   availableWays: AvailableWays;
   characters: CharactersCollection;
   items: { [key: ItemName]: Item };
-  currentItem: Item | null;
+  currentItem: Item | null
 }
 
 export const startState: StartState = {
