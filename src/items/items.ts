@@ -68,7 +68,7 @@ export const items: ItemsCollection = {
   [ItemName.dirtPile]: {
     id: ItemName.dirtPile,
     isActive: true,
-    isVisible: true,
+    isVisible: false,
     collectable: false,
     room: RoomName.yard,
     description: "A pile of dirt",

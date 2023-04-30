@@ -67,13 +67,13 @@ export const clickOnCharacterInteraction = (
     newHelpText: null,
   };
   if (characterName === "ma") {
-    if (currentItem.id === "flowers") {
+    if (currentItem?.id === "flowers") {
       return giveFlowersToMother(items, characters, currentItem);
     }
     return talkToMother(items, characters, currentItem);
   }
   if (characterName === "sister") {
-    if (currentItem.id === "letter") {
+    if (currentItem?.id === "letter") {
       return talkToSisterAboutLetter(items, characters, currentItem);
     }
   }
