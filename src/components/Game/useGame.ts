@@ -85,9 +85,7 @@ export const useGame = (): useGameReturn => {
         items[itemId]
       );
 
-      if (newCurrentItem) {
-        setCurrentItem(newCurrentItem);
-      }
+      setCurrentItem(newCurrentItem);
 
       setItems({
         ...items,
@@ -110,9 +108,8 @@ export const useGame = (): useGameReturn => {
         characters,
         currentItem
       );
-      if (newCurrentItem) {
-        setCurrentItem(newCurrentItem);
-      }
+
+      setCurrentItem(newCurrentItem);
 
       setItems({
         ...items,

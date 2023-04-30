@@ -43,7 +43,7 @@ export const clickOnCharacterInteraction = (
   currentItem: Item
 ): InteractionResult => {
   const result: InteractionResult = {
-    newCurrentItem: null,
+    newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText: null,
@@ -61,7 +61,7 @@ const giveFlowersToMother = (
   currentItem: Item
 ): InteractionResult => {
   const result: InteractionResult = {
-    newCurrentItem: null,
+    newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText: null,
@@ -82,6 +82,7 @@ const giveFlowersToMother = (
     },
     [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
   };
+  result.newCurrentItem = null;
   result.newHelpText = "Mother went to put flowers in the vase.";
   return result;
 };
