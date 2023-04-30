@@ -6,6 +6,7 @@ import AmbienceGardenMusic from "./ld_53_amb_garden.mp3";
 import AmbienceLivingMusic from "./ld_53_amb_living.mp3";
 
 import firstActMainMusic from "./ld_53_main_1.mp3";
+import secondActMainMusic from "./ld_53_main_2.mp3";
 import styles from "./Music.module.scss";
 
 const VOLUME = 0.3;
@@ -38,6 +39,10 @@ export function Music({
     ...params,
     id: "act1",
   });
+  const [, { sound: secondActSound }] = useSound(secondActMainMusic, {
+    ...params,
+    id: "act1",
+  });
   const [, { sound: ambientGardenSound }] = useSound(AmbienceGardenMusic, {
     ...params,
     id: "garden",
@@ -55,53 +60,43 @@ export function Music({
   const [currentRoomSound, setCurrentRoomSound] = useState<Howl | null>(null);
 
   useEffect(() => {
-    ambientGardenSound?.stop();
-    ambientLivingSound?.stop();
-    ambientKitchenMusic?.stop();
     currentRoomSound?.play();
     return () => {
-      ambientGardenSound?.stop();
-      ambientLivingSound?.stop();
-      ambientKitchenMusic?.stop();
+        currentRoomSound?.stop();
     };
   }, [
     currentRoomSound,
-    ambientGardenSound,
-    ambientLivingSound,
-    ambientKitchenMusic,
   ]);
 
   useEffect(() => {
-    muteSound(ambientGardenSound, isAllMuted);
-    muteSound(ambientKitchenMusic, isAllMuted);
-    muteSound(ambientLivingSound, isAllMuted);
-
-    muteSound(firstActSound, isAllMuted);
+    currentActSound?.play();
+    return () => {
+        currentActSound?.stop();
+    };
   }, [
-    isAllMuted,
-    firstActSound,
-    ambientGardenSound,
-    ambientLivingSound,
-    ambientKitchenMusic,
+    currentActSound
   ]);
 
   useEffect(() => {
-    firstActSound?.stop();
+    muteSound(currentActSound, isAllMuted);
+    muteSound(currentRoomSound, isAllMuted);
+  
+  }, [currentActSound, currentRoomSound, isAllMuted]);
+
+  useEffect(() => {
+    
     switch (act) {
       case 1:
-        firstActSound?.play();
+        setCurrentActSound(firstActSound);
         return;
       case 2:
+        setCurrentActSound(secondActSound);
         return;
       case 3:
         return;
       default:
     }
-    return () => {
-      console.log("stop act");
-      firstActSound?.stop();
-    };
-  }, [act, firstActSound]);
+  }, [act, firstActSound, secondActSound, setCurrentActSound]);
 
   useEffect(() => {
     switch (room) {
@@ -117,7 +112,7 @@ export function Music({
       default:
         setCurrentRoomSound(null);
     }
-  }, [room]);
+  }, [ambientGardenSound, ambientKitchenMusic, ambientLivingSound, room]);
 
   const muteAll = () => {
     setIsAllMuted(!isAllMuted);
