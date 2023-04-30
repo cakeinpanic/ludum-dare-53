@@ -23,11 +23,15 @@ function _ItemView({
     roomPosition || defaultShift
   );
   const size = item.size || { width: 50, height: 50 };
+  if (!item.isVisible) {
+    return <></>;
+  }
   return (
     <div
       className={styles.Item + " " + (item.isActive ? styles.active : "")}
       id={item.id}
       style={{ ...position, width: size.width, height: size.height }}
+      {...props}
     >
       {item.sprite ? (
         <img src={item.sprite} className={styles.sprite} />

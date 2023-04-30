@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { RoomName, moveFromRoom } from "../../rooms/rooms";
+import { moveFromRoom, RoomName } from "../../rooms/rooms";
+import { startState } from "./startState";
 
 import {
   AvailableWays,
@@ -7,10 +8,8 @@ import {
   CharactersCollection,
   Game,
   Item,
-  ItemName,
   ItemsCollection,
 } from "./types";
-import { startState } from "./startState";
 
 export const MAX_SCALE = 1;
 export const MIN_SCALE = 0.5;
@@ -75,8 +74,20 @@ export const useGame = (): useGameReturn => {
     [gameState.currentRoom]
   );
 
-  const clickOnItem = useCallback((item: Item["id"]) => {
-    return false;
+  const clickOnItem = useCallback((itemId: Item["id"]) => {
+    const item: Item = items[itemId];
+    if (!item.isActive || !item.isVisible) {
+      return false;
+    }
+    if (item.collectable) {
+      setCurrentItem(item);
+
+      setItems({
+        ...items,
+        [itemId]: { ...item, isVisible: false, isActive: false },
+      });
+      return;
+    }
   }, []);
 
   const clickOnCharacter = useCallback((character: Character["name"]) => {},

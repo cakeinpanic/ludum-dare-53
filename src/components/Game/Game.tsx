@@ -4,7 +4,7 @@ import { CharacterView } from "../CharacterView/CharacterView";
 import { House } from "../House/House";
 import { ItemView } from "../ItemView/ItemView";
 import styles from "./Game.module.scss";
-import { AvailableWays, CharacterName } from "./types";
+import { AvailableWays, CharacterName, ItemName } from "./types";
 
 export function Game({ gameProps }) {
   const {
@@ -15,8 +15,9 @@ export function Game({ gameProps }) {
     characters,
     move,
     setCurrentRoom,
+    clickOnItem,
   } = gameProps;
-  console.log(gameProps);
+  console.log(items[ItemName.flowers]);
 
   return (
     <>
@@ -48,7 +49,12 @@ export function Game({ gameProps }) {
           />
         ))}
         {Object.values(items).map((item) => (
-          <ItemView item={item} scale={scale} key={item.id} />
+          <ItemView
+            item={item}
+            scale={scale}
+            key={item.id}
+            onClick={() => clickOnItem(item.id)}
+          />
         ))}
       </div>
     </>
