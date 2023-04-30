@@ -40,6 +40,7 @@ export enum ItemName {
   tree = "tree",
   table = "table",
   cabinet = "cabinet",
+  vase = "vase",
   book = "book",
   secretButton = "secretButton",
   recordPlayer = "recordPlayer",

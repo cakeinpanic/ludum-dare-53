@@ -25,16 +25,12 @@ function _ItemView({
   const size = item.size || { width: 50, height: 50 };
   return (
     <div
-      className={styles.Item}
+      className={styles.Item + " " + (item.isActive ? styles.active : "")}
       id={item.id}
       style={{ ...position, width: size.width, height: size.height }}
     >
       {item.sprite ? (
-        <img
-          src={item.sprite}
-          className={styles.sprite}
-          style={{ width: size.width, height: size.height }}
-        />
+        <img src={item.sprite} className={styles.sprite} />
       ) : (
         //<SpriteAnimator
         //  className={styles.sprite}

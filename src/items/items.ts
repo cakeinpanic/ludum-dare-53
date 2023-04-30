@@ -1,159 +1,195 @@
-import { RoomName } from '../rooms/rooms';
-import { Item, ItemName, ItemsCollection } from '../components/Game/types';
-import flowers from './flowers.png';
-import pile from './pile.png';
-import tree from './tree.png';
-import blanket from './blanket.png';
+import { RoomName } from "../rooms/rooms";
+import { ItemName, ItemsCollection } from "../components/Game/types";
+import flowers from "./flowers.png";
+import pile from "./pile.png";
+import tree from "./tree.png";
+import blanket from "./blanket.png";
+import vase from "./vase.png";
+import book from "./book.png";
 
 export const items: ItemsCollection = {
-    [ItemName.letter]: {
-        id: ItemName.letter,
-        isActive: false,
-        isVisible: true,
-        collectable: true,
+  [ItemName.letter]: {
+    id: ItemName.letter,
+    isActive: true,
+    isVisible: true,
+    collectable: true,
+  },
+  [ItemName.tree]: {
+    id: ItemName.tree,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.yard,
+    description: "An old tree my father and I planted when I was 6",
+    sprite: tree,
+    roomPosition: {
+      shiftX: 97 - 480 - 87 - 30 - 10,
+      shiftY: 945 - 1230,
     },
-    [ItemName.tree]: {
-        id: ItemName.tree,
-        isActive: false,
-        isVisible: true,
-        collectable: false,
-        room: RoomName.yard,
-        description: 'An old tree my father and I planted when I was 6',
-        sprite: tree,
-        roomPosition: {
-            shiftX: 97 - 480 - 87 - 30 - 10,
-            shiftY: 945 - 1230,
-        },
-        size: {
-            width: 764,
-            height: 496,
-        },
+    size: {
+      width: 764,
+      height: 496,
     },
-    [ItemName.dirtPile]: {
-        id: ItemName.dirtPile,
-        isActive: false,
-        isVisible: true,
-        collectable: false,
-        room: RoomName.yard,
-        description: 'A pile of dirt',
-        sprite: pile,
-        roomPosition: {
-            shiftX: -20,
-            shiftY: 130,
-        },
-        size: {
-            width: 130,
-            height: 100,
-        },
+  },
+  [ItemName.vase]: {
+    id: ItemName.vase,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.kitchen,
+    description: "Flower vase",
+    sprite: vase,
+    roomPosition: {
+      shiftX: 300,
+      shiftY: -35,
     },
-    [ItemName.chest]: {
-        id: ItemName.chest,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.basement,
-        roomPosition: {
-            shiftX: 0,
-            shiftY: 0,
-        },
+    size: {
+      width: 100,
+      height: 100,
     },
-    [ItemName.table]: {
-        id: ItemName.table,
-        isActive: false,
-        isVisible: true,
-        collectable: false,
-        room: RoomName.living,
+  },
+  [ItemName.book]: {
+    id: ItemName.book,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.library,
+    description: "Book I cant not recognize",
+    sprite: book,
+    roomPosition: {
+      shiftX: 340,
+      shiftY: -30,
     },
-    [ItemName.cabinet]: {
-        id: ItemName.cabinet,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.living,
-        roomPosition: {
-            shiftX: 250,
-            shiftY: -40,
-        },
+    size: {
+      width: 60,
+      height: 60,
     },
-    [ItemName.flowers]: {
-        id: ItemName.flowers,
-        isActive: false,
-        isVisible: true,
-        collectable: false,
-        sprite: flowers,
-        room: RoomName.yard,
-        roomPosition: {
-            shiftX: 210,
-            shiftY: 70,
-        },
-        size: {
-            width: 100,
-            height: 100,
-        },
+  },
+  [ItemName.dirtPile]: {
+    id: ItemName.dirtPile,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.yard,
+    description: "A pile of dirt",
+    sprite: pile,
+    roomPosition: {
+      shiftX: -20,
+      shiftY: 130,
     },
-    [ItemName.blanket]: {
-        id: ItemName.blanket,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        sprite: blanket,
-        room: RoomName.living,
-        roomPosition: {
-            shiftX: -260   ,
-            shiftY: 70 - 46,
-        },
-        size: {
-            width: 100,
-            height: 100,
-        },
+    size: {
+      width: 130,
+      height: 100,
     },
-    [ItemName.recordPlayer]: {
-        id: ItemName.recordPlayer,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.bedroom,
+  },
+  [ItemName.chest]: {
+    id: ItemName.chest,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.basement,
+    roomPosition: {
+      shiftX: 0,
+      shiftY: 0,
     },
-    [ItemName.secretButton]: {
-        id: ItemName.secretButton,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.bedroom,
+  },
+  [ItemName.table]: {
+    id: ItemName.table,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.living,
+  },
+  [ItemName.cabinet]: {
+    id: ItemName.cabinet,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.living,
+    roomPosition: {
+      shiftX: 250,
+      shiftY: -40,
     },
-    [ItemName.secretButton]: {
-        id: ItemName.secretButton,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.bedroom,
+  },
+  [ItemName.flowers]: {
+    id: ItemName.flowers,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    sprite: flowers,
+    room: RoomName.yard,
+    roomPosition: {
+      shiftX: 210,
+      shiftY: 70,
     },
-    [ItemName.sacrificeCircle]: {
-        id: ItemName.sacrificeCircle,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.basement,
+    size: {
+      width: 100,
+      height: 100,
     },
-    [ItemName.paperPile]: {
-        id: ItemName.paperPile,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.attick,
+  },
+  [ItemName.blanket]: {
+    id: ItemName.blanket,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    sprite: blanket,
+    room: RoomName.living,
+    roomPosition: {
+      shiftX: -260,
+      shiftY: 70 - 46,
     },
-    [ItemName.knife]: {
-        id: ItemName.knife,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.attick,
+    size: {
+      width: 100,
+      height: 100,
     },
-    [ItemName.desk]: {
-        id: ItemName.desk,
-        isActive: false,
-        isVisible: false,
-        collectable: false,
-        room: RoomName.attick,
-    },
+  },
+  [ItemName.recordPlayer]: {
+    id: ItemName.recordPlayer,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.bedroom,
+  },
+  [ItemName.secretButton]: {
+    id: ItemName.secretButton,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.bedroom,
+  },
+  [ItemName.secretButton]: {
+    id: ItemName.secretButton,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.bedroom,
+  },
+  [ItemName.sacrificeCircle]: {
+    id: ItemName.sacrificeCircle,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.basement,
+  },
+  [ItemName.paperPile]: {
+    id: ItemName.paperPile,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.attick,
+  },
+  [ItemName.knife]: {
+    id: ItemName.knife,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.attick,
+  },
+  [ItemName.desk]: {
+    id: ItemName.desk,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    room: RoomName.attick,
+  },
 };
