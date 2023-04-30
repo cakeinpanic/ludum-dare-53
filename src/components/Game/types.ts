@@ -32,7 +32,7 @@ export type ItemsCollection = { [key: ItemName]: Item };
 export type CharactersCollection = { [key: CharacterName]: Character };
 
 export enum ItemName {
-  mailbox = "mailbox",
+  dirtPile = "dirtPile",
   letter = "letter",
   glass = "glass",
   atticKey = "atticKey",

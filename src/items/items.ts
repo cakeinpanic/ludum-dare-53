@@ -1,7 +1,7 @@
 import { RoomName } from "../rooms/rooms";
 import { Item, ItemName, ItemsCollection } from "../components/Game/types";
 import birdCage from "./birdCage.png";
-import mailbox from "./mailbox.png";
+import pile from "./pile.png";
 import tree from "./tree.png";
 
 export const items: ItemsCollection = {
@@ -11,22 +11,7 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: true,
   },
-  [ItemName.mailbox]: {
-    id: ItemName.mailbox,
-    isActive: false,
-    isVisible: true,
-    collectable: false,
-    room: RoomName.yard,
-    sprite: mailbox,
-    roomPosition: {
-      shiftX: 250,
-      shiftY: -50,
-    },
-    size: {
-      width: 130,
-      height: 260,
-    },
-  },
+
   [ItemName.tree]: {
     id: ItemName.tree,
     isActive: false,
@@ -44,6 +29,23 @@ export const items: ItemsCollection = {
     size: {
       width: 764,
       height: 496,
+    },
+  },
+  [ItemName.dirtPile]: {
+    id: ItemName.dirtPile,
+    isActive: false,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.yard,
+    description: "A pile of dirt",
+    sprite: pile,
+    roomPosition: {
+      shiftX: -20,
+      shiftY: 130,
+    },
+    size: {
+      width: 130,
+      height: 100,
     },
   },
   [ItemName.chest]: {
