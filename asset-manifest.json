@@ -1,10 +1,13 @@
 {
   "files": {
     "main.css": "/ludum-dare-53/static/css/main.ea0a8060.css",
-    "main.js": "/ludum-dare-53/static/js/main.13cf6bdd.js",
+    "main.js": "/ludum-dare-53/static/js/main.4b9b1c36.js",
     "static/js/926.4e69f33a.chunk.js": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js",
     "static/js/5.de7056da.chunk.js": "/ludum-dare-53/static/js/5.de7056da.chunk.js",
     "ludum_dare_beta_0.mp3": "/ludum-dare-53/411e9063d5571dac1f0799b74de1534c.mp3",
+    "static/media/mailbox.png": "/ludum-dare-53/static/media/mailbox.bdeb4114f1e2000e1f7c.png",
+    "static/media/birdCage.png": "/ludum-dare-53/static/media/birdCage.f6199b1dc9cfb3cf27ee.png",
+    "static/media/tree.png": "/ludum-dare-53/static/media/tree.63f1b587400da7f9af1a.png",
     "static/media/bedroom.jpg": "/ludum-dare-53/static/media/bedroom.13eac9ced5028a7d765e.jpg",
     "static/media/attick.jpg": "/ludum-dare-53/static/media/attick.05d8fa2e344496988de2.jpg",
     "static/media/yard.jpg": "/ludum-dare-53/static/media/yard.5a8d09df3181f1e6ff92.jpg",
@@ -18,12 +21,12 @@
     "static/media/zoom-out.svg": "/ludum-dare-53/static/media/zoom-out.628c927ca014290437ed.svg",
     "index.html": "/ludum-dare-53/index.html",
     "main.ea0a8060.css.map": "/ludum-dare-53/static/css/main.ea0a8060.css.map",
-    "main.13cf6bdd.js.map": "/ludum-dare-53/static/js/main.13cf6bdd.js.map",
+    "main.4b9b1c36.js.map": "/ludum-dare-53/static/js/main.4b9b1c36.js.map",
     "926.4e69f33a.chunk.js.map": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js.map",
     "5.de7056da.chunk.js.map": "/ludum-dare-53/static/js/5.de7056da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea0a8060.css",
-    "static/js/main.13cf6bdd.js"
+    "static/js/main.4b9b1c36.js"
   ]
 }
