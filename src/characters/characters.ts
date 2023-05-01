@@ -1,8 +1,8 @@
-import { RoomName } from "../../rooms/rooms";
-import { CharacterName, CharactersCollection } from "./types";
-import character from "../CharacterView/character.png";
-import mama from "../CharacterView/mama.png";
-import sister from "../CharacterView/sister.png";
+import { RoomName } from "../rooms/rooms";
+import { CharacterName, CharactersCollection } from "../components/Game/types";
+import character from "./character.png";
+import mama from "./mama.png";
+import sister from "./sister.png";
 
 export const characters: CharactersCollection = {
   [CharacterName.ma]: {
