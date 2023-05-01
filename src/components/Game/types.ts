@@ -52,6 +52,7 @@ export enum ItemName {
   recordPlayer = "recordPlayer",
   flowers = "flowers",
   blanket = "blanket",
+  skull = "skull",
   handcuffs = "handcuffs",
   chest = "chest",
   sacrificeCircle = "sacrificeCircle",

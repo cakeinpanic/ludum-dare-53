@@ -62,6 +62,9 @@ export const clickOnItemInteraction = (
   if (itemName === ItemName.tree && currentItem?.id === ItemName.shovel) {
     return digUnderTheTree(items, characters, currentItem, act);
   }
+  if (itemName === ItemName.dirtPile) {
+    return lookInDirt(items, characters, currentItem, act);
+  }
 
   switch (item.id) {
     case ItemName.tree:
@@ -124,6 +127,25 @@ export const digUnderTheTree = (
     },
     updateCharactersObject: {},
     newHelpText: `Oh, there's something under the tree!`,
+  };
+};
+
+export const lookInDirt = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: items[ItemName.skull],
+    updateItemsObject: {
+      [ItemName.dirtPile]: {
+        ...items[ItemName.dirtPile],
+        isActive: false,
+      },
+    },
+    updateCharactersObject: {},
+    newHelpText: `OMG, there is a skull, yikes!`,
   };
 };
 export const grabABook = (

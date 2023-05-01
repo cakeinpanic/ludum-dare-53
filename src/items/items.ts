@@ -163,6 +163,12 @@ export const items: ItemsCollection = {
       height: 100,
     },
   },
+  [ItemName.skull]: {
+    id: ItemName.skull,
+    isActive: true,
+    isVisible: false,
+    collectable: true,
+  },
   [ItemName.scissors]: {
     id: ItemName.scissors,
     isActive: true,
