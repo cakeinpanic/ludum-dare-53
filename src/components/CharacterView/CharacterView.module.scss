@@ -5,7 +5,7 @@
   height: $heroHeight;
   cursor: pointer;
   position: absolute;
-
+  transition: all 1s;
   &:hover {
     filter: brightness(120%);
     transition: all 0.2s;
