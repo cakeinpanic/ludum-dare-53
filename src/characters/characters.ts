@@ -11,7 +11,7 @@ export const characters: CharactersCollection = Object.freeze({
     name: CharacterName.ma,
     room: RoomName.living,
     sprite: mama,
-    description: "mother, she looks nervous and tired",
+    description: "Mother",
     roomPosition: {
       shiftX: -150,
       shiftY: -30,
@@ -25,6 +25,7 @@ export const characters: CharactersCollection = Object.freeze({
   [CharacterName.uncle]: {
     name: CharacterName.uncle,
     room: RoomName.attick,
+    description: "Uncle",
     sprite: uncle,
     roomPosition: {
       shiftX: -170,
@@ -39,7 +40,7 @@ export const characters: CharactersCollection = Object.freeze({
     name: CharacterName.sister,
     room: RoomName.kitchen,
     sprite: sister,
-    description: "Elder sister, her haughty grin never leaves her face",
+    description: "Elder sister",
     roomPosition: {
       shiftX: -300,
       shiftY: 0,
@@ -49,7 +50,7 @@ export const characters: CharactersCollection = Object.freeze({
     name: CharacterName.pa,
     room: RoomName.library,
     sprite: father,
-    description: "Father, always in his thoughts",
+    description: "Father",
     roomPosition: {
       shiftX: -200,
       shiftY: -100,
@@ -62,7 +63,7 @@ export const characters: CharactersCollection = Object.freeze({
   [CharacterName.ghost]: {
     name: CharacterName.ghost,
     room: null,
-    description: "WTF",
+    description: "Small ghost",
     roomPosition: {
       shiftX: -200,
       shiftY: 0,
@@ -71,6 +72,6 @@ export const characters: CharactersCollection = Object.freeze({
   [CharacterName.main]: {
     name: CharacterName.main,
     sprite: character,
-    description: `It's me, James`,
+    description: `It's you`,
   },
 });

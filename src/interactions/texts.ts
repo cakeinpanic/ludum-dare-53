@@ -8,7 +8,7 @@ export const texts = {
   // Ma with flowers
   "3": "Mother: Thanks my dear, your self-sacrifice... I said to others that you are here | Mother went to put flowers in the vase",
   // Talk to sister without letter
-  "4": "Sister: I'm so excited about the todays event, you will a star of the show.",
+  "4": "Sister: I'm so excited about the todays event, you will be the star of the show",
   // vase without flowers
   "5": `Flowers from the garden would look good in this vase`,
   // Tree
@@ -64,7 +64,7 @@ export const texts = {
   "SHIT_SISTER_SAYS_1": "",
   "SHIT_SISTER_SAYS_2": "",
 
-  "UNCLE_SAYS_NO": "This is what we say when click on table when uncle is alive",
+  "UNCLE_SAYS_NO": "Uncle: Don't make your family wait, we have things to prepare",
 };
 
 export const getText = (id: string) => {
