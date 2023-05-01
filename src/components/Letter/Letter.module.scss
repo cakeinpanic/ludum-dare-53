@@ -17,13 +17,14 @@
 }
 
 .title {
-  font-size: 47px;
+  font-size: 60px;
   color: white;
   text-align: center;
   margin-top: 100px;
 }
 .subtitle,
-.sublink {
+.sublink,
+.subsubtitle {
   font-size: 15px;
   color: white;
   text-align: center;
@@ -37,7 +38,12 @@
   animation-duration: 3s;
   opacity: 1;
 }
-
+.subsubtitle {
+  margin-top: 40px;
+}
+.sublink {
+  margin-top: 30px;
+}
 @keyframes fade {
   0% {
     opacity: 0;

@@ -23,8 +23,17 @@ export function Letter({ onExit, skipTitle, ...rest }) {
           }}
         >
           <div className={styles.title}>Return to sender</div>
+          <span
+            className={styles.subsubtitle}
+            target="_blank"
+            href="https://ldjam.com/events/ludum-dare/53/"
+          >
+            Please turn on music in top right corner, this is game-changing
+            experience
+          </span>
           <a
-            className={styles.subtitle}
+            className={styles.sublink}
+            target="_blank"
             href="https://ldjam.com/events/ludum-dare/53/"
           >
             ldjam 53 game
