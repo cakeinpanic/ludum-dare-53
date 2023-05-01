@@ -2,6 +2,7 @@ import {
   CharacterName,
   CharactersCollection,
   Item,
+  ItemName,
   ItemsCollection,
 } from "../components/Game/types";
 import { RoomName, roomPositions } from "../rooms/rooms";
@@ -28,7 +29,11 @@ export const moveRoomInteraction = (
     newHelpText: null,
   };
 
-  if (act === 2 && oldRoom === RoomName.bedroom) {
+  if (
+    act === 2 &&
+    oldRoom === RoomName.bedroom &&
+    items[ItemName.blanket].room === RoomName.bedroom
+  ) {
     return {
       ...result.updateCharactersObject,
       ...fatherRunsToTheBird(items, characters),
