@@ -10,10 +10,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 25px;
 }
 
 body {
-  font-family: "Rubik Mono One", sans-serif;
+  font-family: "Righteous", cursive;
   background-color: #171823;
 }
 

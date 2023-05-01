@@ -17,7 +17,7 @@
 }
 
 .title {
-  font-size: 60px;
+  font-size: 3rem;
   color: white;
   text-align: center;
   margin-top: 100px;
@@ -25,13 +25,13 @@
 .subtitle,
 .sublink,
 .subsubtitle {
-  font-size: 15px;
+  font-size: 0.8rem;
   color: white;
   text-align: center;
   text-style: italic;
 
   line-height: 2;
-  display: inline-block;
+  display: block;
   margin: 70px 80px;
   cursor: pointer;
   animation-name: fade;
