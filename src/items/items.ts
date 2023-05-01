@@ -13,6 +13,7 @@ import photo from "./photo.png";
 import bourbon from "./bourbon.png";
 import poison from "./poison.png";
 import table from "./table.png";
+import { getText } from "../interactions/texts";
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -26,7 +27,7 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     room: RoomName.yard,
-    description: "An old tree my father and I planted when I was 6",
+    description: getText("6"),
     sprite: tree,
     roomPosition: {
       shiftX: 97 - 480 - 87 - 30 - 10,
@@ -60,7 +61,7 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     room: RoomName.kitchen,
-    description: "Family portrait",
+    description: "Family portrait, one face missing",
     sprite: photo,
     roomPosition: {
       shiftX: 250,
