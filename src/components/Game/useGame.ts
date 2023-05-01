@@ -149,7 +149,7 @@ export const useGame = (): useGameReturn => {
             items,
             characters,
             currentItem,
-            gameState.act
+            gameState
           )
         );
       }, 400);
@@ -159,7 +159,7 @@ export const useGame = (): useGameReturn => {
         currentRoom: newRoom as RoomName,
       }));
     },
-    [characters, currentItem, gameState, gameState, items, setHelpText]
+    [characters, currentItem, gameState, items, setHelpText]
   );
 
   useEffect(() => {

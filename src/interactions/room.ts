@@ -2,6 +2,7 @@ import { merge } from "lodash";
 import {
   CharacterName,
   CharactersCollection,
+  Game,
   Item,
   ItemName,
   ItemsCollection,
@@ -16,7 +17,7 @@ export const moveRoomInteraction = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  gameState: Game
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: currentItem,
@@ -25,13 +26,13 @@ export const moveRoomInteraction = (
       oldRoom,
       newRoom,
       characters,
-      act
+      gameState
     ),
     newHelpText: null,
   };
 
   if (
-    act === 2 &&
+    gameState.act === 2 &&
     newRoom === RoomName.library &&
     items[ItemName.blanket].room === RoomName.bedroom
   ) {
@@ -47,7 +48,7 @@ export const moveRoomInteraction = (
   ) {
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
-      exitBasementAfterMeetingGhost(items, characters, act)
+      exitBasementAfterMeetingGhost(items, characters, gameState.act)
     );
   }
   if (newRoom === RoomName.attick) {
@@ -64,7 +65,7 @@ export const changeMainLocation = (
   oldRoom: RoomName,
   newRoom: RoomName,
   characters: CharactersCollection,
-  act: number
+  { act, status }: Game
 ): CharactersCollection => {
   let roomPosition = {
     shiftX: 0,
@@ -92,7 +93,7 @@ export const changeMainLocation = (
   }
 
   if (
-    act === 3 &&
+    status.uncleFollows &&
     characters[CharacterName.uncle].room === oldRoom &&
     newRoom !== RoomName.basement
   ) {
@@ -186,5 +187,6 @@ export const goToAtticFirstTime = (
         isVisible: true,
       },
     },
+    updatedStatus: { uncleFollows: true },
   };
 };

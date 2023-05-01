@@ -22,6 +22,7 @@ export interface Character {
   room: RoomName;
   sprite?: string;
   description?: string;
+  isDead?: boolean;
   roomPosition?: {
     // maybe just , left , right , center?
     shiftX: number;
@@ -92,6 +93,7 @@ export interface Game {
     upstairsIsBlockedByMa: boolean;
     atticIsHidden: boolean;
     basementIsLocked: boolean;
+    uncleFollows: boolean;
   };
   helpText: string;
 }

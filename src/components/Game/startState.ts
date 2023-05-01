@@ -25,6 +25,7 @@ export const startState: StartState = {
       upstairsIsBlockedByMa: true,
       atticIsHidden: true,
       basementIsLocked: true,
+      uncleFollows: false,
     },
     helpText: "You have arrived to your parents house",
   },
