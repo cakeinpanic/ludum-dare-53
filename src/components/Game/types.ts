@@ -94,6 +94,7 @@ export interface Game {
     atticIsHidden: boolean;
     basementIsLocked: boolean;
     uncleFollows: boolean;
+    gameFinished: boolean;
   };
   helpText: string;
 }

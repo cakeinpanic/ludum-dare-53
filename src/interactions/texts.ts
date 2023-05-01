@@ -51,6 +51,7 @@ export const texts = {
   "29": "You sit down and write a letter to J. and ask him to come to the house as soon as possible",
 
   "101": "This is default text uncle says before killed",
+  "102": "This is what we say when click on table when uncle is alive",
 };
 
 export const getText = (id: string) => {

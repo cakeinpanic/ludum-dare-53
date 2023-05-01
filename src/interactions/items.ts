@@ -60,6 +60,9 @@ export const clickOnItemInteraction = (
   if (itemName === ItemName.book) {
     return grabABook(items, characters, currentItem, act);
   }
+  if (itemName === ItemName.table) {
+    return writeALetter(items, characters, currentItem, act);
+  }
   if (itemName === ItemName.poison) {
     return mixBourbonAndPoison(items, characters, currentItem, act);
   }
@@ -228,5 +231,28 @@ export const grabABook = (
     updateCharactersObject: {},
     updatedStatus: { basementIsLocked: false },
     newHelpText: getText("13"),
+  };
+};
+
+export const writeALetter = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  if (!characters[CharacterName.uncle].isDead) {
+    return {
+      newCurrentItem: currentItem,
+      newHelpText: getText("102"),
+      updateItemsObject: {},
+      updateCharactersObject: {},
+    };
+  }
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    updatedStatus: { gameFinished: true },
+    newHelpText: getText("29"),
   };
 };

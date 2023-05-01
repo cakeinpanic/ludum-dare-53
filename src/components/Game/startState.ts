@@ -26,6 +26,7 @@ export const startState: StartState = {
       atticIsHidden: true,
       basementIsLocked: true,
       uncleFollows: false,
+      gameFinished: false,
     },
     helpText: "You have arrived to your parents house",
   },

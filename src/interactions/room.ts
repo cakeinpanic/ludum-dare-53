@@ -44,6 +44,7 @@ export const moveRoomInteraction = (
 
   if (
     oldRoom === RoomName.basement &&
+    gameState.act === 2 &&
     characters[CharacterName.ghost].room === RoomName.basement
   ) {
     return merge(
@@ -54,7 +55,14 @@ export const moveRoomInteraction = (
   if (newRoom === RoomName.attick) {
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
-      goToAtticFirstTime(items, characters)
+      goToAtticFirstTime(items, characters, currentItem)
+    );
+  }
+
+  if (newRoom === RoomName.basement && currentItem?.id === ItemName.key) {
+    return merge(
+      { updateCharactersObject: result.updateCharactersObject },
+      enterBasement(items, characters)
     );
   }
 
@@ -170,10 +178,11 @@ export const exitBasementAfterMeetingGhost = (
 
 export const goToAtticFirstTime = (
   items: ItemsCollection,
-  characters: CharactersCollection
+  characters: CharactersCollection,
+  currentItem: Item
 ): InteractionResult => {
   return {
-    newCurrentItem: null,
+    newCurrentItem: currentItem,
     updateCharactersObject: {
       [CharacterName.ghost]: {
         ...characters[CharacterName.ghost],
@@ -188,5 +197,16 @@ export const goToAtticFirstTime = (
       },
     },
     updatedStatus: { uncleFollows: true },
+  };
+};
+
+export const enterBasement = (
+  items: ItemsCollection,
+  characters: CharactersCollection
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateCharactersObject: {},
+    updateItemsObject: {},
   };
 };
