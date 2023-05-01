@@ -23,7 +23,12 @@ function _CharacterView({
       : calculatePositionForSomething(room, scale, roomPosition || defaultShit);
 
   return (
-    <div className={styles.Hero} style={{ ...position }} {...props}>
+    <div
+      id={character.name}
+      className={styles.Hero}
+      style={{ ...position }}
+      {...props}
+    >
       {sprite ? (
         <img className={styles.sprite} src={sprite} />
       ) : (

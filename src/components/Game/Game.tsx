@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import character from "../CharacterView/character.png";
+
 import { CharacterView } from "../CharacterView/CharacterView";
 import { House } from "../House/House";
 import { ItemView } from "../ItemView/ItemView";
@@ -59,26 +59,6 @@ export function Game({ gameProps }) {
           setCurrentRoom={setCurrentRoom}
           currentRoom={gameState.currentRoom}
         />
-
-        <CharacterView
-          character={{
-            name: CharacterName.main,
-            room: gameState.currentRoom,
-            sprite: character,
-            roomPosition: { x: 0, y: 0 },
-          }}
-          scale={scale}
-          key="main"
-        />
-
-        {Object.values(characters).map((character) => (
-          <CharacterView
-            character={character}
-            scale={scale}
-            key={character.name}
-            onClick={() => clickOnCharacter(character.name)}
-          />
-        ))}
         {Object.values(items).map((item) => (
           <ItemView
             item={item}
@@ -87,6 +67,26 @@ export function Game({ gameProps }) {
             onClick={() => clickOnItem(item.id)}
           />
         ))}
+
+        {Object.values(characters).map((character) =>
+          character.name === CharacterName.main ? (
+            <CharacterView
+              character={{
+                ...character,
+                room: gameState.currentRoom,
+              }}
+              scale={scale}
+              key={character.name}
+            />
+          ) : (
+            <CharacterView
+              character={character}
+              scale={scale}
+              key={character.name}
+              onClick={() => clickOnCharacter(character.name)}
+            />
+          )
+        )}
       </div>
     </>
   );

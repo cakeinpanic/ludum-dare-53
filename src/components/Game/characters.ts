@@ -1,8 +1,9 @@
 import { RoomName } from "../../rooms/rooms";
 import { CharacterName, CharactersCollection } from "./types";
-
+import character from "../CharacterView/character.png";
 import mama from "../CharacterView/mama.png";
 import sister from "../CharacterView/sister.png";
+
 export const characters: CharactersCollection = {
   [CharacterName.ma]: {
     name: CharacterName.ma,
@@ -32,5 +33,10 @@ export const characters: CharactersCollection = {
       shiftX: -200,
       shiftY: 0,
     },
+  },
+  [CharacterName.main]: {
+    name: CharacterName.main,
+    sprite: character,
+    description: `I'm Luntik`,
   },
 };
