@@ -103,6 +103,9 @@ export const moveFromRoom = (
   if (currentRoom === RoomName.kitchen && direction === "up") {
     return false;
   }
+  if (currentRoom === RoomName.kitchen && direction === "up") {
+    return false;
+  }
   if (
     currentRoom === RoomName.kitchen &&
     direction === "down" &&
