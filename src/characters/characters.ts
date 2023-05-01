@@ -18,7 +18,6 @@ export const characters: CharactersCollection = {
   [CharacterName.uncle]: {
     name: CharacterName.uncle,
     room: RoomName.attick,
-
     roomPosition: {
       shiftX: -200,
       shiftY: 0,

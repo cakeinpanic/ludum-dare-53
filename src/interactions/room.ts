@@ -34,18 +34,20 @@ export const moveRoomInteraction = (
     newRoom === RoomName.library &&
     items[ItemName.blanket].room === RoomName.bedroom
   ) {
-    return {
-      ...result.updateCharactersObject,
-      ...fatherRunsToTheBird(items, characters),
-    };
+    return merge(
+      { updateCharactersObject: result.updateCharactersObject },
+      fatherRunsToTheBird(items, characters)
+    );
   }
+
   if (
     oldRoom === RoomName.basement &&
     characters[CharacterName.ghost].room === RoomName.basement
   ) {
-    return merge(exitBasementAfterMeetingGhost(items, characters), {
-      updateCharactersObject: result.updateCharactersObject,
-    });
+    return merge(
+      { updateCharactersObject: result.updateCharactersObject },
+      exitBasementAfterMeetingGhost(items, characters)
+    );
   }
   return result;
 };
@@ -60,7 +62,7 @@ export const changeMainLocation = (
     shiftX: 0,
     shiftY: 0,
   };
-  const ghostUpdate = {};
+  const uncleUpdate = {};
   if (newRoom === RoomName.yard && act === 2) {
     roomPosition = {
       shiftX: 110,
@@ -73,24 +75,26 @@ export const changeMainLocation = (
       shiftY: 0,
     };
   }
-  //
-  //if (act === 3 || (oldRoom=== RoomName.basement && characters[CharacterName.ghost].room === RoomName.basement)) {
-  //    ghostUpdate.room = newRoom;
-  //    ghostUpdate.roomPosition = {...roomPosition}
-  //    ghostUpdate.roomPosition.shiftX += 150;
-  //    ghostUpdate.roomPosition.shiftY -= 30;
-  //
-  //
-  //}
+
+  if (
+    act === 3 &&
+    characters[CharacterName.uncle].room === characters[CharacterName.main].room
+  ) {
+    uncleUpdate.room = newRoom;
+    uncleUpdate.roomPosition = { ...roomPosition };
+    uncleUpdate.roomPosition.shiftX += 150;
+    uncleUpdate.roomPosition.shiftY -= 0;
+  }
+
   return {
     ...characters,
     [CharacterName.main]: {
       ...characters[CharacterName.main],
       roomPosition,
     },
-    [CharacterName.ghost]: {
-      ...characters[CharacterName.ghost],
-      ...ghostUpdate,
+    [CharacterName.uncle]: {
+      ...characters[CharacterName.uncle],
+      ...uncleUpdate,
     },
   };
 };
@@ -126,6 +130,6 @@ export const exitBasementAfterMeetingGhost = (
     },
     updateItemsObject: {},
     nextAct: true,
-    newHelpText: "I'm gonna lear a lot today...",
+    newHelpText: "I'm gonna learn a lot today...",
   };
 };
