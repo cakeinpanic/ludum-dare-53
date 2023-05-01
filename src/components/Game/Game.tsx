@@ -27,6 +27,7 @@ export function Game({ gameProps }) {
     () => clickOnItem(ItemName.blanket),
     () => clickOnItem(ItemName.birdCage),
     () => setCurrentRoom(RoomName.library),
+    () => clickOnItem(ItemName.book),
     () => clickOnItem(ItemName.shovel),
     () => setCurrentRoom(RoomName.yard),
     () => clickOnItem(ItemName.tree),

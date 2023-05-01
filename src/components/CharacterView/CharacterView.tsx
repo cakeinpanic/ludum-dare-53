@@ -16,8 +16,8 @@ function _CharacterView({
   typeof SpriteAnimator
 >) {
   const { room, sprite, roomPosition, name } = character;
-  console.log(name, roomPosition);
-  if (!room) return <></>;
+
+  if (room === null) return <></>;
   const position = calculatePositionForSomething(
     room,
     scale,

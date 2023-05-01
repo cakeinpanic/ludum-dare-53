@@ -121,15 +121,14 @@ export const moveFromRoom = (
   if (currentRoom === RoomName.bedroom && direction === "up" && act !== 3) {
     return false;
   }
-  if (
-    currentRoom === RoomName.kitchen &&
-    direction === "down" &&
-    (act === 1 ||
-      [ItemName.key, ItemName.skull, ItemName.shovel].indexOf(
-        currentItem?.name
-      ) === 0)
-  ) {
-    return false;
+  if (currentRoom === RoomName.kitchen && direction === "down") {
+    if (
+      act === 3 ||
+      items[ItemName.book].isVisible=== false
+    ) {
+    } else {
+      return false;
+    }
   }
   let { x, y } = { x: 0, y: 0 };
   if (direction === "up") {
