@@ -287,12 +287,12 @@ export const items: ItemsCollection = {
     description: "Desk with paper and pen",
     sprite: table,
     roomPosition: {
-      shiftX: -442,
+      shiftX: -439,
       shiftY: -85,
     },
     size: {
-      width: 400,
-      height: 400,
+      width: 336,
+      height: 300,
     },
   },
 };
