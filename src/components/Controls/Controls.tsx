@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { AvailableWays } from "../Game/types";
-import { MAX_SCALE, MIN_SCALE } from "../Game/useGame";
+
 import styles from "./Controls.module.scss";
 import { debounce, throttle } from "lodash";
 
@@ -63,15 +63,6 @@ export function Controls({ scale, setScale, move, availableWays }) {
           />
         );
       })}
-      {/* TODO - remove zoom */}
-      <div
-        className={styles.zoom + " " + (scale === MAX_SCALE ? styles.out : "")}
-        onClick={() =>
-          scale === MAX_SCALE ? setScale(MIN_SCALE) : setScale(MAX_SCALE)
-        }
-      >
-        -
-      </div>
     </>
   );
 }
