@@ -12,7 +12,9 @@ export const texts = {
   // vase without flowers
   "5": `Flowers from the garden would look good in this vase`,
   // Tree
-  "6": `Such a big tree...`,
+  "6": `Can't remember this tree being here`,
+  // Ma without letter
+  "7": `Mother: your uncle is preparing for the ritual. Can't believe I'm boiling liver today`,
 
   // Act 2
 

@@ -26,6 +26,9 @@ export const clickOnCharacterInteraction = (
     if (currentItem?.id === "flowers") {
       return giveFlowersToMother(items, characters, currentItem);
     }
+    if (currentItem?.id === "letter") {
+      return talkToMotherAboutLetter(items, characters, currentItem, act);
+    }
     return talkToMother(items, characters, currentItem, act);
   }
   if (characterName === "sister") {
@@ -78,16 +81,29 @@ const giveFlowersToMother = (
       [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
     },
     updateCharactersObject: {
-      ["ma"]: {
+      ma: {
         ...characters["ma"],
         room: RoomName.kitchen,
         roomPosition: { shiftX: -20, shiftY: 0 },
       },
     },
-
     newHelpText: getText("3"),
     nextAct: true,
     updatedStatus: { upstairsIsBlockedByMa: false },
+  };
+};
+
+const talkToMotherAboutLetter = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText: getText("1"),
   };
 };
 
@@ -101,7 +117,7 @@ const talkToMother = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: getText("1"),
+    newHelpText: getText("7"),
   };
 };
 
