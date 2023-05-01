@@ -33,13 +33,13 @@ export const texts = {
   "16": `You put the skull on the altar, it glows and ghost appears`,
 
   // talk to ghost
-  "19": "Ghost: there is a dark secret I'm gonna show you\"",
+  "19": "Ghost: there is a dark secret I'm gonna show you, come upstairs",
 
   // Act 3
   // exit Basement After Meeting Ghost
   "20": "I'm gonna lear a lot today...",
   // Talk to ghost
-  "21": "Ghost: I would help you",
+  "21": 'Ghost: I would help you, find the memory they hide',
   // Sister in living room
   "22": "Sister: You can't leave, you must spend quality time with the family, go talk to dad",
 
