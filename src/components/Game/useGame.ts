@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { clickOnCharacterInteraction } from "../../interactions/characters";
+import { clickOnItemInteraction } from "../../interactions/items";
+import { moveRoomInteraction } from "../../interactions/room";
+import { InteractionResult } from "../../interactions/types";
 import { moveFromRoom, RoomName } from "../../rooms/rooms";
-import {
-  clickOnCharacterInteraction,
-  clickOnItemInteraction,
-  moveRoomInteraction,
-} from "./interactions";
+
 import { startState } from "./startState";
 import { uniq as _uniq, filter as _filter } from "lodash";
 import {
@@ -90,37 +90,34 @@ export const useGame = (): useGameReturn => {
     };
     setAvailableWays(availableWays);
   }, [gameState.currentRoom]);
-  const applyMoveInteraction = useCallback(() => {
-    const {
+
+  const applyInteraction = useCallback(
+    ({
       newCurrentItem,
       updateCharactersObject,
       updateItemsObject,
       nextAct,
       newHelpText,
-    } = moveRoomInteraction(
-      gameState.currentRoom,
-      items,
-      characters,
-      currentItem,
-      gameState.act
-    );
-    setCurrentItem(newCurrentItem);
+    }: InteractionResult) => {
+      setCurrentItem(newCurrentItem);
 
-    setItems({
-      ...items,
-      ...updateItemsObject,
-    });
-    setCharacters({
-      ...characters,
-      ...updateCharactersObject,
-    });
-    if (nextAct) {
-      goToNextAct();
-    }
-    if (newHelpText) {
-      setHelpText(newHelpText);
-    }
-  }, [items, characters, currentItem, gameState.act, gameState.currentRoom]);
+      setItems({
+        ...items,
+        ...updateItemsObject,
+      });
+      setCharacters({
+        ...characters,
+        ...updateCharactersObject,
+      });
+      if (nextAct) {
+        goToNextAct();
+      }
+      if (newHelpText) {
+        setHelpText(newHelpText);
+      }
+    },
+    [items, characters, currentItem, gameState.act, gameState.currentRoom]
+  );
   const move = useCallback(
     (direction: keyof AvailableWays) => {
       const newRoom = moveFromRoom(
@@ -133,7 +130,16 @@ export const useGame = (): useGameReturn => {
       if (!newRoom) {
         return setHelpText("You can not go there");
       }
-      applyMoveInteraction();
+setTimeout(() => {
+      applyInteraction(
+        moveRoomInteraction(
+          gameState.currentRoom,
+          items,
+          characters,
+          currentItem,
+          gameState.act
+        )
+      )}, 400)
       setGameState((prevState) => ({
         ...prevState,
         currentRoom: newRoom,
@@ -151,27 +157,15 @@ export const useGame = (): useGameReturn => {
 
   const clickOnItem = useCallback(
     (itemId: Item["id"]) => {
-      const { newCurrentItem, updateItemsObject, newHelpText, nextAct } =
+      applyInteraction(
         clickOnItemInteraction(
           itemId,
           items,
           characters,
           currentItem,
           gameState.act
-        );
-
-      setCurrentItem(newCurrentItem);
-
-      setItems({
-        ...items,
-        ...updateItemsObject,
-      });
-      if (nextAct) {
-        goToNextAct();
-      }
-      if (newHelpText) {
-        setHelpText(newHelpText);
-      }
+        )
+      );
     },
     [items, currentItem, goToNextAct, setHelpText]
   );
@@ -194,37 +188,15 @@ export const useGame = (): useGameReturn => {
 
   const clickOnCharacter = useCallback(
     (characterName: CharacterName) => {
-      const {
-        newCurrentItem,
-        updateItemsObject,
-        updateCharactersObject,
-        newHelpText,
-        nextAct,
-      } = clickOnCharacterInteraction(
-        characterName,
-        items,
-        characters,
-        currentItem,
-        gameState.act
+      applyInteraction(
+        clickOnCharacterInteraction(
+          characterName,
+          items,
+          characters,
+          currentItem,
+          gameState.act
+        )
       );
-
-      setCurrentItem(newCurrentItem);
-      if (nextAct) {
-        goToNextAct();
-      }
-      setItems({
-        ...items,
-        ...updateItemsObject,
-      });
-
-      setCharacters({
-        ...characters,
-        ...updateCharactersObject,
-      });
-
-      if (newHelpText) {
-        setHelpText(newHelpText);
-      }
     },
     [items, characters, currentItem, gameState.act, goToNextAct, setHelpText]
   );
