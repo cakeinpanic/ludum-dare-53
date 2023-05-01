@@ -12,8 +12,12 @@ export const characters: CharactersCollection = {
     sprite: mama,
     description: "mother, she looks nervous and tired",
     roomPosition: {
-      shiftX: -100,
-      shiftY: 0,
+      shiftX: -150,
+      shiftY: -30,
+    },
+    size: {
+      height: 250,
+      width: 140,
     },
   },
   [CharacterName.uncle]: {
