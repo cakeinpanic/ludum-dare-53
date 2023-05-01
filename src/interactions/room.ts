@@ -179,6 +179,11 @@ export const goToAtticFirstTime = (
         room: RoomName.basement,
       },
     },
-    updateItemsObject: {},
+    updateItemsObject: {
+      [ItemName.bourbon]: {
+        ...characters[ItemName.bourbon],
+        collectable: true,
+      },
+    },
   };
 };

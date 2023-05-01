@@ -10,6 +10,7 @@ import birdCage from "./birdCage.png";
 import shovel from "./shovel.png";
 import altar from "./altar.png";
 import photo from "./photo.png";
+import bourbon from "./bourbon.png";
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -83,6 +84,23 @@ export const items: ItemsCollection = {
     size: {
       width: 60,
       height: 60,
+    },
+  },
+  [ItemName.bourbon]: {
+    id: ItemName.bourbon,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.library,
+    description: "Bottle of good bourbon",
+    sprite: bourbon,
+    roomPosition: {
+      shiftX: -380,
+      shiftY: 65,
+    },
+    size: {
+      width: 100,
+      height: 100,
     },
   },
   [ItemName.dirtPile]: {
