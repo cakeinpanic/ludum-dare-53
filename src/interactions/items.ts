@@ -208,6 +208,10 @@ export const grabABook = (
   currentItem: Item,
   act: number
 ): InteractionResult => {
+  console.log(
+    characters[CharacterName.pa].room,
+    characters[CharacterName.main].room
+  );
   if (
     characters[CharacterName.pa].room === RoomName.library &&
     characters[CharacterName.main].room === RoomName.library

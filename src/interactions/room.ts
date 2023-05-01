@@ -117,6 +117,7 @@ export const changeMainLocation = (
     [CharacterName.main]: {
       ...characters[CharacterName.main],
       roomPosition,
+      room: newRoom,
     },
     [CharacterName.uncle]: {
       ...characters[CharacterName.uncle],

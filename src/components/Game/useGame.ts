@@ -170,14 +170,9 @@ export const useGame = (): useGameReturn => {
   );
 
   useEffect(() => {
-    setCharacters((currentCharacters) => ({
-      ...currentCharacters,
-      [CharacterName.main]: {
-        ...currentCharacters[CharacterName.main],
-        room: gameState.currentRoom,
-      },
-    }));
-  }, [gameState.currentRoom]);
+    console.log(characters[CharacterName.main]);
+  }, [characters]);
+
   const goToNextAct = useCallback(() => {
     setGameState((prevState) => ({
       ...prevState,
