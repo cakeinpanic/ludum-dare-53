@@ -5,6 +5,13 @@
   height: $gameHeight;
   position: relative;
   overflow: hidden;
+
+  &.darker {
+    filter: brightness(0.8) sepia(0.1);
+  }
+  &.darkest {
+    filter: brightness(0.5) sepia(0.3);
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -15,13 +22,6 @@
 
 .house {
   position: absolute;
-
-  &.darker {
-    filter: brightness(0.8);
-  }
-  &.darkest {
-    filter: brightness(0.6);
-  }
 }
 
 .roomDummie {
@@ -41,6 +41,7 @@
   position: absolute;
   top: -30px;
   right: 0;
+  font-size: 0.6rem;
   color: #85806f;
   user-select: none;
   cursor: pointer;

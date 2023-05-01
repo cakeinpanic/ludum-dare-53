@@ -57,17 +57,19 @@ export function Game({ gameProps }) {
           Debug: Next move express({express.length - currentExpress} left)
         </div>
       )}
-      <div className={styles.game}>
+      <div
+        className={
+          styles.game +
+          " " +
+          (gameState.act === 2 ? styles.darker : "") +
+          " " +
+          (gameState.act === 3 ? styles.darkest : "")
+        }
+      >
         <House
           scale={scale}
           setScale={setScale}
-          className={
-            styles.house +
-            " " +
-            (gameState.act === 2 ? styles.darker : "") +
-            " " +
-            (gameState.act === 3 ? styles.darkest : "")
-          }
+          className={styles.house}
           setCurrentRoom={setCurrentRoom}
           currentRoom={gameState.currentRoom}
         />
