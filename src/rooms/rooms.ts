@@ -2,6 +2,7 @@ import {
   AvailableWays,
   CharacterName,
   CharactersCollection,
+  Game,
   Item,
   ItemName,
   ItemsCollection,
@@ -93,11 +94,11 @@ export const moveFromRoom = (
   characters: CharactersCollection,
   items: ItemsCollection,
   currentItem: Item,
-  act: number
+  { act, status }: Game
 ): RoomName | boolean => {
   if (
     currentRoom === RoomName.living &&
-    characters["ma"].room === RoomName.living &&
+    status.upstairsIsBlockedByMa &&
     direction === "up"
   ) {
     return false;
@@ -118,17 +119,19 @@ export const moveFromRoom = (
   if (currentRoom === RoomName.bedroom && direction === "down") {
     return false;
   }
-  if (currentRoom === RoomName.bedroom && direction === "up" && act !== 3) {
+  if (
+    currentRoom === RoomName.bedroom &&
+    direction === "up" &&
+    status.atticIsHidden
+  ) {
     return false;
   }
-  if (currentRoom === RoomName.kitchen && direction === "down") {
-    if (
-      act === 3 ||
-      items[ItemName.book].isVisible=== false
-    ) {
-    } else {
-      return false;
-    }
+  if (
+    currentRoom === RoomName.kitchen &&
+    direction === "down" &&
+    status.basementIsLocked
+  ) {
+    return false;
   }
   let { x, y } = { x: 0, y: 0 };
   if (direction === "up") {

@@ -65,7 +65,7 @@ export const useGame = (): useGameReturn => {
         characters,
         items,
         currentItem,
-        gameState.act
+        gameState
       ),
       down: !!moveFromRoom(
         gameState.currentRoom,
@@ -73,7 +73,7 @@ export const useGame = (): useGameReturn => {
         characters,
         items,
         currentItem,
-        gameState.act
+        gameState
       ),
       left: !!moveFromRoom(
         gameState.currentRoom,
@@ -81,7 +81,7 @@ export const useGame = (): useGameReturn => {
         characters,
         items,
         currentItem,
-        gameState.act
+        gameState
       ),
       right: !!moveFromRoom(
         gameState.currentRoom,
@@ -89,11 +89,11 @@ export const useGame = (): useGameReturn => {
         characters,
         items,
         currentItem,
-        gameState.act
+        gameState
       ),
     };
     setAvailableWays(availableWays);
-  }, [gameState.currentRoom, gameState.act]);
+  }, [gameState.currentRoom, gameState]);
 
   const applyInteraction = useCallback(
     ({
@@ -102,9 +102,13 @@ export const useGame = (): useGameReturn => {
       updateItemsObject,
       nextAct,
       newHelpText,
+      updatedStatus,
     }: InteractionResult) => {
       setCurrentItem(newCurrentItem);
-
+      setGameState((prevState) => ({
+        ...prevState,
+        status: { ...prevState.status, ...(updatedStatus || {}) },
+      }));
       setItems({
         ...items,
         ...updateItemsObject,
@@ -130,7 +134,7 @@ export const useGame = (): useGameReturn => {
         characters,
         items,
         currentItem,
-        gameState.act
+        gameState
       );
       if (!newRoom) {
         return;
@@ -154,14 +158,7 @@ export const useGame = (): useGameReturn => {
         currentRoom: newRoom as RoomName,
       }));
     },
-    [
-      characters,
-      currentItem,
-      gameState.currentRoom,
-      gameState.act,
-      items,
-      setHelpText,
-    ]
+    [characters, currentItem, gameState, gameState, items, setHelpText]
   );
 
   const goToNextAct = useCallback(() => {

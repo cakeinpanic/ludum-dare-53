@@ -199,6 +199,7 @@ export const grabABook = (
       },
     },
     updateCharactersObject: {},
+    updatedStatus: { basementIsLocked: false },
     newHelpText:
       "There is a key inside the book! Probably I can go to some new location now",
   };

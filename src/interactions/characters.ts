@@ -86,6 +86,7 @@ const giveFlowersToMother = (
     },
     newHelpText: "Mother went to put flowers in the vase.",
     nextAct: true,
+    updatedStatus: { upstairsIsBlockedByMa: false },
   };
 };
 
@@ -147,6 +148,7 @@ const showPhotoToGhost = (
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText:
-      "Look at this photo, you see where it's taken? It's on the acctic, let me show you the way upstairs",
+      "Look at this photo, you see where it's taken? It's on the attic, let me show you the way upstairs",
+    updatedStatus: { atticIsHidden: false },
   };
 };

@@ -1,5 +1,6 @@
 import {
   CharactersCollection,
+  Game,
   Item,
   ItemsCollection,
 } from "../components/Game/types";
@@ -10,4 +11,5 @@ export interface InteractionResult {
   updateCharactersObject: CharactersCollection;
   newHelpText?: string | null;
   nextAct?: boolean;
+  updatedStatus?: Partial<Game["status"]>;
 }
