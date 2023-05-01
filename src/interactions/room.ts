@@ -127,6 +127,10 @@ export const exitBasementAfterMeetingGhost = (
         ...characters[CharacterName.ghost],
         room: RoomName.bedroom,
       },
+      [CharacterName.sister]: {
+        ...characters[CharacterName.sister],
+        room: RoomName.living,
+      },
     },
     updateItemsObject: {},
     nextAct: true,

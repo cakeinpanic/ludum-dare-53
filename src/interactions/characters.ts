@@ -103,6 +103,8 @@ const talkToSister = (
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText:
-      "Sister: oh god, I have missed you so much! Tell me more about your life!",
+      act === 3
+        ? "Sister: you did not spend enough time with us today, go talk to dad"
+        : "Sister: oh god, I have missed you so much! Tell me more about your life!",
   };
 };

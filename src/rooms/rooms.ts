@@ -1,5 +1,6 @@
 import {
   AvailableWays,
+  CharacterName,
   CharactersCollection,
   Item,
   ItemName,
@@ -101,10 +102,23 @@ export const moveFromRoom = (
   ) {
     return false;
   }
+  if (
+    currentRoom === RoomName.living &&
+    characters[CharacterName.sister].room === RoomName.living &&
+    direction === "left"
+  ) {
+    return false;
+  }
   if (currentRoom === RoomName.kitchen && direction === "up") {
     return false;
   }
   if (currentRoom === RoomName.kitchen && direction === "up") {
+    return false;
+  }
+  if (currentRoom === RoomName.bedroom && direction === "down") {
+    return false;
+  }
+  if (currentRoom === RoomName.bedroom && direction === "up" && act !== 3) {
     return false;
   }
   if (
