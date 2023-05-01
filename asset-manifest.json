@@ -1,14 +1,17 @@
 {
   "files": {
     "main.css": "/ludum-dare-53/static/css/main.ea0a8060.css",
-    "main.js": "/ludum-dare-53/static/js/main.db5d3e61.js",
+    "main.js": "/ludum-dare-53/static/js/main.34ac964b.js",
     "static/js/926.4e69f33a.chunk.js": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js",
     "static/js/5.de7056da.chunk.js": "/ludum-dare-53/static/js/5.de7056da.chunk.js",
     "ld_53_main_1.mp3": "/ludum-dare-53/9757c4c5376aba997f93d3e5d1fe98c4.mp3",
+    "ld_53_amb_basement.mp3": "/ludum-dare-53/bad3f77e4bcff6ed313ae75cb64c86e8.mp3",
     "ld_53_amb_garden.mp3": "/ludum-dare-53/effa6ffe1d9b022ab7f2b40185adf269.mp3",
+    "ld_53_amb_attic.mp3": "/ludum-dare-53/f1c1514a2abe87cdb3cd1e7f654b32e2.mp3",
     "ld_53_amb_living.mp3": "/ludum-dare-53/af99fc9d5c3159cf4f7bdc1802a7ead3.mp3",
     "ld_53_amb_dining.mp3": "/ludum-dare-53/87120a69a5f217e7423f3a537dcb6e78.mp3",
-    "ld_53_main_2.mp3": "/ludum-dare-53/d04951e28e63b81b4b64ff4a4a6731f5.mp3",
+    "ld_53_main_3.mp3": "/ludum-dare-53/e37c8f483ad056b9db2d23d740890c96.mp3",
+    "ld_53_main_2.mp3": "/ludum-dare-53/341c69944910206473c1904bc1dc19be.mp3",
     "static/media/flowers.png": "/ludum-dare-53/static/media/flowers.0422436544f6b1a8736b.png",
     "static/media/blanket.png": "/ludum-dare-53/static/media/blanket.d873140050fa3e1976ca.png",
     "static/media/pile.png": "/ludum-dare-53/static/media/pile.4f2ec9c40102b71344d6.png",
@@ -30,12 +33,12 @@
     "static/media/zoom-out.svg": "/ludum-dare-53/static/media/zoom-out.628c927ca014290437ed.svg",
     "index.html": "/ludum-dare-53/index.html",
     "main.ea0a8060.css.map": "/ludum-dare-53/static/css/main.ea0a8060.css.map",
-    "main.db5d3e61.js.map": "/ludum-dare-53/static/js/main.db5d3e61.js.map",
+    "main.34ac964b.js.map": "/ludum-dare-53/static/js/main.34ac964b.js.map",
     "926.4e69f33a.chunk.js.map": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js.map",
     "5.de7056da.chunk.js.map": "/ludum-dare-53/static/js/5.de7056da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea0a8060.css",
-    "static/js/main.db5d3e61.js"
+    "static/js/main.34ac964b.js"
   ]
 }
