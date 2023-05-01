@@ -9,7 +9,7 @@ export const characters: CharactersCollection = {
     name: CharacterName.ma,
     room: RoomName.living,
     sprite: mama,
-    description: "My mama who I love very much",
+    description: "My mother, she looks nervous and tired",
     roomPosition: {
       shiftX: -100,
       shiftY: 0,
@@ -28,7 +28,34 @@ export const characters: CharactersCollection = {
     name: CharacterName.sister,
     room: RoomName.kitchen,
     sprite: sister,
-    description: "Oh, siiister, my siiister, don't you want to dance with me?",
+    description: "Elder sister, her haughty grin never leaves her face",
+    roomPosition: {
+      shiftX: -200,
+      shiftY: 0,
+    },
+  },
+  [CharacterName.pa]: {
+    name: CharacterName.pa,
+    room: RoomName.library,
+    description: "Father, always in his thoughts",
+    roomPosition: {
+      shiftX: -200,
+      shiftY: 0,
+    },
+  },
+  [CharacterName.bird]: {
+    name: CharacterName.bird,
+    room: RoomName.bedroom,
+    description: "Bird, I taught her to say a few phrases long time ago",
+    roomPosition: {
+      shiftX: -200,
+      shiftY: 0,
+    },
+  },
+  [CharacterName.ghost]: {
+    name: CharacterName.ghost,
+    room: RoomName.basement,
+    description: "???",
     roomPosition: {
       shiftX: -200,
       shiftY: 0,
@@ -37,6 +64,6 @@ export const characters: CharactersCollection = {
   [CharacterName.main]: {
     name: CharacterName.main,
     sprite: character,
-    description: `I'm Luntik`,
+    description: `I'm Luntik`, // I born
   },
 };

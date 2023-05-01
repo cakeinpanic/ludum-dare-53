@@ -13,6 +13,7 @@ export enum CharacterName {
   pa = "pa",
   uncle = "uncle",
   sister = "sister",
+  bird = "bird",
   ghost = "ghost",
 }
 

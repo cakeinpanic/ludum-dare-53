@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { moveFromRoom, RoomName } from "../../rooms/rooms";
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { moveFromRoom, RoomName } from '../../rooms/rooms'
 import {
   clickOnCharacterInteraction,
   clickOnItemInteraction,
   expressTo2,
-} from "./interactions";
-import { startState } from "./startState";
-import { uniq as _uniq, filter as _filter } from "lodash";
+} from './interactions'
+import { startState } from './startState'
+import { uniq as _uniq, filter as _filter } from 'lodash'
 import {
   AvailableWays,
   Character,
@@ -16,80 +16,80 @@ import {
   Item,
   ItemName,
   ItemsCollection,
-} from "./types";
+} from './types'
 
-export const MAX_SCALE = 1;
-export const MIN_SCALE = 0.5;
+export const MAX_SCALE = 1
+export const MIN_SCALE = 0.5
 
 export interface useGameReturn {
-  gameState: Game;
-  availableWays: AvailableWays;
-  characters: Character[];
-  items: ItemsCollection;
-  currentItem: Item | null;
+  gameState: Game
+  availableWays: AvailableWays
+  characters: Character[]
+  items: ItemsCollection
+  currentItem: Item | null
 
-  clickOnItem: (item: Item["id"]) => boolean;
-  clickOnCharacter: (character: Character["name"]) => void;
-  move: (direction: keyof AvailableWays) => void;
-  setCurrentRoom: (room: RoomName) => void;
+  clickOnItem: (item: Item['id']) => boolean
+  clickOnCharacter: (character: Character['name']) => void
+  move: (direction: keyof AvailableWays) => void
+  setCurrentRoom: (room: RoomName) => void
 }
 
 export const useGame = (): useGameReturn => {
-  const [gameState, setGameState] = useState<Game>(startState.game);
-  const [scale, setScale] = React.useState(MAX_SCALE);
+  const [gameState, setGameState] = useState<Game>(startState.game)
+  const [scale, setScale] = React.useState(MAX_SCALE)
   const [availableWays, setAvailableWays] = useState<AvailableWays>(
-    startState.availableWays
-  );
+    startState.availableWays,
+  )
 
   const [characters, setCharacters] = useState<CharactersCollection>(
-    startState.characters
-  );
-  const [items, setItems] = useState<ItemsCollection>(startState.items);
+    startState.characters,
+  )
+  const [items, setItems] = useState<ItemsCollection>(startState.items)
   const [currentItem, setCurrentItem] = useState<Item | null>(
-    startState.currentItem
-  );
+    startState.currentItem,
+  )
 
   const setHelpText = useCallback((text: string) => {
     setGameState((prevState) => ({
       ...prevState,
       helpText: text,
-    }));
-  }, []);
+    }))
+  }, [])
 
   // calc available ways
   useEffect(() => {
     const availableWays = {
       up: !!moveFromRoom(
         gameState.currentRoom,
-        "up",
+        'up',
         characters,
         items,
-        currentItem
+        currentItem,
       ),
       down: !!moveFromRoom(
         gameState.currentRoom,
-        "down",
+        'down',
         characters,
         items,
-        currentItem
+        currentItem,
       ),
       left: !!moveFromRoom(
         gameState.currentRoom,
-        "left",
+        'left',
         characters,
         items,
-        currentItem
+        currentItem,
       ),
       right: !!moveFromRoom(
         gameState.currentRoom,
-        "right",
+        'right',
         characters,
         items,
-        currentItem
+        currentItem,
       ),
-    };
-    setAvailableWays(availableWays);
-  }, [gameState.currentRoom]);
+    }
+    setAvailableWays(availableWays)
+  }, [gameState.currentRoom])
 
   const move = useCallback(
     (direction: keyof AvailableWays) => {
@@ -98,46 +98,50 @@ export const useGame = (): useGameReturn => {
         direction,
         characters,
         items,
-        currentItem
-      );
+        currentItem,
+      )
       if (!newRoom) {
-        return setHelpText("You can not go there");
+        return setHelpText('You can not go there')
       }
       setGameState((prevState) => ({
         ...prevState,
         currentRoom: newRoom,
-      }));
+      }))
     },
-    [characters, currentItem, gameState.currentRoom, items, setHelpText]
-  );
-
-  const clickOnItem = useCallback(
-    (itemId: Item["id"]) => {
-      const { newCurrentItem, updateItemsObject, newHelpText, nextAct } =
-        clickOnItemInteraction(items[itemId], currentItem);
-
-      setCurrentItem(newCurrentItem);
-
-      setItems({
-        ...items,
-        ...updateItemsObject,
-      });
-      if (nextAct) {
-        goToNextAct();
-      }
-      if (newHelpText) {
-        setHelpText(newHelpText);
-      }
-    },
-    [items, currentItem, goToNextAct, setHelpText]
-  );
+    [characters, currentItem, gameState.currentRoom, items, setHelpText],
+  )
 
   const goToNextAct = useCallback(() => {
     setGameState((prevState) => ({
       ...prevState,
       act: prevState.act + 1 < 4 ? prevState.act + 1 : 3,
-    }));
-  }, [setGameState]);
+    }))
+  }, [setGameState])
+
+  const clickOnItem = useCallback(
+    (itemId: Item['id']) => {
+      const {
+        newCurrentItem,
+        updateItemsObject,
+        newHelpText,
+        nextAct,
+      } = clickOnItemInteraction(items[itemId], currentItem)
+
+      setCurrentItem(newCurrentItem)
+
+      setItems({
+        ...items,
+        ...updateItemsObject,
+      })
+      if (nextAct) {
+        goToNextAct()
+      }
+      if (newHelpText) {
+        setHelpText(newHelpText)
+      }
+    },
+    [items, currentItem, goToNextAct, setHelpText],
+  )
 
   useEffect(() => {
     if (gameState.act === 2) {
@@ -147,13 +151,13 @@ export const useGame = (): useGameReturn => {
           ...currentItems[ItemName.blanket],
           isVisible: true,
         },
-      }));
+      }))
       setCharacters((currentCharacters) => ({
         ...currentCharacters,
-        "ma": { ...currentCharacters["ma"], room: RoomName.kitchen },
-      }));
+        ma: { ...currentCharacters['ma'], room: RoomName.kitchen },
+      }))
     }
-  }, [gameState.act]);
+  }, [gameState.act])
 
   const clickOnCharacter = useCallback(
     (characterName: CharacterName) => {
@@ -168,37 +172,37 @@ export const useGame = (): useGameReturn => {
         items,
         characters,
         currentItem,
-        gameState.act
-      );
+        gameState.act,
+      )
 
-      setCurrentItem(newCurrentItem);
+      setCurrentItem(newCurrentItem)
       if (nextAct) {
-        goToNextAct();
+        goToNextAct()
       }
       setItems({
         ...items,
         ...updateItemsObject,
-      });
+      })
 
       setCharacters({
         ...characters,
         ...updateCharactersObject,
-      });
+      })
 
       if (newHelpText) {
-        setHelpText(newHelpText);
+        setHelpText(newHelpText)
       }
     },
-    [items, characters, currentItem, gameState.act, goToNextAct, setHelpText]
-  );
+    [items, characters, currentItem, gameState.act, goToNextAct, setHelpText],
+  )
 
   //   const teleport = useCallback((room: RoomName) => {}, []);
   const setCurrentRoom = useCallback((room: RoomName) => {
     setGameState((prevState) => ({
       ...prevState,
       currentRoom: room,
-    }));
-  }, []);
+    }))
+  }, [])
 
   return {
     scale,
@@ -212,5 +216,5 @@ export const useGame = (): useGameReturn => {
     clickOnCharacter,
     move,
     setCurrentRoom,
-  };
-};
+  }
+}
