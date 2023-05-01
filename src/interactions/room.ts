@@ -39,6 +39,15 @@ export const moveRoomInteraction = (
       ...fatherRunsToTheBird(items, characters),
     };
   }
+  if (
+    oldRoom === RoomName.basement &&
+    characters[CharacterName.ghost].room === RoomName.basement
+  ) {
+    return {
+      ...result.updateCharactersObject,
+      ...exitBasementAfterMeetingGhost(items, characters),
+    };
+  }
   return result;
 };
 
@@ -84,5 +93,23 @@ export const fatherRunsToTheBird = (
     updateItemsObject: {},
     newHelpText:
       "Met father on the way from bedroom – he was rushing to check his bird",
+  };
+};
+
+export const exitBasementAfterMeetingGhost = (
+  items: ItemsCollection,
+  characters: CharactersCollection
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateCharactersObject: {
+      [CharacterName.ghost]: {
+        ...characters[CharacterName.ghost],
+        room: RoomName.kitchen,
+      },
+    },
+    updateItemsObject: {},
+    nextAct: true,
+    newHelpText: "I'm gonna lear a lot today...",
   };
 };

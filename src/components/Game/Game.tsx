@@ -31,6 +31,8 @@ export function Game({ gameProps }) {
     () => setCurrentRoom(RoomName.yard),
     () => clickOnItem(ItemName.tree),
     () => clickOnItem(ItemName.dirtPile),
+    () => setCurrentRoom(RoomName.basement),
+    () => clickOnItem(ItemName.altar),
   ];
 
   const [currentExpress, setCurrentExpress] = useState(0);
