@@ -229,7 +229,7 @@ export const grabABook = (
       [ItemName.book]: {
         ...items[ItemName.book],
         isActive: false,
-        isVisible: false,
+        isVisible: true,
       },
     },
     updateCharactersObject: {},

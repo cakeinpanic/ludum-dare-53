@@ -81,12 +81,12 @@ export const items: ItemsCollection = {
     description: "Book I cant not recognize",
     sprite: book,
     roomPosition: {
-      shiftX: 340,
-      shiftY: -30,
+      shiftX: 370,
+      shiftY: -37,
     },
     size: {
-      width: 60,
-      height: 60,
+      width: 90,
+      height: 90,
     },
   },
   [ItemName.bourbon]: {
