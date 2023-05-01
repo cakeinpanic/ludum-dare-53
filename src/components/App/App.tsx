@@ -55,7 +55,7 @@ function App() {
   return (
     <div className={styles.App}>
       {showMenu ? (
-        <Letter onClick={() => menuClick()} />
+        <Letter onExit={() => menuClick()} />
       ) : (
         <>
           <Game gameProps={gameProps} />

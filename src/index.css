@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat:wght@500&family=Rubik+Mono+One&display=swap");
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,8 +13,6 @@ body {
 }
 
 body {
-  /*font-family: 'Roboto', sans-serif;*/
-  font-family: "Abril Fatface", cursive;
   font-family: "Rubik Mono One", sans-serif;
   background-color: #171823;
 }
