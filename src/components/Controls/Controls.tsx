@@ -2,9 +2,14 @@ import React, { useCallback, useEffect } from "react";
 import { AvailableWays } from "../Game/types";
 import { MAX_SCALE, MIN_SCALE } from "../Game/useGame";
 import styles from "./Controls.module.scss";
+import { debounce, throttle } from "lodash";
 
 export function Controls({ scale, setScale, move, availableWays }) {
   const directions = ["up", "down", "left", "right"];
+  const debounceMove = useCallback(throttle(move, 2000, { heading: true }), [
+    move,
+  ]);
+
   const moveOnMap = useCallback(
     (e) => {
       let direction: keyof AvailableWays | undefined;
@@ -26,10 +31,10 @@ export function Controls({ scale, setScale, move, availableWays }) {
         e.preventDefault();
       }
       if (direction) {
-        move(direction);
+        debounceMove(direction);
       }
     },
-    [move]
+    [debounceMove]
   );
 
   useEffect(() => {
