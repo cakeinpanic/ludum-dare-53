@@ -1,4 +1,3 @@
-import { RoomName } from "../rooms/rooms";
 import {
   CharacterName,
   CharactersCollection,
@@ -6,6 +5,7 @@ import {
   ItemName,
   ItemsCollection,
 } from "../components/Game/types";
+import { RoomName } from "../rooms/rooms";
 import { InteractionResult } from "./types";
 
 const interactionPrerequisites = {
@@ -32,12 +32,22 @@ export const clickOnItemInteraction = (
     return result;
   }
 
+  if (
+    interactionPrerequisites[item.id] &&
+    currentItem?.id !== interactionPrerequisites[item.id]
+  ) {
+    result.newHelpText = `Something's missing to interact with ${item.id}`;
+    return result;
+  }
+
   if (item.collectable) {
-    if (currentItem?.id !== interactionPrerequisites[item.id]) {
-      result.newHelpText = `Something's missing to interact with ${item.id}`;
+    if (
+      itemName === ItemName.book &&
+      characters[CharacterName.pa].room === RoomName.library
+    ) {
+      result.newHelpText = `Father: don't touch my books, they are older than you`;
       return result;
     }
-
     return {
       newCurrentItem: item,
       updateItemsObject: {
@@ -51,6 +61,7 @@ export const clickOnItemInteraction = (
   if (item.id === ItemName.birdCage && currentItem?.id === ItemName.blanket) {
     return putBlanketOnABird(items, characters, currentItem, act);
   }
+
   switch (item.id) {
     case ItemName.tree:
       result.newHelpText = `Such a big tree....`;

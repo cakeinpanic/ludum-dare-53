@@ -34,7 +34,7 @@ export const fatherRunsToTheBird = (
 ): InteractionResult => {
   return {
     newCurrentItem: null,
-    updateItemsObject: {},
+
     updateCharactersObject: {
       [CharacterName.pa]: {
         ...characters[CharacterName.pa],
