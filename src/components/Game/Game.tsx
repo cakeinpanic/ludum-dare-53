@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { moveFromRoom, RoomName } from "../../rooms/rooms";
+import React, { useState } from "react";
+import { RoomName } from "../../rooms/rooms";
 
 import { CharacterView } from "../CharacterView/CharacterView";
 import { House } from "../House/House";
 import { ItemView } from "../ItemView/ItemView";
 import styles from "./Game.module.scss";
-import { AvailableWays, CharacterName, ItemName } from "./types";
+import { CharacterName, ItemName } from "./types";
 
 export function Game({ gameProps }) {
   const {
@@ -25,6 +25,7 @@ export function Game({ gameProps }) {
     () => clickOnItem(ItemName.flowers),
     () => clickOnCharacter(CharacterName.ma),
     () => clickOnItem(ItemName.blanket),
+    () => setCurrentRoom(RoomName.bedroom),
     () => clickOnItem(ItemName.birdCage),
     () => setCurrentRoom(RoomName.library),
     () => clickOnItem(ItemName.book),
