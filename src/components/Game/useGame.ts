@@ -128,12 +128,9 @@ export const useGame = (): useGameReturn => {
       if (nextAct) {
         goToNextAct();
       }
-      if (newHelpText) {
-        setHelpText(newHelpText);
-      }
-      if (newSubs) {
-        setSubs(newSubs);
-      }
+
+      setHelpText(newHelpText);
+      setSubs(newSubs);
     },
     [items, characters, currentItem, gameState.act, gameState.currentRoom]
   );

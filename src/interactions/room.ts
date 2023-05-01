@@ -29,6 +29,7 @@ export const moveRoomInteraction = (
       gameState
     ),
     newHelpText: null,
+    newSubs: "",
   };
 
   if (
