@@ -1,3 +1,4 @@
+import { merge } from "lodash";
 import {
   CharacterName,
   CharactersCollection,
@@ -5,10 +6,9 @@ import {
   ItemName,
   ItemsCollection,
 } from "../components/Game/types";
-import { RoomName, roomPositions } from "../rooms/rooms";
-import { merge } from "lodash";
-import { InteractionResult } from "./types";
+import { RoomName } from "../rooms/rooms";
 import { getText } from "./texts";
+import { InteractionResult } from "./types";
 
 export const moveRoomInteraction = (
   oldRoom: RoomName,
@@ -47,7 +47,7 @@ export const moveRoomInteraction = (
   ) {
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
-      exitBasementAfterMeetingGhost(items, characters)
+      exitBasementAfterMeetingGhost(items, characters, act)
     );
   }
   if (newRoom === RoomName.attick) {
@@ -91,7 +91,11 @@ export const changeMainLocation = (
     };
   }
 
-  if (act === 3 && characters[CharacterName.uncle].room === oldRoom) {
+  if (
+    act === 3 &&
+    characters[CharacterName.uncle].room === oldRoom &&
+    newRoom !== RoomName.basement
+  ) {
     uncleUpdate.room = newRoom;
     uncleUpdate.roomPosition = { ...roomPosition };
     uncleUpdate.roomPosition.shiftX += 150;
@@ -129,14 +133,15 @@ export const fatherRunsToTheBird = (
 
 export const exitBasementAfterMeetingGhost = (
   items: ItemsCollection,
-  characters: CharactersCollection
+  characters: CharactersCollection,
+  act: number
 ): InteractionResult => {
   return {
     newCurrentItem: null,
     updateCharactersObject: {
       [CharacterName.ghost]: {
         ...characters[CharacterName.ghost],
-        room: RoomName.bedroom,
+        room: act === 2 ? RoomName.bedroom : RoomName.basement,
       },
       [CharacterName.sister]: {
         ...characters[CharacterName.sister],
