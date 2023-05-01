@@ -12,6 +12,7 @@ import altar from "./altar.png";
 import photo from "./photo.png";
 import bourbon from "./bourbon.png";
 import poison from "./poison.png";
+import table from "./table.png";
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -277,53 +278,21 @@ export const items: ItemsCollection = {
       height: 100,
     },
   },
-  [ItemName.recordPlayer]: {
-    id: ItemName.recordPlayer,
+  [ItemName.table]: {
+    id: ItemName.table,
     isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.bedroom,
-  },
-  [ItemName.secretButton]: {
-    id: ItemName.secretButton,
-    isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.bedroom,
-  },
-  [ItemName.secretButton]: {
-    id: ItemName.secretButton,
-    isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.bedroom,
-  },
-  [ItemName.sacrificeCircle]: {
-    id: ItemName.sacrificeCircle,
-    isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.basement,
-  },
-  [ItemName.paperPile]: {
-    id: ItemName.paperPile,
-    isActive: true,
-    isVisible: false,
+    isVisible: true,
     collectable: false,
     room: RoomName.attick,
-  },
-  [ItemName.knife]: {
-    id: ItemName.knife,
-    isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.attick,
-  },
-  [ItemName.desk]: {
-    id: ItemName.desk,
-    isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.attick,
+    description: "Desk with paper and pen",
+    sprite: table,
+    roomPosition: {
+      shiftX: -442,
+      shiftY: -85,
+    },
+    size: {
+      width: 400,
+      height: 400,
+    },
   },
 };

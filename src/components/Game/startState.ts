@@ -20,7 +20,7 @@ interface StartState {
 export const startState: StartState = {
   game: {
     act: 1,
-    currentRoom: RoomName.basement,
+    currentRoom: RoomName.attick,
     status: {
       upstairsIsBlockedByMa: true,
       atticIsHidden: true,
