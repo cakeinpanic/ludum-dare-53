@@ -118,7 +118,12 @@ export const exitBasementAfterMeetingGhost = (
 ): InteractionResult => {
   return {
     newCurrentItem: null,
-    updateCharactersObject: {},
+    updateCharactersObject: {
+      [CharacterName.ghost]: {
+        ...characters[CharacterName.ghost],
+        room: RoomName.bedroom,
+      },
+    },
     updateItemsObject: {},
     nextAct: true,
     newHelpText: "I'm gonna lear a lot today...",

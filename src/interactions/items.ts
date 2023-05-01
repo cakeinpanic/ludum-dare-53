@@ -153,7 +153,7 @@ export const sacrifice = (
         room: RoomName.basement,
       },
     },
-    newHelpText: `Oh, there's something under the tree!`,
+    newHelpText: `Ghost: Hi... It's me, your little brother. You almost don't remember me, do you?`,
   };
 };
 
