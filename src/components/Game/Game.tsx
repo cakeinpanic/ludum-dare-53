@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { moveFromRoom, RoomName } from "../../rooms/rooms";
 
 import { CharacterView } from "../CharacterView/CharacterView";
 import { House } from "../House/House";
@@ -24,6 +25,9 @@ export function Game({ gameProps }) {
     () => clickOnItem(ItemName.flowers),
     () => clickOnCharacter(CharacterName.ma),
     () => clickOnItem(ItemName.blanket),
+    () => clickOnItem(ItemName.birdCage),
+    () => setCurrentRoom(RoomName.library),
+    () => setCurrentRoom(RoomName.basement),
   ];
 
   const [currentExpress, setCurrentExpress] = useState(0);

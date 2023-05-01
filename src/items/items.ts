@@ -7,7 +7,7 @@ import blanket from "./blanket.png";
 import vase from "./vase.png";
 import book from "./book.png";
 import birdCage from "./birdCage.png";
-
+import shovel from "./shovel.png";
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -128,6 +128,23 @@ export const items: ItemsCollection = {
     size: {
       width: 230,
       height: 230,
+    },
+  },
+  [ItemName.shovel]: {
+    id: ItemName.shovel,
+    isActive: true,
+    isVisible: true,
+    collectable: true,
+    sprite: shovel,
+    description: "Rusty shovel",
+    room: RoomName.basement,
+    roomPosition: {
+      shiftX: 300,
+      shiftY: -20,
+    },
+    size: {
+      width: 138,
+      height: 248,
     },
   },
   [ItemName.flowers]: {
