@@ -55,6 +55,12 @@ export const changeMainLocation = (
       shiftY: 0,
     };
   }
+  if (newRoom === RoomName.basement) {
+    roomPosition = {
+      shiftX: 20,
+      shiftY: 0,
+    };
+  }
   return {
     ...characters,
     [CharacterName.main]: {
@@ -77,6 +83,6 @@ export const fatherRunsToTheBird = (
     },
     updateItemsObject: {},
     newHelpText:
-      "Meth father on the way from bedroom – he was rushing to check his bird",
+      "Met father on the way from bedroom – he was rushing to check his bird",
   };
 };

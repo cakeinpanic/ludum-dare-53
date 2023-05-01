@@ -45,7 +45,7 @@ export const characters: CharactersCollection = {
   },
   [CharacterName.ghost]: {
     name: CharacterName.ghost,
-    room: RoomName.basement,
+    room: null,
     description: "???",
     roomPosition: {
       shiftX: -200,

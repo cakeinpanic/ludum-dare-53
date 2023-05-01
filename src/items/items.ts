@@ -8,6 +8,8 @@ import vase from "./vase.png";
 import book from "./book.png";
 import birdCage from "./birdCage.png";
 import shovel from "./shovel.png";
+import altar from "./altar.png";
+
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -139,12 +141,29 @@ export const items: ItemsCollection = {
     description: "Rusty shovel",
     room: RoomName.basement,
     roomPosition: {
-      shiftX: 300,
+      shiftX: -90,
       shiftY: -20,
     },
     size: {
       width: 138,
       height: 248,
+    },
+  },
+  [ItemName.altar]: {
+    id: ItemName.altar,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    sprite: altar,
+    description: "WTH is this, human sacrifice??",
+    room: RoomName.basement,
+    roomPosition: {
+      shiftX: 200,
+      shiftY: -70,
+    },
+    size: {
+      width: 300,
+      height: 300,
     },
   },
   [ItemName.flowers]: {

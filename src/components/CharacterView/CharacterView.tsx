@@ -17,7 +17,7 @@ function _CharacterView({
 >) {
   const { room, sprite, roomPosition, name } = character;
   console.log(name, roomPosition);
-
+  if (!room) return <></>;
   const position = calculatePositionForSomething(
     room,
     scale,

@@ -91,7 +91,8 @@ export const moveFromRoom = (
   direction: keyof AvailableWays,
   characters: CharactersCollection,
   items: ItemsCollection,
-  currentItem: Item
+  currentItem: Item,
+  act: number
 ): RoomName | boolean => {
   if (
     currentRoom === RoomName.living &&
@@ -109,7 +110,10 @@ export const moveFromRoom = (
   if (
     currentRoom === RoomName.kitchen &&
     direction === "down" &&
-    currentItem?.id !== ItemName.key
+    (act === 1 ||
+      [ItemName.key, ItemName.skull, ItemName.shovel].indexOf(
+        currentItem?.name
+      ) === 0)
   ) {
     return false;
   }

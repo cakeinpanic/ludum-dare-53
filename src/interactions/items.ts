@@ -12,6 +12,7 @@ const interactionPrerequisites = {
   [ItemName.flowers]: ItemName.scissors,
   [ItemName.birdCage]: ItemName.blanket,
   [ItemName.tree]: ItemName.shovel,
+  [ItemName.altar]: ItemName.skull,
 };
 
 export const clickOnItemInteraction = (
@@ -61,6 +62,9 @@ export const clickOnItemInteraction = (
   }
   if (itemName === ItemName.tree && currentItem?.id === ItemName.shovel) {
     return digUnderTheTree(items, characters, currentItem, act);
+  }
+  if (itemName === ItemName.altar && currentItem?.id === ItemName.skull) {
+    return sacrifice(items, characters, currentItem, act);
   }
   if (itemName === ItemName.dirtPile) {
     return lookInDirt(items, characters, currentItem, act);
@@ -126,6 +130,29 @@ export const digUnderTheTree = (
       },
     },
     updateCharactersObject: {},
+    newHelpText: `Oh, there's something under the tree!`,
+  };
+};
+export const sacrifice = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateItemsObject: {
+      [ItemName.altar]: {
+        ...items[ItemName.altar],
+        isActive: false,
+      },
+    },
+    updateCharactersObject: {
+      [CharacterName.ghost]: {
+        ...characters[CharacterName.ghost],
+        room: RoomName.basement,
+      },
+    },
     newHelpText: `Oh, there's something under the tree!`,
   };
 };

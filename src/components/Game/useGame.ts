@@ -64,32 +64,36 @@ export const useGame = (): useGameReturn => {
         "up",
         characters,
         items,
-        currentItem
+        currentItem,
+        gameState.act
       ),
       down: !!moveFromRoom(
         gameState.currentRoom,
         "down",
         characters,
         items,
-        currentItem
+        currentItem,
+        gameState.act
       ),
       left: !!moveFromRoom(
         gameState.currentRoom,
         "left",
         characters,
         items,
-        currentItem
+        currentItem,
+        gameState.act
       ),
       right: !!moveFromRoom(
         gameState.currentRoom,
         "right",
         characters,
         items,
-        currentItem
+        currentItem,
+        gameState.act
       ),
     };
     setAvailableWays(availableWays);
-  }, [gameState.currentRoom]);
+  }, [gameState.currentRoom, gameState.act]);
 
   const applyInteraction = useCallback(
     ({
@@ -125,7 +129,8 @@ export const useGame = (): useGameReturn => {
         direction,
         characters,
         items,
-        currentItem
+        currentItem,
+        gameState.act
       );
       if (!newRoom) {
         return;
@@ -149,7 +154,14 @@ export const useGame = (): useGameReturn => {
         currentRoom: newRoom as RoomName,
       }));
     },
-    [characters, currentItem, gameState.currentRoom, items, setHelpText]
+    [
+      characters,
+      currentItem,
+      gameState.currentRoom,
+      gameState.act,
+      items,
+      setHelpText,
+    ]
   );
 
   const goToNextAct = useCallback(() => {
