@@ -36,7 +36,8 @@ export const moveRoomInteraction = (
     gameState.act === 2 &&
     newRoom === RoomName.library &&
     oldRoom === RoomName.bedroom &&
-    items[ItemName.blanket].room === RoomName.bedroom
+    items[ItemName.blanket].room === RoomName.bedroom &&
+    items[ItemName.blanket].isVisible
   ) {
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
