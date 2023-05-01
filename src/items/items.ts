@@ -11,6 +11,7 @@ import shovel from "./shovel.png";
 import altar from "./altar.png";
 import photo from "./photo.png";
 import bourbon from "./bourbon.png";
+import poison from "./poison.png";
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -103,6 +104,7 @@ export const items: ItemsCollection = {
       height: 100,
     },
   },
+
   [ItemName.dirtPile]: {
     id: ItemName.dirtPile,
     isActive: true,
@@ -183,6 +185,30 @@ export const items: ItemsCollection = {
       width: 138,
       height: 248,
     },
+  },
+  [ItemName.poison]: {
+    id: ItemName.poison,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    sprite: poison,
+    description: "Rat poison",
+    room: RoomName.basement,
+    roomPosition: {
+      shiftX: 50,
+      shiftY: -160,
+    },
+    size: {
+      width: 100,
+      height: 100,
+    },
+  },
+  [ItemName.poisonedDrink]: {
+    id: ItemName.poisonedDrink,
+    isActive: true,
+    isVisible: false,
+    collectable: false,
+    description: "Poisoned bourbon",
   },
   [ItemName.altar]: {
     id: ItemName.altar,

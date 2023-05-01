@@ -181,8 +181,9 @@ export const goToAtticFirstTime = (
     },
     updateItemsObject: {
       [ItemName.bourbon]: {
-        ...characters[ItemName.bourbon],
+        ...items[ItemName.bourbon],
         collectable: true,
+        isVisible: true,
       },
     },
   };

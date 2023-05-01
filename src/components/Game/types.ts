@@ -46,6 +46,7 @@ export enum ItemName {
   key = "key",
   glass = "glass",
   atticKey = "atticKey",
+  poisonedDrink = "poisonedDrink",
   basementKey = "basementKey",
   tree = "tree",
   table = "table",

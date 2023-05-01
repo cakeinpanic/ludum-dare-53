@@ -15,6 +15,7 @@ const interactionPrerequisites = {
   [ItemName.birdCage]: ItemName.blanket,
   [ItemName.tree]: ItemName.shovel,
   [ItemName.altar]: ItemName.skull,
+  [ItemName.poison]: ItemName.bourbon,
 };
 
 export const clickOnItemInteraction = (
@@ -58,6 +59,9 @@ export const clickOnItemInteraction = (
 
   if (itemName === ItemName.book) {
     return grabABook(items, characters, currentItem, act);
+  }
+  if (itemName === ItemName.poison) {
+    return mixBourbonAndPoison(items, characters, currentItem, act);
   }
   if (itemName === ItemName.birdCage) {
     return putBlanketOnABird(items, characters, currentItem, act);
@@ -171,6 +175,24 @@ export const lookInDirt = (
       [ItemName.dirtPile]: {
         ...items[ItemName.dirtPile],
         isActive: false,
+      },
+    },
+    updateCharactersObject: {},
+    newHelpText: getText("15"),
+  };
+};
+export const mixBourbonAndPoison = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: items[ItemName.poisonedDrink],
+    updateItemsObject: {
+      [ItemName.poison]: {
+        ...items[ItemName.poison],
+        isVisible: false,
       },
     },
     updateCharactersObject: {},
