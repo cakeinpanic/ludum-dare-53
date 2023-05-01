@@ -6,6 +6,7 @@ import { Character, CharacterName } from "../Game/types";
 import styles from "./CharacterView.module.scss";
 
 const defaultShit = { shiftX: -100, shiftY: 0 };
+const defaultMainShift = { shiftX: 0, shiftY: 0 };
 
 function _CharacterView({
   character,
@@ -15,12 +16,14 @@ function _CharacterView({
   typeof SpriteAnimator
 >) {
   const { room, sprite, roomPosition, name } = character;
-  // const top: number = character.roomPosition.y;
-  // const left: number = character.roomPosition.x;
-  const position =
-    name === CharacterName.main
-      ? calculatePositionForSomething(room, scale)
-      : calculatePositionForSomething(room, scale, roomPosition || defaultShit);
+  console.log(name, roomPosition);
+
+  const position = calculatePositionForSomething(
+    room,
+    scale,
+    roomPosition ||
+      (name === CharacterName.main ? defaultMainShift : defaultShit)
+  );
 
   return (
     <div

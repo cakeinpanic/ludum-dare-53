@@ -92,7 +92,7 @@ export const moveFromRoom = (
   characters: CharactersCollection,
   items: ItemsCollection,
   currentItem: Item
-) => {
+): RoomName | boolean => {
   if (
     currentRoom === RoomName.living &&
     characters["ma"].room === RoomName.living &&

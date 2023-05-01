@@ -128,21 +128,25 @@ export const useGame = (): useGameReturn => {
         currentItem
       );
       if (!newRoom) {
-        return setHelpText("You can not go there");
+        return;
       }
-setTimeout(() => {
-      applyInteraction(
-        moveRoomInteraction(
-          gameState.currentRoom,
-          items,
-          characters,
-          currentItem,
-          gameState.act
-        )
-      )}, 400)
+
+      setTimeout(() => {
+        applyInteraction(
+          moveRoomInteraction(
+            gameState.currentRoom,
+            newRoom as RoomName,
+            items,
+            characters,
+            currentItem,
+            gameState.act
+          )
+        );
+      }, 400);
+
       setGameState((prevState) => ({
         ...prevState,
-        currentRoom: newRoom,
+        currentRoom: newRoom as RoomName,
       }));
     },
     [characters, currentItem, gameState.currentRoom, items, setHelpText]

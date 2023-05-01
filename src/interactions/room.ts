@@ -4,12 +4,13 @@ import {
   Item,
   ItemsCollection,
 } from "../components/Game/types";
-import { RoomName } from "../rooms/rooms";
+import { RoomName, roomPositions } from "../rooms/rooms";
 
 import { InteractionResult } from "./types";
 
 export const moveRoomInteraction = (
   oldRoom: RoomName,
+  newRoom: RoomName,
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
@@ -18,29 +19,58 @@ export const moveRoomInteraction = (
   const result: InteractionResult = {
     newCurrentItem: currentItem,
     updateItemsObject: {},
-    updateCharactersObject: {},
+    updateCharactersObject: changeMainLocation(
+      oldRoom,
+      newRoom,
+      characters,
+      act
+    ),
     newHelpText: null,
   };
 
   if (act === 2 && oldRoom === RoomName.bedroom) {
-    return fatherRunsToTheBird(items, characters);
+    return {
+      ...result.updateCharactersObject,
+      ...fatherRunsToTheBird(items, characters),
+    };
   }
   return result;
 };
 
+export const changeMainLocation = (
+  oldRoom: RoomName,
+  newRoom: RoomName,
+  characters: CharactersCollection,
+  act: number
+): CharactersCollection => {
+  let roomPosition = undefined;
+  if (newRoom === RoomName.yard && act === 2) {
+    roomPosition = {
+      shiftX: 110,
+      shiftY: 0,
+    };
+  }
+  return {
+    ...characters,
+    [CharacterName.main]: {
+      ...characters[CharacterName.main],
+      roomPosition,
+    },
+  };
+};
 export const fatherRunsToTheBird = (
   items: ItemsCollection,
   characters: CharactersCollection
 ): InteractionResult => {
   return {
     newCurrentItem: null,
-
     updateCharactersObject: {
       [CharacterName.pa]: {
         ...characters[CharacterName.pa],
         room: RoomName.bedroom,
       },
     },
+    updateItemsObject: {},
     newHelpText:
       "Meth father on the way from bedroom – he was rushing to check his bird",
   };
