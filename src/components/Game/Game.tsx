@@ -54,7 +54,7 @@ export function Game({ gameProps }) {
     <>
       {currentExpress < express.length && (
         <div onClick={onExpressClick} className={styles.express}>
-          DEbug: Next move express({express.length - currentExpress} left)
+          Debug: Next move express({express.length - currentExpress} left)
         </div>
       )}
       <div className={styles.game}>

@@ -255,7 +255,15 @@ export const writeALetter = (
   return {
     newCurrentItem: currentItem,
     updateItemsObject: {},
-    updateCharactersObject: {},
+    updateCharactersObject: {
+      [CharacterName.main]: {
+        ...characters[CharacterName.main],
+        roomPosition: {
+          shiftX: -200,
+          shiftY: 0,
+        },
+      },
+    },
     updatedStatus: { gameFinished: true },
     newSubs: getText("29"),
   };

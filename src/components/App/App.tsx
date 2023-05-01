@@ -13,7 +13,7 @@ function App() {
   const [showMenu, setShowMenu] = React.useState<boolean>(true);
   const [loaded, setLoaded] = React.useState<boolean>(false);
   const [blackAnimation, setBlackAnimation] = React.useState<boolean>(false);
-
+  const [wasReset, setWasReset] = React.useState<boolean>(false);
   const gameProps: useGameReturn = useGame();
   const {
     scale,
@@ -24,6 +24,7 @@ function App() {
     currentItem,
     availableWays,
     gameState,
+    resetWholeGame,
   } = gameProps;
 
   const menuClick = () => {
@@ -44,7 +45,11 @@ function App() {
       setLoaded(true);
     }, 2000);
   }, []);
-
+  const resetGame = () => {
+    setWasReset(true);
+    setShowMenu(true);
+    resetWholeGame();
+  };
   if (!loaded) {
     return (
       <div className={styles.App}>
@@ -55,7 +60,7 @@ function App() {
   return (
     <div className={styles.App}>
       {showMenu ? (
-        <Letter onExit={() => menuClick()} />
+        <Letter onExit={() => menuClick()} skipTitle={wasReset} />
       ) : (
         <>
           <Game gameProps={gameProps} />
@@ -71,7 +76,16 @@ function App() {
       {!showMenu && (
         <>
           <HelpText text={gameState.helpText} inventory={currentItem?.id} />
-          <Subtitles text={gameState.subtitles} clear={() => setSubs("")} />
+          <Subtitles
+            text={gameState.subtitles}
+            clear={() => {
+              if (gameState.status.gameFinished) {
+                resetGame();
+                return;
+              }
+              setSubs("");
+            }}
+          />
         </>
       )}
       <Music

@@ -39,7 +39,7 @@ export const texts = {
   // exit Basement After Meeting Ghost
   "20": "I'm gonna lear a lot today...",
   // Talk to ghost
-  "21": 'Ghost: I would help you, find the memory they hide',
+  "21": "Ghost: I would help you, find the memory they hide",
   // Sister in living room
   "22": "Sister: You can't leave, you must spend quality time with the family, go talk to dad",
 
@@ -48,7 +48,7 @@ export const texts = {
   // Give cocktail to uncle
   "28": "Uncle: Give me the glass, I need it before we start! Oh gosh is strong... I feel dizzy, I need to sit down...",
   // Sit and write a letter
-  "29": "You sit down and write a letter to J. and ask him to come to the house as soon as possible",
+  "29": "Afraid of loosing memory again you sit down and write a letter to yourself  to come to the house as soon as possible. Then you suddenly black out...",
 
   "101": "This is default text uncle says before killed",
   "102": "This is what we say when click on table when uncle is alive",

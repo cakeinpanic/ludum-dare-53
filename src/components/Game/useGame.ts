@@ -3,6 +3,7 @@ import { clickOnCharacterInteraction } from "../../interactions/characters";
 import { clickOnItemInteraction } from "../../interactions/items";
 import { moveRoomInteraction } from "../../interactions/room";
 import { InteractionResult } from "../../interactions/types";
+
 import { moveFromRoom, RoomName } from "../../rooms/rooms";
 
 import { startState } from "./startState";
@@ -61,7 +62,12 @@ export const useGame = (): useGameReturn => {
       subtitles: text,
     }));
   }, []);
-
+  const resetWholeGame = useCallback(() => {
+    setGameState(startState.game);
+    setItems(items);
+    setCharacters(startState.characters);
+    setItems(startState.items);
+  }, []);
   // calc available ways
   useEffect(() => {
     const availableWays = {
@@ -99,7 +105,7 @@ export const useGame = (): useGameReturn => {
       ),
     };
     setAvailableWays(availableWays);
-  }, [gameState.currentRoom, gameState]);
+  }, [gameState]);
 
   const applyInteraction = useCallback(
     ({
@@ -246,6 +252,7 @@ export const useGame = (): useGameReturn => {
     clickOnCharacter,
     move,
     setSubs,
+    resetWholeGame,
     setCurrentRoom,
   };
 };

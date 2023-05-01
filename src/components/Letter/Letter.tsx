@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styles from "./Letter.module.scss";
 
-export function Letter({ onExit, ...rest }) {
+export function Letter({ onExit, skipTitle, ...rest }) {
   const [showPreText, setShowPreText] = React.useState<boolean>(false);
   const [showTitle, setShowTitle] = React.useState<boolean>(true);
   const [showLetter, setShowLetter] = React.useState<boolean>(false);
+  useEffect(() => {
+    if (skipTitle) {
+      setShowTitle(false);
+      setShowPreText(true);
+    }
+  }, [skipTitle]);
   return (
     <div className={styles.letter} {...rest}>
       {showTitle && (
