@@ -1,3 +1,4 @@
+import { get } from "http";
 import {
   CharacterName,
   CharactersCollection,
@@ -6,6 +7,7 @@ import {
   ItemsCollection,
 } from "../components/Game/types";
 import { RoomName } from "../rooms/rooms";
+import { getText } from "./texts";
 import { InteractionResult } from "./types";
 
 const interactionPrerequisites = {
@@ -72,10 +74,10 @@ export const clickOnItemInteraction = (
 
   switch (item.id) {
     case ItemName.tree:
-      result.newHelpText = `Such a big tree....`;
+      result.newHelpText = getText("6");
       break;
     case ItemName.vase:
-      result.newHelpText = `Flowers from the garden would look good in this vase`;
+      result.newHelpText = getText("5");
       break;
   }
   return result;
@@ -111,7 +113,7 @@ export const putBlanketOnABird = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: "Bird: RUN! RUN! RUN!",
+    newHelpText: getText("10"),
   };
 };
 export const digUnderTheTree = (
@@ -130,7 +132,7 @@ export const digUnderTheTree = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: `Oh, there's something under the tree!`,
+    newHelpText: getText("14"),
   };
 };
 export const sacrifice = (
@@ -153,7 +155,7 @@ export const sacrifice = (
         room: RoomName.basement,
       },
     },
-    newHelpText: `Ghost: Hi... It's me, your little brother. You almost don't remember me, do you?`,
+    newHelpText: getText("16"),
   };
 };
 
@@ -172,7 +174,7 @@ export const lookInDirt = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: `OMG, there is a skull, yikes!`,
+    newHelpText: getText("15"),
   };
 };
 export const grabABook = (
@@ -184,7 +186,7 @@ export const grabABook = (
   if (characters[CharacterName.pa].room === RoomName.library) {
     return {
       newCurrentItem: currentItem,
-      newHelpText: `Father: don't touch my books, they are older than you`,
+      newHelpText: getText("12"),
       updateItemsObject: {},
       updateCharactersObject: {},
     };
@@ -200,7 +202,6 @@ export const grabABook = (
     },
     updateCharactersObject: {},
     updatedStatus: { basementIsLocked: false },
-    newHelpText:
-      "There is a key inside the book! Probably I can go to some new location now",
+    newHelpText: getText("13"),
   };
 };

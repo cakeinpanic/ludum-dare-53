@@ -6,6 +6,7 @@ import {
   ItemsCollection,
 } from "../components/Game/types";
 import { RoomName } from "../rooms/rooms";
+import { getText } from "./texts";
 import { InteractionResult } from "./types";
 
 export const clickOnCharacterInteraction = (
@@ -52,8 +53,7 @@ const talkToSisterAboutLetter = (
     newCurrentItem: items[ItemName.scissors],
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText:
-      "Sister: we were waiting for you later, this letter seems weird. Go fuck around in the garden ",
+    newHelpText: getText("2"),
   };
 };
 
@@ -84,7 +84,7 @@ const giveFlowersToMother = (
         roomPosition: { shiftX: -20, shiftY: 0 },
       },
     },
-    newHelpText: "Mother went to put flowers in the vase.",
+    newHelpText: getText("3"),
     nextAct: true,
     updatedStatus: { upstairsIsBlockedByMa: false },
   };
@@ -100,7 +100,7 @@ const talkToMother = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: "Mother: hi, did not see you for a while. Missed your family?",
+    newHelpText: getText("1"),
   };
 };
 
@@ -117,7 +117,7 @@ const talkToSister = (
     newHelpText:
       act === 3
         ? "Sister: you did not spend enough time with us today, go talk to dad"
-        : "Sister: oh god, I have missed you so much! Tell me more about your life!",
+        : getText("4"),
   };
 };
 const talkToGhost = (

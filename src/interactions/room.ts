@@ -8,6 +8,7 @@ import {
 import { RoomName, roomPositions } from "../rooms/rooms";
 import { merge } from "lodash";
 import { InteractionResult } from "./types";
+import { getText } from "./texts";
 
 export const moveRoomInteraction = (
   oldRoom: RoomName,
@@ -118,8 +119,7 @@ export const fatherRunsToTheBird = (
       },
     },
     updateItemsObject: {},
-    newHelpText:
-      "Met father on the way from bedroom – he was rushing to check his bird",
+    newHelpText: getText("11"),
   };
 };
 
@@ -146,6 +146,6 @@ export const exitBasementAfterMeetingGhost = (
       },
     },
     nextAct: true,
-    newHelpText: "I'm gonna learn a lot today...",
+    newHelpText: getText("20"),
   };
 };
