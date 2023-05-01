@@ -5,12 +5,25 @@
   height: $gameHeight;
   position: relative;
   overflow: hidden;
-
+  transition: all 1s;
   &.darker {
-    filter: brightness(0.8) sepia(0.1);
+    filter: brightness(0.8) saturate(0.8);
   }
   &.darkest {
-    filter: brightness(0.5) sepia(0.3);
+    filter: brightness(0.6) saturate(0.7);
+    animation: glitch 8s infinite;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    filter: brightness(0.6) saturate(0.7);
+  }
+  40% {
+    filter: brightness(0.5) saturate(0.6);
+  }
+  100% {
+    filter: brightness(0.6) saturate(0.7);
   }
 }
 
