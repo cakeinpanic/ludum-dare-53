@@ -64,7 +64,7 @@ export const texts = {
   "SHIT_SISTER_SAYS_1": "",
   "SHIT_SISTER_SAYS_2": "",
 
-  "UNCLE_SAYS_NO": "This is what we say when click on table when uncle is alive",
+  "UNCLE_SAYS_NO": "Uncle: Don't make your family wait, we have things to prepare",
 };
 
 export const getText = (id: string) => {

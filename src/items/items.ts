@@ -61,7 +61,7 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     room: RoomName.kitchen,
-    description: "Family portrait, one face missing",
+    description: "Family portrait, one face is missing",
     sprite: photo,
     roomPosition: {
       shiftX: 250,
