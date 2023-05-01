@@ -108,7 +108,7 @@ export const useGame = (): useGameReturn => {
         currentRoom: newRoom,
       }));
     },
-    [gameState.currentRoom]
+    [characters, currentItem, gameState.currentRoom, items, setHelpText]
   );
 
   const clickOnItem = useCallback(
@@ -129,7 +129,7 @@ export const useGame = (): useGameReturn => {
         setHelpText(newHelpText);
       }
     },
-    [items, currentItem]
+    [items, currentItem, goToNextAct, setHelpText]
   );
 
   const goToNextAct = useCallback(() => {
@@ -150,7 +150,7 @@ export const useGame = (): useGameReturn => {
       }));
       setCharacters((currentCharacters) => ({
         ...currentCharacters,
-        ["ma"]: { ...currentCharacters["ma"], room: RoomName.kitchen },
+        "ma": { ...currentCharacters["ma"], room: RoomName.kitchen },
       }));
     }
   }, [gameState.act]);
@@ -189,7 +189,7 @@ export const useGame = (): useGameReturn => {
         setHelpText(newHelpText);
       }
     },
-    [currentItem, gameState.act, items, characters]
+    [items, characters, currentItem, gameState.act, goToNextAct, setHelpText]
   );
 
   //   const teleport = useCallback((room: RoomName) => {}, []);
