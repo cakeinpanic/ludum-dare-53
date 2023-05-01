@@ -45,7 +45,7 @@ export function Controls({ scale, setScale, move, availableWays }) {
   }, [moveOnMap]);
 
   return (
-    <>
+    <div className={styles.container}>
       {directions.map((direction) => {
         return (
           <div
@@ -63,6 +63,6 @@ export function Controls({ scale, setScale, move, availableWays }) {
           />
         );
       })}
-    </>
+    </div>
   );
 }
