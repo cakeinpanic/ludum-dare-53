@@ -1,0 +1,21 @@
+@import "../../variables";
+
+.subtitles {
+  width: 50%;
+  text-align: center;
+  top: 60px;
+  color: aliceblue;
+  position: absolute;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  background: black;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.text {
+  color: white;
+}

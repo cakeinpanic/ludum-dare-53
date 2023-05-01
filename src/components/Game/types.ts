@@ -100,5 +100,6 @@ export interface Game {
     uncleFollows: boolean;
     gameFinished: boolean;
   };
-  helpText: string;
+  helpText?: string;
+  subtitles?: string;
 }

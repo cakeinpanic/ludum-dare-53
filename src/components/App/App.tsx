@@ -3,8 +3,10 @@ import { Controls } from "../Controls/Controls";
 import { Game } from "../Game/Game";
 import { useGame, useGameReturn } from "../Game/useGame";
 import { HelpText } from "../HelpText/HelpText";
+import { Subtitles } from "../Subtitles/Subtitles";
 import { Letter } from "../Letter/Letter";
 import { Music } from "../music/Music";
+
 import styles from "./App.module.scss";
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
   const {
     scale,
     express,
+    setSubs,
     setScale,
     move,
     currentItem,
@@ -66,14 +69,17 @@ function App() {
       )}
 
       {!showMenu && (
-        <HelpText text={gameState.helpText} inventory={currentItem?.id} />
+        <>
+          <HelpText text={gameState.helpText} inventory={currentItem?.id} />
+          <Subtitles text={gameState.subtitles} clear={() => setSubs("")} />
+        </>
       )}
       <Music
         gameStarted={true}
         room={gameState.currentRoom}
         act={gameState.act}
       />
-      {blackAnimation && <div className={styles.blackAnimation}></div>}
+      {blackAnimation && <div className={styles.blackAnimation} />}
     </div>
   );
 }

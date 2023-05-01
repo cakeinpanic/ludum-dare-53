@@ -21,6 +21,7 @@ export const clickOnCharacterInteraction = (
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText: null,
+    newSubs: null,
   };
   if (characterName === "ma") {
     if (currentItem?.id === "flowers") {
@@ -62,7 +63,7 @@ const talkToSisterAboutLetter = (
     newCurrentItem: items[ItemName.scissors],
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: getText("2"),
+    newSubs: getText("2"),
   };
 };
 
@@ -93,7 +94,7 @@ const giveFlowersToMother = (
         roomPosition: { shiftX: -20, shiftY: 0 },
       },
     },
-    newHelpText: getText("3"),
+    newSubs: getText("3"),
     nextAct: true,
     updatedStatus: { upstairsIsBlockedByMa: false },
   };
@@ -109,7 +110,7 @@ const talkToMotherAboutLetter = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: getText("1"),
+    newSubs: getText("1"),
   };
 };
 
@@ -123,7 +124,7 @@ const talkToMother = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: getText("7"),
+    newSubs: getText("7"),
   };
 };
 
@@ -137,7 +138,7 @@ const talkToSister = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: act === 3 ? getText("22") : getText("4"),
+    newSubs: act === 3 ? getText("22") : getText("4"),
   };
 };
 const talkToGhost = (
@@ -150,7 +151,7 @@ const talkToGhost = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: act === 3 ? getText("21") : getText("19"),
+    newSubs: act === 3 ? getText("21") : getText("19"),
   };
 };
 const talkToUncle = (
@@ -163,7 +164,7 @@ const talkToUncle = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: getText("101"),
+    newSubs: getText("101"),
   };
 };
 
@@ -177,7 +178,7 @@ const showPhotoToGhost = (
     newCurrentItem: null,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText: getText("24"),
+    newSubs: getText("24"),
     updatedStatus: { atticIsHidden: false },
   };
 };
@@ -197,7 +198,7 @@ const killUncle = (
         isDead: true,
       },
     },
-    newHelpText: getText("28"),
+    newSubs: getText("28"),
     updatedStatus: { uncleFollows: false },
   };
 };

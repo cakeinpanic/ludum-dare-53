@@ -10,6 +10,7 @@ export interface InteractionResult {
   updateItemsObject: ItemsCollection;
   updateCharactersObject: CharactersCollection;
   newHelpText?: string | null;
+  newSubs?: string | null;
   nextAct?: boolean;
   updatedStatus?: Partial<Game["status"]>;
 }

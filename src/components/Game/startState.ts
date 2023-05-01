@@ -20,7 +20,7 @@ interface StartState {
 export const startState: StartState = {
   game: {
     act: 1,
-    currentRoom: RoomName.attick,
+    currentRoom: RoomName.yard,
     status: {
       upstairsIsBlockedByMa: true,
       atticIsHidden: true,
@@ -28,7 +28,7 @@ export const startState: StartState = {
       uncleFollows: false,
       gameFinished: false,
     },
-    helpText: "You have arrived to your parents house",
+    subtitles: "You have arrived to your parents house",
   },
   availableWays: {
     up: true,

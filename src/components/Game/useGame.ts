@@ -55,6 +55,12 @@ export const useGame = (): useGameReturn => {
       helpText: text,
     }));
   }, []);
+  const setSubs = useCallback((text: string) => {
+    setGameState((prevState) => ({
+      ...prevState,
+      subtitles: text,
+    }));
+  }, []);
 
   // calc available ways
   useEffect(() => {
@@ -103,6 +109,7 @@ export const useGame = (): useGameReturn => {
       nextAct,
       newHelpText,
       updatedStatus,
+      newSubs,
     }: InteractionResult) => {
       setCurrentItem(newCurrentItem);
       setGameState((prevState) => ({
@@ -123,6 +130,9 @@ export const useGame = (): useGameReturn => {
       }
       if (newHelpText) {
         setHelpText(newHelpText);
+      }
+      if (newSubs) {
+        setSubs(newSubs);
       }
     },
     [items, characters, currentItem, gameState.act, gameState.currentRoom]
@@ -243,6 +253,7 @@ export const useGame = (): useGameReturn => {
     clickOnItem,
     clickOnCharacter,
     move,
+    setSubs,
     setCurrentRoom,
   };
 };
