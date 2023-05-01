@@ -1,10 +1,8 @@
-import { RoomName } from "../../rooms/rooms";
-import { characters } from "./characters";
+import { characters } from "../../characters/characters";
 import { items } from "../../items/items";
+import { RoomName } from "../../rooms/rooms";
 import {
   AvailableWays,
-  Character,
-  CharacterName,
   CharactersCollection,
   Game,
   Item,
@@ -16,7 +14,7 @@ interface StartState {
   availableWays: AvailableWays;
   characters: CharactersCollection;
   items: { [key: ItemName]: Item };
-  currentItem: Item | null
+  currentItem: Item | null;
 }
 
 export const startState: StartState = {

@@ -19,7 +19,7 @@ export const shiftX = 0;
 export const shiftY = 0;
 export const H = 500;
 
-export const gap = 0;
+export const gap = 10;
 
 export enum RoomName {
   cabinet = "cabinet",
@@ -106,7 +106,7 @@ export const moveFromRoom = (
   if (
     currentRoom === RoomName.kitchen &&
     direction === "down" &&
-    currentItem.id !== ItemName.key
+    currentItem?.id !== ItemName.key
   ) {
     return false;
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Controls } from "../Controls/Controls";
 import { Game } from "../Game/Game";
 import { useGame, useGameReturn } from "../Game/useGame";
@@ -9,12 +9,19 @@ import styles from "./App.module.scss";
 
 function App() {
   const [showMenu, setShowMenu] = React.useState<boolean>(true);
-  const [loaded, setLoaded] = React.useState<boolean>(true);
+  const [loaded, setLoaded] = React.useState<boolean>(false);
   const [blackAnimation, setBlackAnimation] = React.useState<boolean>(false);
 
   const gameProps: useGameReturn = useGame();
-  const { scale, setScale, move, currentItem, availableWays, gameState } =
-    gameProps;
+  const {
+    scale,
+    express,
+    setScale,
+    move,
+    currentItem,
+    availableWays,
+    gameState,
+  } = gameProps;
 
   const menuClick = () => {
     setBlackAnimation(true);

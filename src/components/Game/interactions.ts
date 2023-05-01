@@ -7,6 +7,7 @@ import {
   ItemName,
   ItemsCollection,
 } from "./types";
+import { merge as _merge } from "lodash";
 
 export interface InteractionResult {
   newCurrentItem?: Item | null;
@@ -49,6 +50,22 @@ export const clickOnItemInteraction = (
       updateCharactersObject: {},
       newHelpText: `Grabbed ${item.id}`,
     };
+  } else {
+    const result = {
+      newCurrentItem: item,
+      updateItemsObject: {},
+      updateCharactersObject: {},
+      newHelpText: "",
+    };
+    switch (item.id) {
+      case ItemName.tree:
+        result.newHelpText = `Such a big tree....`;
+        break;
+      case ItemName.vase:
+        result.newHelpText = `Flowers from the garden would look good in this vase`;
+        break;
+    }
+    return result;
   }
   return result;
 };
@@ -57,7 +74,8 @@ export const clickOnCharacterInteraction = (
   characterName: CharacterName,
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item,
+  act: number
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: currentItem,
@@ -66,15 +84,16 @@ export const clickOnCharacterInteraction = (
     newHelpText: null,
   };
   if (characterName === "ma") {
-    if (currentItem.id === "flowers") {
+    if (currentItem?.id === "flowers") {
       return giveFlowersToMother(items, characters, currentItem);
     }
-    return talkToMother(items, characters, currentItem);
+    return talkToMother(items, characters, currentItem, act);
   }
   if (characterName === "sister") {
-    if (currentItem.id === "letter") {
+    if (currentItem?.id === "letter") {
       return talkToSisterAboutLetter(items, characters, currentItem);
     }
+    return talkToSister(items, characters, currentItem, act);
   }
   return result;
 };
@@ -124,7 +143,8 @@ const giveFlowersToMother = (
 const talkToMother = (
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item,
+  act: number
 ): InteractionResult => {
   return {
     newCurrentItem: currentItem,
@@ -132,4 +152,31 @@ const talkToMother = (
     updateCharactersObject: {},
     newHelpText: "Mother: hi, did not see you for a while. Missed your family?",
   };
+};
+
+const talkToSister = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText:
+      "Sister: oh god, I have missed you so much! Tell me more about your life!",
+  };
+};
+
+export const expressTo2 = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item
+): InteractionResult => {
+  const o2 = talkToSisterAboutLetter(items, characters, currentItem);
+  const o3 = clickOnItemInteraction(items[ItemName.flowers], o2.newCurrentItem);
+  const o1 = giveFlowersToMother(items, characters, o3.newCurrentItem);
+
+  return _merge(o2, o3, o1);
 };

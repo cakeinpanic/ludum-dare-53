@@ -1,14 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { moveFromRoom, RoomName } from "../../rooms/rooms";
 import {
   clickOnCharacterInteraction,
   clickOnItemInteraction,
+  expressTo2,
 } from "./interactions";
 import { startState } from "./startState";
 import { uniq as _uniq, filter as _filter } from "lodash";
 import {
   AvailableWays,
   Character,
+  CharacterName,
   CharactersCollection,
   Game,
   Item,
@@ -146,11 +148,15 @@ export const useGame = (): useGameReturn => {
           isVisible: true,
         },
       }));
+      setCharacters((currentCharacters) => ({
+        ...currentCharacters,
+        ["ma"]: { ...currentCharacters["ma"], room: RoomName.kitchen },
+      }));
     }
   }, [gameState.act]);
 
   const clickOnCharacter = useCallback(
-    (character: Character) => {
+    (characterName: CharacterName) => {
       const {
         newCurrentItem,
         updateItemsObject,
@@ -158,10 +164,11 @@ export const useGame = (): useGameReturn => {
         newHelpText,
         nextAct,
       } = clickOnCharacterInteraction(
-        character.name,
+        characterName,
         items,
         characters,
-        currentItem
+        currentItem,
+        gameState.act
       );
 
       setCurrentItem(newCurrentItem);
@@ -182,7 +189,7 @@ export const useGame = (): useGameReturn => {
         setHelpText(newHelpText);
       }
     },
-    [currentItem, items, characters]
+    [currentItem, gameState.act, items, characters]
   );
 
   //   const teleport = useCallback((room: RoomName) => {}, []);

@@ -20,6 +20,7 @@ export interface Character {
   name: CharacterName;
   room: RoomName;
   sprite?: string;
+  description?: string;
   roomPosition?: {
     // maybe just , left , right , center?
     shiftX: number;
