@@ -11,6 +11,7 @@ import { InteractionResult } from "./types";
 const interactionPrerequisites = {
   [ItemName.flowers]: ItemName.scissors,
   [ItemName.birdCage]: ItemName.blanket,
+  [ItemName.tree]: ItemName.shovel,
 };
 
 export const clickOnItemInteraction = (
@@ -36,6 +37,7 @@ export const clickOnItemInteraction = (
     interactionPrerequisites[item.id] &&
     currentItem?.id !== interactionPrerequisites[item.id]
   ) {
+    // todo: use better phrases here
     result.newHelpText = `Something's missing to interact with ${item.id}`;
     return result;
   }
@@ -56,6 +58,9 @@ export const clickOnItemInteraction = (
   }
   if (itemName === ItemName.birdCage) {
     return putBlanketOnABird(items, characters, currentItem, act);
+  }
+  if (itemName === ItemName.tree && currentItem?.id === ItemName.shovel) {
+    return digUnderTheTree(items, characters, currentItem, act);
   }
 
   switch (item.id) {
@@ -100,6 +105,25 @@ export const putBlanketOnABird = (
     },
     updateCharactersObject: {},
     newHelpText: "Bird: RUN! RUN! RUN!",
+  };
+};
+export const digUnderTheTree = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateItemsObject: {
+      [ItemName.dirtPile]: {
+        ...items[ItemName.dirtPile],
+        isActive: true,
+        isVisible: true,
+      },
+    },
+    updateCharactersObject: {},
+    newHelpText: `Oh, there's something under the tree!`,
   };
 };
 export const grabABook = (

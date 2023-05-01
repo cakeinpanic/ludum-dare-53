@@ -27,7 +27,9 @@ export function Game({ gameProps }) {
     () => clickOnItem(ItemName.blanket),
     () => clickOnItem(ItemName.birdCage),
     () => setCurrentRoom(RoomName.library),
-    () => setCurrentRoom(RoomName.basement),
+    () => clickOnItem(ItemName.shovel),
+    () => setCurrentRoom(RoomName.yard),
+    () => clickOnItem(ItemName.tree),
   ];
 
   const [currentExpress, setCurrentExpress] = useState(0);
