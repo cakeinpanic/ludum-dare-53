@@ -44,14 +44,27 @@ export const texts = {
   "22": "Sister: You can't leave, you must spend quality time with the family, go talk to dad",
 
   // Show photo to the ghost
-  "24": "Ghost: You found memories they hide from you, photo of us before the ritual on the attic. Let me show you the way upstairs",
+  "24": "Ghost: You found it! Photo of us before the ritual on the attic. Let me show you the way upstairs",
+  // You mixing a poison with burbon
+  "25": "Ghost: Yes, yes! Give it to the old man, before it's too late",
   // Give cocktail to uncle
-  "28": "Uncle: Give me the glass, I need it before we start! Oh gosh is strong... I feel dizzy, I need to sit down...",
+  "28": "Uncle: Give me the glass, one sip before we start! Oh gosh is strong... I feel dizzy, I need to sit down...",
   // Sit and write a letter
-  "29": "Afraid of loosing memory again you sit down and write a letter to yourself  to come to the house as soon as possible. Then you suddenly black out...",
+  "BAD_END": "Afraid of loosing memory again you sit down and write a letter to yourself to come to the house as soon as possible. Then you suddenly black out...",
 
-  "101": "This is default text uncle says before killed",
-  "102": "This is what we say when click on table when uncle is alive",
+  "SHIT_UNCLE_SAYS_INITIAL": "Hey, the Family didn't expect you that early, but we're incredibly happy that you came by yourself",
+  "SHIT_UNCLE_SAYS_1": "Whole Family can't wait to de-liver you... on the table",
+  "SHIT_UNCLE_SAYS_2": "Almost everything is ready for the ritual, don't go far from the Family",
+  "SHIT_UNCLE_SAYS_3": "We must remember our family responsibilities and be ready to sacrifice everything for the sake of the family",
+
+  "SHIT_PA_SAYS_1": "",
+  "SHIT_PA_SAYS_2": "Just forgi... We don't have other choice",
+  "SHIT_MA_SAYS_1": "There are so many to feed. So much trouble with these Family holidays, huh, honey?",
+  "SHIT_MA_SAYS_2": "",
+  "SHIT_SISTER_SAYS_1": "",
+  "SHIT_SISTER_SAYS_2": "",
+
+  "UNCLE_SAYS_NO": "This is what we say when click on table when uncle is alive",
 };
 
 export const getText = (id: string) => {

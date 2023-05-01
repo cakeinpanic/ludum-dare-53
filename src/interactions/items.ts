@@ -199,7 +199,7 @@ export const mixBourbonAndPoison = (
       },
     },
     updateCharactersObject: {},
-    newSubs: getText("15"),
+    newSubs: getText("25"),
   };
 };
 export const grabABook = (
@@ -247,7 +247,7 @@ export const writeALetter = (
   if (!characters[CharacterName.uncle].isDead) {
     return {
       newCurrentItem: currentItem,
-      newSubs: getText("102"),
+      newSubs: getText("UNCLE_SAYS_NO"),
       updateItemsObject: {},
       updateCharactersObject: {},
     };
@@ -265,6 +265,6 @@ export const writeALetter = (
       },
     },
     updatedStatus: { gameFinished: true },
-    newSubs: getText("29"),
+    newSubs: getText("BAD_END"),
   };
 };
