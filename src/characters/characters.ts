@@ -43,15 +43,6 @@ export const characters: CharactersCollection = {
       shiftY: 0,
     },
   },
-  [CharacterName.bird]: {
-    name: CharacterName.bird,
-    room: RoomName.bedroom,
-    description: "Bird, I taught her to say a few phrases long time ago",
-    roomPosition: {
-      shiftX: -200,
-      shiftY: 0,
-    },
-  },
   [CharacterName.ghost]: {
     name: CharacterName.ghost,
     room: RoomName.basement,

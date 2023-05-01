@@ -6,6 +6,7 @@ import tree from "./tree.png";
 import blanket from "./blanket.png";
 import vase from "./vase.png";
 import book from "./book.png";
+import birdCage from "./birdCage.png";
 
 export const items: ItemsCollection = {
   [ItemName.letter]: {
@@ -109,6 +110,24 @@ export const items: ItemsCollection = {
     roomPosition: {
       shiftX: 250,
       shiftY: -40,
+    },
+  },
+
+  [ItemName.birdCage]: {
+    id: ItemName.birdCage,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    sprite: birdCage,
+    description: "Bird, I taught her to say a few phrases long time ago",
+    room: RoomName.bedroom,
+    roomPosition: {
+      shiftX: 70,
+      shiftY: -30,
+    },
+    size: {
+      width: 230,
+      height: 230,
     },
   },
   [ItemName.flowers]: {

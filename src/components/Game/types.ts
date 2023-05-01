@@ -35,6 +35,7 @@ export type CharactersCollection = { [key: CharacterName]: Character };
 
 export enum ItemName {
   dirtPile = "dirtPile",
+  birdCage = "birdCage",
   scissors = "scissors",
   letter = "letter",
   key = "key",

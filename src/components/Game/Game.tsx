@@ -23,6 +23,7 @@ export function Game({ gameProps }) {
     () => clickOnCharacter(CharacterName.sister),
     () => clickOnItem(ItemName.flowers),
     () => clickOnCharacter(CharacterName.ma),
+    () => clickOnItem(ItemName.blanket),
   ];
 
   const [currentExpress, setCurrentExpress] = useState(0);

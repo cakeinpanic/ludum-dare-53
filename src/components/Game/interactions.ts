@@ -1,13 +1,11 @@
 import { RoomName } from "../../rooms/rooms";
 import {
-  Character,
   CharacterName,
   CharactersCollection,
   Item,
   ItemName,
   ItemsCollection,
 } from "./types";
-import { merge as _merge } from "lodash";
 
 export interface InteractionResult {
   newCurrentItem?: Item | null;
@@ -20,10 +18,12 @@ export interface InteractionResult {
 const interactionPrerequisites = {
   [ItemName.flowers]: ItemName.scissors,
 };
-
-export const clickOnItemInteraction = (
-  item: Item,
-  currentItem: Item
+export const moveRoomInteraction = (
+  oldRoom: RoomName,
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: currentItem,
@@ -31,6 +31,27 @@ export const clickOnItemInteraction = (
     updateCharactersObject: {},
     newHelpText: null,
   };
+
+  if (act === 2 && oldRoom === RoomName.bedroom) {
+    return fatherRunsToTheBird(items, characters);
+  }
+  return result;
+};
+
+export const clickOnItemInteraction = (
+  itemName: ItemName,
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  const result: InteractionResult = {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText: null,
+  };
+  const item = items[itemName];
 
   if (!item.isActive || !item.isVisible) {
     return result;
@@ -50,22 +71,18 @@ export const clickOnItemInteraction = (
       updateCharactersObject: {},
       newHelpText: `Grabbed ${item.id}`,
     };
-  } else {
-    const result = {
-      newCurrentItem: item,
-      updateItemsObject: {},
-      updateCharactersObject: {},
-      newHelpText: "",
-    };
-    switch (item.id) {
-      case ItemName.tree:
-        result.newHelpText = `Such a big tree....`;
-        break;
-      case ItemName.vase:
-        result.newHelpText = `Flowers from the garden would look good in this vase`;
-        break;
-    }
-    return result;
+  }
+
+  if (item.id === ItemName.birdCage && currentItem?.id === ItemName.blanket) {
+    return putBlanketOnABird(items, characters, currentItem, act);
+  }
+  switch (item.id) {
+    case ItemName.tree:
+      result.newHelpText = `Such a big tree....`;
+      break;
+    case ItemName.vase:
+      result.newHelpText = `Flowers from the garden would look good in this vase`;
+      break;
   }
   return result;
 };
@@ -169,14 +186,54 @@ const talkToSister = (
   };
 };
 
-export const expressTo2 = (
+export const putBlanketOnABird = (
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item,
+  act: number
 ): InteractionResult => {
-  const o2 = talkToSisterAboutLetter(items, characters, currentItem);
-  const o3 = clickOnItemInteraction(items[ItemName.flowers], o2.newCurrentItem);
-  const o1 = giveFlowersToMother(items, characters, o3.newCurrentItem);
+  return {
+    newCurrentItem: null,
+    updateItemsObject: {
+      [ItemName.birdCage]: {
+        ...items[ItemName.birdCage],
+        isActive: false,
+        isVisible: true,
+      },
+      [ItemName.blanket]: {
+        ...items[ItemName.blanket],
+        isActive: false,
+        isVisible: true,
+        room: RoomName.bedroom,
+        roomPosition: {
+          shiftX: 40,
+          shiftY: -30,
+        },
+        size: {
+          width: 300,
+          height: 300,
+        },
+      },
+    },
+    updateCharactersObject: {},
+    newHelpText: "Bird: RUN! RUN! RUN!",
+  };
+};
 
-  return _merge(o2, o3, o1);
+export const fatherRunsToTheBird = (
+  items: ItemsCollection,
+  characters: CharactersCollection
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateItemsObject: {},
+    updateCharactersObject: {
+      [CharacterName.pa]: {
+        ...characters[CharacterName.pa],
+        room: RoomName.bedroom,
+      },
+    },
+    newHelpText:
+      "Meth father on the way from bedroom – he was rushing to check his bird",
+  };
 };
