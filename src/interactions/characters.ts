@@ -49,7 +49,7 @@ export const clickOnCharacterInteraction = (
     if (currentItem?.id === ItemName.poisonedDrink) {
       return killUncle(items, characters, currentItem, act);
     }
-    return talkToUncle(items, characters, currentItem, act);
+    return talkToUncleInitial(items, characters, currentItem, act);
   }
   return result;
 };
@@ -155,7 +155,8 @@ const talkToGhost = (
     newSubs: act === 3 ? getText("21") : getText("19"),
   };
 };
-const talkToUncle = (
+
+const talkToUncleInitial = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
@@ -165,7 +166,7 @@ const talkToUncle = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newSubs: getText("101"),
+    newSubs: getText("SHIT_UNCLE_SAYS_INITIAL"),
   };
 };
 
