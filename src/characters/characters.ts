@@ -3,6 +3,7 @@ import { CharacterName, CharactersCollection } from "../components/Game/types";
 import character from "./character.png";
 import mama from "./mama.png";
 import sister from "./sister.png";
+import father from "./father.png";
 
 export const characters: CharactersCollection = {
   [CharacterName.ma]: {
@@ -36,10 +37,15 @@ export const characters: CharactersCollection = {
   [CharacterName.pa]: {
     name: CharacterName.pa,
     room: RoomName.library,
+    sprite: father,
     description: "Father, always in his thoughts",
     roomPosition: {
       shiftX: -200,
-      shiftY: 0,
+      shiftY: -100,
+    },
+    size: {
+      height: 300,
+      width: 140,
     },
   },
   [CharacterName.ghost]: {

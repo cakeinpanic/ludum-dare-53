@@ -15,12 +15,13 @@ function _CharacterView({
 }: { character: Character; scale: number } & ComponentProps<
   typeof SpriteAnimator
 >) {
-  const { room, sprite, roomPosition, name, isDead } = character;
+  const { room, size, sprite, roomPosition, name, isDead } = character;
 
   if (room === null) return <></>;
   const position = calculatePositionForSomething(
     room,
     scale,
+
     roomPosition ||
       (name === CharacterName.main ? defaultMainShift : defaultShit)
   );
@@ -29,7 +30,7 @@ function _CharacterView({
     <div
       id={character.name}
       className={styles.Hero + " " + (isDead ? styles.dead : "")}
-      style={{ ...position }}
+      style={{ ...position, ...(size || {}) }}
       {...props}
     >
       {sprite ? (

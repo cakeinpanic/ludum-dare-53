@@ -28,6 +28,10 @@ export interface Character {
     shiftX: number;
     shiftY: number;
   };
+  size?: {
+    width?: number;
+    height?: number;
+  };
 }
 
 export type ItemsCollection = { [key: ItemName]: Item };
