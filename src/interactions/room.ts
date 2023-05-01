@@ -31,7 +31,7 @@ export const moveRoomInteraction = (
 
   if (
     act === 2 &&
-    oldRoom === RoomName.bedroom &&
+    newRoom === RoomName.library &&
     items[ItemName.blanket].room === RoomName.bedroom
   ) {
     return {
