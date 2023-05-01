@@ -133,7 +133,7 @@ const talkToSister = (
     updateCharactersObject: {},
     newHelpText:
       act === 3
-        ? "Sister: you did not spend enough time with us today, go talk to dad"
+        ? getText("22")
         : getText("4"),
   };
 };
@@ -149,8 +149,8 @@ const talkToGhost = (
     updateCharactersObject: {},
     newHelpText:
       act === 3
-        ? "Ghost: i would help you"
-        : "Ghost: there is a dark secret i'm gonna show you",
+      ? getText('21')
+      : getText('19')
   };
 };
 
@@ -164,8 +164,7 @@ const showPhotoToGhost = (
     newCurrentItem: null,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newHelpText:
-      "Look at this photo, you see where it's taken? It's on the attic, let me show you the way upstairs",
+    newHelpText: getText("24"),
     updatedStatus: { atticIsHidden: false },
   };
 };

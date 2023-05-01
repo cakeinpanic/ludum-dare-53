@@ -30,16 +30,21 @@ export const texts = {
   // Skull found
   "15": `OMG, there is a small skull, yikes!`,
   // Put skull on the altar
-  "16": `You put the skull on the altar, it glows and disappears`,
+  "16": `You put the skull on the altar, it glows and ghost appears`,
 
-  // Skull is on the altar, ghost appears
-  "19": "Ghost of small kid glares at you, he seems familiar",
+  // talk to ghost
+  "19": 'Ghost: there is a dark secret I\'m gonna show you"',
 
   // Act 3
   // exit Basement After Meeting Ghost
   "20": "I'm gonna lear a lot today...",
+  // Talk to ghost
+  "21": 'Ghost: I would help you',
+  // Sister in living room
+  "22": "Sister: You can't leave, you must spend quality time with the family, go talk to dad",
+
   // Show photo to the ghost
-  "24": "Ghost: you find memories they hide from you, photo of us before the ritual. I show you the way upstairs to the attic",
+  "24": "Ghost: You found memories they hide from you, photo of us before the ritual on the attic. Let me show you the way upstairs",
   // Give cocktail to uncle
   "28": "Uncle: Give me the glass, I need it before we start! Oh gosh is strong... I feel dizzy, I need to sit down...",
   // Sit and write a letter
