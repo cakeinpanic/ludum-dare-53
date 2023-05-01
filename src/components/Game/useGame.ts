@@ -167,7 +167,8 @@ export const useGame = (): useGameReturn => {
         characterName,
         items,
         characters,
-        currentItem
+        currentItem,
+        gameState.act
       );
 
       setCurrentItem(newCurrentItem);
@@ -188,7 +189,7 @@ export const useGame = (): useGameReturn => {
         setHelpText(newHelpText);
       }
     },
-    [currentItem, items, characters]
+    [currentItem, gameState.act, items, characters]
   );
 
   //   const teleport = useCallback((room: RoomName) => {}, []);

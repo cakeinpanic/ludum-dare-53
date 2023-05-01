@@ -58,7 +58,8 @@ export const clickOnCharacterInteraction = (
   characterName: CharacterName,
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item,
+  act: number
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: currentItem,
@@ -70,12 +71,13 @@ export const clickOnCharacterInteraction = (
     if (currentItem?.id === "flowers") {
       return giveFlowersToMother(items, characters, currentItem);
     }
-    return talkToMother(items, characters, currentItem);
+    return talkToMother(items, characters, currentItem, act);
   }
   if (characterName === "sister") {
     if (currentItem?.id === "letter") {
       return talkToSisterAboutLetter(items, characters, currentItem);
     }
+    return talkToSister(items, characters, currentItem, act);
   }
   return result;
 };
@@ -125,13 +127,29 @@ const giveFlowersToMother = (
 const talkToMother = (
   items: ItemsCollection,
   characters: CharactersCollection,
-  currentItem: Item
+  currentItem: Item,
+  act: number
 ): InteractionResult => {
   return {
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText: "Mother: hi, did not see you for a while. Missed your family?",
+  };
+};
+
+const talkToSister = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText:
+      "Sister: oh god, I have missed you so much! Tell me more about your life!",
   };
 };
 
