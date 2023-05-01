@@ -26,7 +26,7 @@ export const clickOnItemInteraction = (
     updateCharactersObject: {},
     newHelpText: null,
   };
-  const item = items[itemName];
+  const item: Item = items[itemName];
 
   if (!item.isActive || !item.isVisible) {
     return result;
@@ -41,13 +41,6 @@ export const clickOnItemInteraction = (
   }
 
   if (item.collectable) {
-    if (
-      itemName === ItemName.book &&
-      characters[CharacterName.pa].room === RoomName.library
-    ) {
-      result.newHelpText = `Father: don't touch my books, they are older than you`;
-      return result;
-    }
     return {
       newCurrentItem: item,
       updateItemsObject: {
@@ -58,7 +51,10 @@ export const clickOnItemInteraction = (
     };
   }
 
-  if (item.id === ItemName.birdCage && currentItem?.id === ItemName.blanket) {
+  if (itemName === ItemName.book) {
+    return grabABook(items, characters, currentItem, act);
+  }
+  if (itemName === ItemName.birdCage) {
     return putBlanketOnABird(items, characters, currentItem, act);
   }
 
@@ -104,5 +100,33 @@ export const putBlanketOnABird = (
     },
     updateCharactersObject: {},
     newHelpText: "Bird: RUN! RUN! RUN!",
+  };
+};
+export const grabABook = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  if (characters[CharacterName.pa].room === RoomName.library) {
+    return {
+      newCurrentItem: currentItem,
+      newHelpText: `Father: don't touch my books, they are older than you`,
+      updateItemsObject: {},
+      updateCharactersObject: {},
+    };
+  }
+  return {
+    newCurrentItem: items[ItemName.key],
+    updateItemsObject: {
+      [ItemName.book]: {
+        ...items[ItemName.book],
+        isActive: false,
+        isVisible: false,
+      },
+    },
+    updateCharactersObject: {},
+    newHelpText:
+      "There is a key inside the book! Probably I can go to some new location now",
   };
 };

@@ -53,7 +53,7 @@ export const items: ItemsCollection = {
     id: ItemName.book,
     isActive: true,
     isVisible: true,
-    collectable: true,
+    collectable: false,
     room: RoomName.library,
     description: "Book I cant not recognize",
     sprite: book,
@@ -148,6 +148,12 @@ export const items: ItemsCollection = {
   },
   [ItemName.scissors]: {
     id: ItemName.scissors,
+    isActive: true,
+    isVisible: false,
+    collectable: true,
+  },
+  [ItemName.key]: {
+    id: ItemName.key,
     isActive: true,
     isVisible: false,
     collectable: true,
