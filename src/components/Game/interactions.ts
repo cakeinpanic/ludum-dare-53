@@ -50,6 +50,22 @@ export const clickOnItemInteraction = (
       updateCharactersObject: {},
       newHelpText: `Grabbed ${item.id}`,
     };
+  } else {
+    const result = {
+      newCurrentItem: item,
+      updateItemsObject: {},
+      updateCharactersObject: {},
+      newHelpText: "",
+    };
+    switch (item.id) {
+      case ItemName.tree:
+        result.newHelpText = `Such a big tree....`;
+        break;
+      case ItemName.vase:
+        result.newHelpText = `Flowers from the garden would look good in this vase`;
+        break;
+    }
+    return result;
   }
   return result;
 };
