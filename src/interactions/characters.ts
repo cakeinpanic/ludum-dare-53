@@ -84,6 +84,7 @@ const giveFlowersToMother = (
         roomPosition: { shiftX: -20, shiftY: 0 },
       },
     },
+
     newHelpText: getText("3"),
     nextAct: true,
     updatedStatus: { upstairsIsBlockedByMa: false },

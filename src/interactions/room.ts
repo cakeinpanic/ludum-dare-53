@@ -50,6 +50,13 @@ export const moveRoomInteraction = (
       exitBasementAfterMeetingGhost(items, characters)
     );
   }
+  if (newRoom === RoomName.attick) {
+    return merge(
+      { updateCharactersObject: result.updateCharactersObject },
+      goToAtticFirstTime(items, characters)
+    );
+  }
+
   return result;
 };
 
@@ -84,10 +91,7 @@ export const changeMainLocation = (
     };
   }
 
-  if (
-    act === 3 &&
-    characters[CharacterName.uncle].room === characters[CharacterName.main].room
-  ) {
+  if (act === 3 && characters[CharacterName.uncle].room === oldRoom) {
     uncleUpdate.room = newRoom;
     uncleUpdate.roomPosition = { ...roomPosition };
     uncleUpdate.roomPosition.shiftX += 150;
@@ -138,14 +142,38 @@ export const exitBasementAfterMeetingGhost = (
         ...characters[CharacterName.sister],
         room: RoomName.living,
       },
+      [CharacterName.pa]: {
+        ...characters[CharacterName.pa],
+        room: RoomName.library,
+      },
     },
     updateItemsObject: {
       [ItemName.photo]: {
         ...items[ItemName.photo],
         collectable: true,
       },
+      [ItemName.blanket]: {
+        ...items[ItemName.blanket],
+        isVisible: false,
+      },
     },
     nextAct: true,
     newHelpText: getText("20"),
+  };
+};
+
+export const goToAtticFirstTime = (
+  items: ItemsCollection,
+  characters: CharactersCollection
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateCharactersObject: {
+      [CharacterName.ghost]: {
+        ...characters[CharacterName.ghost],
+        room: RoomName.basement,
+      },
+    },
+    updateItemsObject: {},
   };
 };
