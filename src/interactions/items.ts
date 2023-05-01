@@ -120,7 +120,7 @@ export const putBlanketOnABird = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: getText("10"),
+    newSubs: getText("10"),
   };
 };
 export const digUnderTheTree = (
@@ -162,7 +162,7 @@ export const sacrifice = (
         room: RoomName.basement,
       },
     },
-    newHelpText: getText("16"),
+    newSubs: getText("16"),
   };
 };
 
@@ -181,7 +181,7 @@ export const lookInDirt = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: getText("15"),
+    newSubs: getText("15"),
   };
 };
 export const mixBourbonAndPoison = (
@@ -199,7 +199,7 @@ export const mixBourbonAndPoison = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: getText("15"),
+    newSubs: getText("15"),
   };
 };
 export const grabABook = (
@@ -214,7 +214,7 @@ export const grabABook = (
   ) {
     return {
       newCurrentItem: currentItem,
-      newHelpText: getText("12"),
+      newSubs: getText("12"),
       updateItemsObject: {},
       updateCharactersObject: {},
     };
@@ -230,7 +230,7 @@ export const grabABook = (
     },
     updateCharactersObject: {},
     updatedStatus: { basementIsLocked: false },
-    newHelpText: getText("13"),
+    newSubs: getText("13"),
   };
 };
 
@@ -243,7 +243,7 @@ export const writeALetter = (
   if (!characters[CharacterName.uncle].isDead) {
     return {
       newCurrentItem: currentItem,
-      newHelpText: getText("102"),
+      newSubs: getText("102"),
       updateItemsObject: {},
       updateCharactersObject: {},
     };
@@ -253,6 +253,6 @@ export const writeALetter = (
     updateItemsObject: {},
     updateCharactersObject: {},
     updatedStatus: { gameFinished: true },
-    newHelpText: getText("29"),
+    newSubs: getText("29"),
   };
 };

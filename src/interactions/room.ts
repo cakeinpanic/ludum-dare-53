@@ -137,7 +137,7 @@ export const fatherRunsToTheBird = (
       },
     },
     updateItemsObject: {},
-    newHelpText: getText("11"),
+    newSubs: getText("11"),
   };
 };
 
@@ -173,7 +173,7 @@ export const exitBasementAfterMeetingGhost = (
       },
     },
     nextAct: true,
-    newHelpText: getText("20"),
+    newSubs: getText("20"),
   };
 };
 
