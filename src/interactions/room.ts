@@ -35,6 +35,7 @@ export const moveRoomInteraction = (
   if (
     gameState.act === 2 &&
     newRoom === RoomName.library &&
+    oldRoom === RoomName.bedroom &&
     items[ItemName.blanket].room === RoomName.bedroom
   ) {
     return merge(
@@ -137,7 +138,12 @@ export const fatherRunsToTheBird = (
         room: RoomName.bedroom,
       },
     },
-    updateItemsObject: {},
+    updateItemsObject: {
+      [ItemName.blanket]: {
+        ...items[ItemName.blanket],
+        isVisible: false,
+      },
+    },
     newSubs: getText("11"),
   };
 };
