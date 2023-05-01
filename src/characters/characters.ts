@@ -5,6 +5,7 @@ import mama from "./mama.png";
 import sister from "./sister.png";
 import father from "./father.png";
 import uncle from "./uncle.png";
+import ghost from "./ghost.png";
 
 export const characters: CharactersCollection = Object.freeze({
   [CharacterName.ma]: {
@@ -63,10 +64,15 @@ export const characters: CharactersCollection = Object.freeze({
   [CharacterName.ghost]: {
     name: CharacterName.ghost,
     room: null,
+    sprite: ghost,
     description: "Small ghost",
     roomPosition: {
       shiftX: -200,
       shiftY: 0,
+    },
+    size: {
+      height: 200,
+      width: 200,
     },
   },
   [CharacterName.main]: {
