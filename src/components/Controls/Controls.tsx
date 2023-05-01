@@ -58,6 +58,7 @@ export function Controls({ scale, setScale, move, availableWays }) {
           />
         );
       })}
+      {/* TODO - remove zoom */}
       <div
         className={styles.zoom + " " + (scale === MAX_SCALE ? styles.out : "")}
         onClick={() =>
