@@ -63,10 +63,18 @@ export const useGame = (): useGameReturn => {
     }));
   }, []);
   const resetWholeGame = useCallback(() => {
-    setGameState(startState.game);
-    setItems(items);
-    setCharacters(startState.characters);
+    // weeeird bug
+    setCharacters({
+      ...startState.characters,
+      [CharacterName.sister]: {
+        ...characters[CharacterName.sister],
+        room: RoomName.kitchen,
+      },
+    });
     setItems(startState.items);
+    setCurrentItem(startState.currentItem);
+    setAvailableWays(startState.availableWays);
+    setGameState(startState.game);
   }, []);
   // calc available ways
   useEffect(() => {

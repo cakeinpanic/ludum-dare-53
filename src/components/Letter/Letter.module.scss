@@ -33,7 +33,20 @@
   display: inline-block;
   margin: 70px 80px;
   cursor: pointer;
+  animation-name: fade;
+  animation-duration: 3s;
+  opacity: 1;
 }
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .subtitle {
   margin: 150px 80px;
 }

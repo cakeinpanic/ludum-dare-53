@@ -6,6 +6,7 @@ export function Letter({ onExit, skipTitle, ...rest }) {
   const [showPreText, setShowPreText] = React.useState<boolean>(false);
   const [showTitle, setShowTitle] = React.useState<boolean>(true);
   const [showLetter, setShowLetter] = React.useState<boolean>(false);
+
   useEffect(() => {
     if (skipTitle) {
       setShowTitle(false);
@@ -14,7 +15,7 @@ export function Letter({ onExit, skipTitle, ...rest }) {
   }, [skipTitle]);
   return (
     <div className={styles.letter} {...rest}>
-      {showTitle && (
+      {!skipTitle && showTitle && (
         <div
           onClick={() => {
             setShowTitle(false);

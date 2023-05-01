@@ -6,7 +6,7 @@ import sister from "./sister.png";
 import father from "./father.png";
 import uncle from "./uncle.png";
 
-export const characters: CharactersCollection = {
+export const characters: CharactersCollection = Object.freeze({
   [CharacterName.ma]: {
     name: CharacterName.ma,
     room: RoomName.living,
@@ -73,4 +73,4 @@ export const characters: CharactersCollection = {
     sprite: character,
     description: `It's me, James`,
   },
-};
+});
