@@ -9,7 +9,7 @@ export const characters: CharactersCollection = {
     name: CharacterName.ma,
     room: RoomName.living,
     sprite: mama,
-    description: "My mother, she looks nervous and tired",
+    description: "mother, she looks nervous and tired",
     roomPosition: {
       shiftX: -100,
       shiftY: 0,
