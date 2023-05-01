@@ -1,5 +1,5 @@
 import React, { ComponentProps, memo } from "react";
-import { SpriteAnimator } from "react-sprite-animator";
+
 import { calculatePositionForSomething } from "../../rooms/rooms";
 import { Character, CharacterName } from "../Game/types";
 
@@ -12,9 +12,7 @@ function _CharacterView({
   character,
   scale,
   ...props
-}: { character: Character; scale: number } & ComponentProps<
-  typeof SpriteAnimator
->) {
+}: { character: Character; scale: number } & ComponentProps<any>) {
   const { room, size, sprite, roomPosition, name, isDead } = character;
 
   if (room === null) return <></>;
@@ -34,15 +32,11 @@ function _CharacterView({
       {...props}
     >
       {sprite ? (
-        <img className={styles.sprite} src={sprite} />
+        <img
+          className={styles.sprite + " " + styles[character.name]}
+          src={sprite}
+        />
       ) : (
-        //<SpriteAnimator
-        //  className={styles.sprite}
-        //  sprite={sprite}
-        //  fps={10}
-        //  width={62}
-        //  height={50}
-        ///>
         <div className={styles.debug}>
           <span className={styles.name}>{name}</span>{" "}
         </div>
