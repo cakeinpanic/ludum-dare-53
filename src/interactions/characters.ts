@@ -33,6 +33,12 @@ export const clickOnCharacterInteraction = (
     }
     return talkToSister(items, characters, currentItem, act);
   }
+  if (characterName === CharacterName.ghost) {
+    if (currentItem?.id === "photo") {
+      return showPhotoToGhost(items, characters, currentItem, act);
+    }
+    return talkToSister(items, characters, currentItem, act);
+  }
   return result;
 };
 
@@ -93,6 +99,23 @@ const talkToMother = (
 };
 
 const talkToSister = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText:
+      act === 3
+        ? "Sister: you did not spend enough time with us today, go talk to dad"
+        : "Sister: oh god, I have missed you so much! Tell me more about your life!",
+  };
+};
+
+const showPhotoToGhost = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,

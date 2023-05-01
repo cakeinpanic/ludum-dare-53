@@ -9,7 +9,7 @@ import book from "./book.png";
 import birdCage from "./birdCage.png";
 import shovel from "./shovel.png";
 import altar from "./altar.png";
-
+import photo from "./photo.png";
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -45,6 +45,23 @@ export const items: ItemsCollection = {
     roomPosition: {
       shiftX: 300,
       shiftY: -35,
+    },
+    size: {
+      width: 100,
+      height: 100,
+    },
+  },
+  [ItemName.photo]: {
+    id: ItemName.photo,
+    isActive: true,
+    isVisible: true,
+    collectable: false,
+    room: RoomName.kitchen,
+    description: "Family portrait",
+    sprite: photo,
+    roomPosition: {
+      shiftX: 250,
+      shiftY: -50,
     },
     size: {
       width: 100,

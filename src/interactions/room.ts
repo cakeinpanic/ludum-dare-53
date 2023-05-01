@@ -132,7 +132,12 @@ export const exitBasementAfterMeetingGhost = (
         room: RoomName.living,
       },
     },
-    updateItemsObject: {},
+    updateItemsObject: {
+      [ItemName.photo]: {
+        ...items[ItemName.photo],
+        collectable: true,
+      },
+    },
     nextAct: true,
     newHelpText: "I'm gonna learn a lot today...",
   };
