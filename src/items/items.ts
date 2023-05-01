@@ -265,8 +265,8 @@ export const items: ItemsCollection = {
   [ItemName.blanket]: {
     id: ItemName.blanket,
     isActive: true,
-    isVisible: false,
-    collectable: true,
+    isVisible: true,
+    collectable: false,
     sprite: blanket,
     room: RoomName.living,
     roomPosition: {

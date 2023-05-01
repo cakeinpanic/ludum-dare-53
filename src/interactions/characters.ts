@@ -86,6 +86,7 @@ const giveFlowersToMother = (
         isActive: false,
       },
       [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
+      [ItemName.blanket]: { ...items[ItemName.blanket], collectable: true },
     },
     updateCharactersObject: {
       ma: {

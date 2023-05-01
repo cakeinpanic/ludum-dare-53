@@ -174,10 +174,6 @@ export const exitBasementAfterMeetingGhost = (
         ...items[ItemName.photo],
         collectable: true,
       },
-      [ItemName.blanket]: {
-        ...items[ItemName.blanket],
-        isVisible: false,
-      },
     },
     nextAct: true,
     newSubs: getText("20"),
