@@ -161,6 +161,15 @@ export const useGame = (): useGameReturn => {
     [characters, currentItem, gameState, gameState, items, setHelpText]
   );
 
+  useEffect(() => {
+    setCharacters((currentCharacters) => ({
+      ...currentCharacters,
+      [CharacterName.main]: {
+        ...currentCharacters[CharacterName.main],
+        room: gameState.currentRoom,
+      },
+    }));
+  }, [gameState.currentRoom]);
   const goToNextAct = useCallback(() => {
     setGameState((prevState) => ({
       ...prevState,

@@ -183,7 +183,10 @@ export const grabABook = (
   currentItem: Item,
   act: number
 ): InteractionResult => {
-  if (characters[CharacterName.pa].room === RoomName.library) {
+  if (
+    characters[CharacterName.pa].room === RoomName.library &&
+    characters[CharacterName.main].room === RoomName.library
+  ) {
     return {
       newCurrentItem: currentItem,
       newHelpText: getText("12"),
