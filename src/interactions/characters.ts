@@ -33,11 +33,12 @@ export const clickOnCharacterInteraction = (
     }
     return talkToSister(items, characters, currentItem, act);
   }
+
   if (characterName === CharacterName.ghost) {
     if (currentItem?.id === "photo") {
       return showPhotoToGhost(items, characters, currentItem, act);
     }
-    return talkToSister(items, characters, currentItem, act);
+    return talkToGhost(items, characters, currentItem, act);
   }
   return result;
 };
@@ -118,8 +119,7 @@ const talkToSister = (
         : "Sister: oh god, I have missed you so much! Tell me more about your life!",
   };
 };
-
-const showPhotoToGhost = (
+const talkToGhost = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
@@ -131,7 +131,22 @@ const showPhotoToGhost = (
     updateCharactersObject: {},
     newHelpText:
       act === 3
-        ? "Sister: you did not spend enough time with us today, go talk to dad"
-        : "Sister: oh god, I have missed you so much! Tell me more about your life!",
+        ? "Ghost: i would help you"
+        : "Ghost: there is a dark secret i'm gonna show you",
+  };
+};
+
+const showPhotoToGhost = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: null,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newHelpText:
+      "Look at this photo, you see where it's taken? It's on the acctic, let me show you the way upstairs",
   };
 };
