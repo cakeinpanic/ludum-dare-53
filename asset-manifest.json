@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ludum-dare-53/static/css/main.ea0a8060.css",
-    "main.js": "/ludum-dare-53/static/js/main.aba07946.js",
+    "main.js": "/ludum-dare-53/static/js/main.9cab4952.js",
     "static/js/926.4e69f33a.chunk.js": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js",
     "static/js/5.de7056da.chunk.js": "/ludum-dare-53/static/js/5.de7056da.chunk.js",
     "ld_53_main_1.mp3": "/ludum-dare-53/9757c4c5376aba997f93d3e5d1fe98c4.mp3",
@@ -24,16 +24,18 @@
     "static/media/library.jpg": "/ludum-dare-53/static/media/library.7dba64937ec8d7dc0f59.jpg",
     "static/media/living.jpg": "/ludum-dare-53/static/media/living.8351f48a986ecea5a8b9.jpg",
     "static/media/letter.jpg": "/ludum-dare-53/static/media/letter.189591b6278aa8e0b841.jpg",
+    "static/media/sister.png": "/ludum-dare-53/static/media/sister.a77ed74a6acc7ef8fb9a.png",
+    "static/media/mama.png": "/ludum-dare-53/static/media/mama.62975a8d7198d0b52226.png",
     "static/media/zoom-in.svg": "/ludum-dare-53/static/media/zoom-in.fe080bc7a5bbe16b1a87.svg",
     "static/media/zoom-out.svg": "/ludum-dare-53/static/media/zoom-out.628c927ca014290437ed.svg",
     "index.html": "/ludum-dare-53/index.html",
     "main.ea0a8060.css.map": "/ludum-dare-53/static/css/main.ea0a8060.css.map",
-    "main.aba07946.js.map": "/ludum-dare-53/static/js/main.aba07946.js.map",
+    "main.9cab4952.js.map": "/ludum-dare-53/static/js/main.9cab4952.js.map",
     "926.4e69f33a.chunk.js.map": "/ludum-dare-53/static/js/926.4e69f33a.chunk.js.map",
     "5.de7056da.chunk.js.map": "/ludum-dare-53/static/js/5.de7056da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea0a8060.css",
-    "static/js/main.aba07946.js"
+    "static/js/main.9cab4952.js"
   ]
 }
