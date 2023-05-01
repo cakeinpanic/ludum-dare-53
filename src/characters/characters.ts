@@ -45,7 +45,7 @@ export const characters: CharactersCollection = {
   [CharacterName.ghost]: {
     name: CharacterName.ghost,
     room: null,
-    description: "???",
+    description: "WTF",
     roomPosition: {
       shiftX: -200,
       shiftY: 0,
@@ -54,6 +54,6 @@ export const characters: CharactersCollection = {
   [CharacterName.main]: {
     name: CharacterName.main,
     sprite: character,
-    description: `I'm Luntik`, // I born
+    description: `It's me, James`,
   },
 };
