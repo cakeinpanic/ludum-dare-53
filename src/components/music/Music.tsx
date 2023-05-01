@@ -10,7 +10,9 @@ import AmbienceBasementMusic from './ld_53_amb_basement.mp3'
 
 import firstActMainMusic from './ld_53_main_1.mp3'
 import secondActMainMusic from './ld_53_main_2.mp3'
+import thirdActMainMusic from './ld_53_main_3.mp3'
 import styles from './Music.module.scss'
+import React from 'react'
 
 const VOLUME = 0.3
 const FADE_DURATION = 800
@@ -43,6 +45,10 @@ export function Music({
     id: 'act1',
   })
   const [, { sound: secondActSound }] = useSound(secondActMainMusic, {
+    ...params,
+    id: 'act2',
+  })
+  const [, { sound: thirdActSound }] = useSound(thirdActMainMusic, {
     ...params,
     id: 'act2',
   })
@@ -98,10 +104,11 @@ export function Music({
         setCurrentActSound(secondActSound)
         return
       case 3:
+        setCurrentActSound(thirdActSound)
         return
       default:
     }
-  }, [act, firstActSound, secondActSound, setCurrentActSound])
+  }, [act, firstActSound, secondActSound, setCurrentActSound, thirdActSound])
 
   useEffect(() => {
     switch (room) {
@@ -123,7 +130,14 @@ export function Music({
       default:
         setCurrentRoomSound(null)
     }
-  }, [ambientGardenSound, ambientLivingSound, room, ambientKitchenSound, ambientAtticSound, ambientBasementSound])
+  }, [
+    ambientGardenSound,
+    ambientLivingSound,
+    room,
+    ambientKitchenSound,
+    ambientAtticSound,
+    ambientBasementSound,
+  ])
 
   const muteAll = () => {
     setIsAllMuted(!isAllMuted)
@@ -135,13 +149,11 @@ export function Music({
   }, [])
 
   return (
-    <>
-      <div
-        className={styles.muteBtn + ' ' + (isAllMuted && styles.muted)}
-        onClick={muteAll}
-      >
-        <span> {isAllMuted ? 'unmute' : 'mute'}</span>
-      </div>
-    </>
+    <div
+      className={styles.muteBtn + ' ' + (isAllMuted && styles.muted)}
+      onClick={muteAll}
+    >
+      <span> {isAllMuted ? 'unmute' : 'mute'}</span>
+    </div>
   )
 }
