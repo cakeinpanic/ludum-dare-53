@@ -76,6 +76,13 @@ export const changeMainLocation = (
     };
   }
 
+  if (newRoom === RoomName.kitchen) {
+    roomPosition = {
+      shiftX: 200,
+      shiftY: 0,
+    };
+  }
+
   if (
     act === 3 &&
     characters[CharacterName.uncle].room === characters[CharacterName.main].room

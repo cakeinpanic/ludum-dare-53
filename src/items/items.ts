@@ -43,8 +43,8 @@ export const items: ItemsCollection = {
     description: "Flower vase",
     sprite: vase,
     roomPosition: {
-      shiftX: 300,
-      shiftY: -35,
+      shiftX: -100,
+      shiftY: -10,
     },
     size: {
       width: 100,

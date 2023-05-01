@@ -29,7 +29,7 @@ export const characters: CharactersCollection = {
     sprite: sister,
     description: "Elder sister, her haughty grin never leaves her face",
     roomPosition: {
-      shiftX: -200,
+      shiftX: -300,
       shiftY: 0,
     },
   },

@@ -68,8 +68,8 @@ const giveFlowersToMother = (
         ...items[ItemName.flowers],
         room: RoomName.kitchen,
         roomPosition: {
-          shiftX: 300,
-          shiftY: -100,
+          shiftX: -100,
+          shiftY: -75,
         },
         isVisible: true,
         isActive: false,
@@ -77,7 +77,11 @@ const giveFlowersToMother = (
       [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
     },
     updateCharactersObject: {
-      ["ma"]: { ...characters["ma"], room: RoomName.kitchen },
+      ["ma"]: {
+        ...characters["ma"],
+        room: RoomName.kitchen,
+        roomPosition: { shiftX: -20, shiftY: 0 },
+      },
     },
     newHelpText: "Mother went to put flowers in the vase.",
     nextAct: true,
