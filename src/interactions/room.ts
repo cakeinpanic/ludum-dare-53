@@ -4,10 +4,11 @@ import {
   Item,
   ItemName,
   ItemsCollection,
-} from "../components/Game/types";
-import { RoomName, roomPositions } from "../rooms/rooms";
-import { merge } from "lodash";
-import { InteractionResult } from "./types";
+} from '../components/Game/types'
+import { RoomName, roomPositions } from '../rooms/rooms'
+import { merge } from 'lodash'
+import { InteractionResult } from './types'
+import { getText } from './texts'
 
 export const moveRoomInteraction = (
   oldRoom: RoomName,
@@ -15,7 +16,7 @@ export const moveRoomInteraction = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: currentItem,
@@ -24,10 +25,10 @@ export const moveRoomInteraction = (
       oldRoom,
       newRoom,
       characters,
-      act
+      act,
     ),
     newHelpText: null,
-  };
+  }
 
   if (
     act === 2 &&
@@ -37,7 +38,7 @@ export const moveRoomInteraction = (
     return {
       ...result.updateCharactersObject,
       ...fatherRunsToTheBird(items, characters),
-    };
+    }
   }
   if (
     oldRoom === RoomName.basement &&
@@ -45,33 +46,33 @@ export const moveRoomInteraction = (
   ) {
     return merge(exitBasementAfterMeetingGhost(items, characters), {
       updateCharactersObject: result.updateCharactersObject,
-    });
+    })
   }
-  return result;
-};
+  return result
+}
 
 export const changeMainLocation = (
   oldRoom: RoomName,
   newRoom: RoomName,
   characters: CharactersCollection,
-  act: number
+  act: number,
 ): CharactersCollection => {
   let roomPosition = {
     shiftX: 0,
     shiftY: 0,
-  };
-  const ghostUpdate = {};
+  }
+  const ghostUpdate = {}
   if (newRoom === RoomName.yard && act === 2) {
     roomPosition = {
       shiftX: 110,
       shiftY: 0,
-    };
+    }
   }
   if (newRoom === RoomName.basement) {
     roomPosition = {
       shiftX: 20,
       shiftY: 0,
-    };
+    }
   }
   //
   //if (act === 3 || (oldRoom=== RoomName.basement && characters[CharacterName.ghost].room === RoomName.basement)) {
@@ -92,11 +93,11 @@ export const changeMainLocation = (
       ...characters[CharacterName.ghost],
       ...ghostUpdate,
     },
-  };
-};
+  }
+}
 export const fatherRunsToTheBird = (
   items: ItemsCollection,
-  characters: CharactersCollection
+  characters: CharactersCollection,
 ): InteractionResult => {
   return {
     newCurrentItem: null,
@@ -107,20 +108,19 @@ export const fatherRunsToTheBird = (
       },
     },
     updateItemsObject: {},
-    newHelpText:
-      "Met father on the way from bedroom – he was rushing to check his bird",
-  };
-};
+    newHelpText: getText('11'),
+  }
+}
 
 export const exitBasementAfterMeetingGhost = (
   items: ItemsCollection,
-  characters: CharactersCollection
+  characters: CharactersCollection,
 ): InteractionResult => {
   return {
     newCurrentItem: null,
     updateCharactersObject: {},
     updateItemsObject: {},
     nextAct: true,
-    newHelpText: "I'm gonna lear a lot today...",
-  };
-};
+    newHelpText: getText('20')
+  }
+}

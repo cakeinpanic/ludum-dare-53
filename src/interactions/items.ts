@@ -1,37 +1,39 @@
+import { get } from 'http'
 import {
   CharacterName,
   CharactersCollection,
   Item,
   ItemName,
   ItemsCollection,
-} from "../components/Game/types";
-import { RoomName } from "../rooms/rooms";
-import { InteractionResult } from "./types";
+} from '../components/Game/types'
+import { RoomName } from '../rooms/rooms'
+import { getText } from './texts'
+import { InteractionResult } from './types'
 
 const interactionPrerequisites = {
   [ItemName.flowers]: ItemName.scissors,
   [ItemName.birdCage]: ItemName.blanket,
   [ItemName.tree]: ItemName.shovel,
   [ItemName.altar]: ItemName.skull,
-};
+}
 
 export const clickOnItemInteraction = (
   itemName: ItemName,
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   const result: InteractionResult = {
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
     newHelpText: null,
-  };
-  const item: Item = items[itemName];
+  }
+  const item: Item = items[itemName]
 
   if (!item.isActive || !item.isVisible) {
-    return result;
+    return result
   }
 
   if (
@@ -39,8 +41,8 @@ export const clickOnItemInteraction = (
     currentItem?.id !== interactionPrerequisites[item.id]
   ) {
     // todo: use better phrases here
-    result.newHelpText = `Something's missing to interact with ${item.id}`;
-    return result;
+    result.newHelpText = `Something's missing to interact with ${item.id}`
+    return result
   }
 
   if (item.collectable) {
@@ -51,41 +53,41 @@ export const clickOnItemInteraction = (
       },
       updateCharactersObject: {},
       newHelpText: `Grabbed ${item.id}`,
-    };
+    }
   }
 
   if (itemName === ItemName.book) {
-    return grabABook(items, characters, currentItem, act);
+    return grabABook(items, characters, currentItem, act)
   }
   if (itemName === ItemName.birdCage) {
-    return putBlanketOnABird(items, characters, currentItem, act);
+    return putBlanketOnABird(items, characters, currentItem, act)
   }
   if (itemName === ItemName.tree && currentItem?.id === ItemName.shovel) {
-    return digUnderTheTree(items, characters, currentItem, act);
+    return digUnderTheTree(items, characters, currentItem, act)
   }
   if (itemName === ItemName.altar && currentItem?.id === ItemName.skull) {
-    return sacrifice(items, characters, currentItem, act);
+    return sacrifice(items, characters, currentItem, act)
   }
   if (itemName === ItemName.dirtPile) {
-    return lookInDirt(items, characters, currentItem, act);
+    return lookInDirt(items, characters, currentItem, act)
   }
 
   switch (item.id) {
     case ItemName.tree:
-      result.newHelpText = `Such a big tree....`;
-      break;
+      result.newHelpText = getText('6')
+      break
     case ItemName.vase:
-      result.newHelpText = `Flowers from the garden would look good in this vase`;
-      break;
+      result.newHelpText = getText('5')
+      break
   }
-  return result;
-};
+  return result
+}
 
 export const putBlanketOnABird = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   return {
     newCurrentItem: null,
@@ -111,14 +113,14 @@ export const putBlanketOnABird = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: "Bird: RUN! RUN! RUN!",
-  };
-};
+    newHelpText: getText('10'),
+  }
+}
 export const digUnderTheTree = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   return {
     newCurrentItem: null,
@@ -130,14 +132,14 @@ export const digUnderTheTree = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: `Oh, there's something under the tree!`,
-  };
-};
+    newHelpText: getText('14'),
+  }
+}
 export const sacrifice = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   return {
     newCurrentItem: null,
@@ -153,15 +155,15 @@ export const sacrifice = (
         room: RoomName.basement,
       },
     },
-    newHelpText: `Oh, there's something under the tree!`,
-  };
-};
+    newHelpText: getText('16'),
+  }
+}
 
 export const lookInDirt = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   return {
     newCurrentItem: items[ItemName.skull],
@@ -172,22 +174,22 @@ export const lookInDirt = (
       },
     },
     updateCharactersObject: {},
-    newHelpText: `OMG, there is a skull, yikes!`,
-  };
-};
+    newHelpText: getText('15'),
+  }
+}
 export const grabABook = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
-  act: number
+  act: number,
 ): InteractionResult => {
   if (characters[CharacterName.pa].room === RoomName.library) {
     return {
       newCurrentItem: currentItem,
-      newHelpText: `Father: don't touch my books, they are older than you`,
+      newHelpText: getText('12'),
       updateItemsObject: {},
       updateCharactersObject: {},
-    };
+    }
   }
   return {
     newCurrentItem: items[ItemName.key],
@@ -199,7 +201,6 @@ export const grabABook = (
       },
     },
     updateCharactersObject: {},
-    newHelpText:
-      "There is a key inside the book! Probably I can go to some new location now",
-  };
-};
+    newHelpText: getText('13'),
+  }
+}
