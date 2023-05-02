@@ -10,6 +10,7 @@ import {
 import { RoomName } from "../rooms/rooms";
 import { getText } from "./texts";
 import { InteractionResult } from "./types";
+import { uncleTalksWhenMove } from "./characters";
 
 export const moveRoomInteraction = (
   oldRoom: RoomName,
@@ -66,6 +67,13 @@ export const moveRoomInteraction = (
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
       enterBasement(items, characters)
+    );
+  }
+
+  if (newRoom !== RoomName.basement  && gameState.status.uncleFollows && !characters[CharacterName.uncle].isDead) {
+    return merge(
+      { updateCharactersObject: result.updateCharactersObject },
+      uncleTalksWhenMove()
     );
   }
 
