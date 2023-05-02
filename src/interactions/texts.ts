@@ -1,12 +1,12 @@
 export const texts = {
   // Act 1
-  "0": "You have arrived to your parents house, this is not how you remember it",
+  "0": "You have arrived to your parent's house, this is not how you remember it",
   // Ma with letter
-  "1": "Mother: Hello my dear, we haven't been waiting for you. Letter? I don't know what you are talking about",
+  "1": "Mother: Hello my dear, we weren't waiting for you. A letter? I don't know what you're talking about",
   // Sister with letter
-  "2": "Sister: Hi, you are early. What letter!? It's probably someones joke. Give it to me! Here are the scissors, find some flowers for the event",
+  "2": "Sister: Hi, you are early. What letter!? It's probably someones joke. Give it to me. Here are the scissors, find some flowers for the event",
   // Ma with flowers
-  "3": "Mother: Thanks my dear, your self-sacrifice... I said to others that you are here | Mother went to put flowers in the vase",
+  "3": "Mother: Thanks, my dear, your self-sacrifice... I told others that you were here; Mother went to put flowers in the vase",
   // Talk to sister without letter
   "4": "Sister: I'm so excited about the todays event, you will be the star of the show",
   // vase without flowers
@@ -14,7 +14,7 @@ export const texts = {
   // Tree
   "6": `I don't remember this tree being here. It must have been planted after I left`,
   // Ma without letter
-  "7": `Mother: your uncle is preparing for the special occasion upstairs. Can't believe I'm boiling liver today`,
+  "7": `Mother: Your uncle is upstairs preparing for the special occasion. Can't believe I'm boiling liver today`,
 
   // Act 2
 
