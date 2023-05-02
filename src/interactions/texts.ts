@@ -10,7 +10,7 @@ export const texts = {
   // Talk to sister without letter
   "4": "Sister: I'm so excited about the todays event, you will be the star of the show",
   // vase without flowers
-  "5": `Flowers from the garden would look good in this vase`,
+  "5": `Mother loves to put garden flowers in this vase`,
   // Tree
   "6": `I don't remember this tree being here. It must have been planted after I left`,
   // Ma without letter
