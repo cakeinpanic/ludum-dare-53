@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getRoomCoordinates,
   RoomName,
@@ -17,7 +17,7 @@ export function House({
   const zoom = (e: MouseEvent, room: RoomName) => {
     setCurrentRoom(room);
   };
-
+  const [roomToRender, setRoomToRender] = useState<RoomName[]>([]);
   useEffect(() => {
     requestAnimationFrame(() =>
       document.getElementById(currentRoom)?.scrollIntoView({
@@ -27,6 +27,32 @@ export function House({
       })
     );
   }, [currentRoom, scale]);
+
+  useEffect(() => {
+    switch (currentRoom) {
+      case RoomName.bedroom:
+        setRoomToRender([RoomName.library, RoomName.attick]);
+        break;
+      case RoomName.library:
+        setRoomToRender([RoomName.bedroom, RoomName.living]);
+        break;
+      case RoomName.living:
+        setRoomToRender([RoomName.library, RoomName.yard, RoomName.kitchen]);
+        break;
+      case RoomName.yard:
+        setRoomToRender([RoomName.living]);
+        break;
+      case RoomName.kitchen:
+        setRoomToRender([RoomName.living, RoomName.basement]);
+        break;
+      case RoomName.basement:
+        setRoomToRender([RoomName.kitchen]);
+        break;
+      case RoomName.attick:
+        setRoomToRender([RoomName.bedroom]);
+        break;
+    }
+  }, [currentRoom]);
 
   return (
     <div className={props.className + " " + styles.House}>
@@ -49,6 +75,10 @@ export function House({
                 top: top * scale,
                 width: width * scale,
                 height: height * scale,
+                display:
+                  currentRoom === room || roomToRender.includes(room)
+                    ? "block"
+                    : "none",
               }}
             >
               <img id={room} onClick={(e) => zoom(e, room)} src={img} />
