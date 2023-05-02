@@ -102,6 +102,12 @@ export const changeMainLocation = (
       shiftY: 0,
     };
   }
+  if (newRoom === RoomName.bedroom) {
+    roomPosition = {
+      shiftX: -100,
+      shiftY: 0,
+    };
+  }
 
   if (
     status.uncleFollows &&
