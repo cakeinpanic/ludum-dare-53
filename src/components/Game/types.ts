@@ -23,6 +23,7 @@ export interface Character {
   sprite?: string;
   description?: string;
   isDead?: boolean;
+  isSaidHi?: boolean;
   roomPosition?: {
     // maybe just , left , right , center?
     shiftX: number;
