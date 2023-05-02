@@ -14,7 +14,7 @@ export const texts = {
   // Tree
   "6": `I don't remember this tree being here. It must have been planted after I left`,
   // Ma without letter
-  "7": `Mother: Your uncle is upstairs preparing for the special occasion. Can't believe I'm boiling liver today`,
+  "7": `Mother: Your uncle is upstairs preparing for the special occasion. I can't believe I'm boiling liver today`,
 
   // Act 2
 
@@ -30,17 +30,17 @@ export const texts = {
   // Skull found
   "15": `OMG, there is a small skull, yikes!`,
   // Put skull on the altar
-  "16": `You put the skull on the altar, something is happening...`,
+  "16": `You put the skull on the altar. Something is happening...`,
 
   // talk to ghost
-  "19": "Ghost: James! You can't remember me, aren't you? We don't have much time, come upstairs",
+  "19": "Ghost: James! You don't remember me, do you? We don't have much time, come upstairs",
 
   SHIT_SISTER_SAYS_act_2_1:
-    "Father upstairs, probably playing with his bird. Stupid bird scream all night, can't sleep because of that",
+    "Father is probably upstairs playing with his bird. Stupid bird scream all night, can't sleep because of that",
   SHIT_SISTER_SAYS_act_2_2:
-    "I just do what uncle says. He care about us. Right?",
+    "I just do what uncle says. He cares about us. Right?",
   SHIT_PA_SAYS_act_2_1:
-    "What did I say to you last time boy? Never come back to this house. Such a waste",
+    "What did I say to you last time, boy? Never come back to this house. Such a waste",
 
   // Act 3
   // exit Basement After Meeting Ghost
@@ -48,7 +48,7 @@ export const texts = {
   // Talk to ghost
   "21": "Ghost: I would help you, find the memory of me",
   // Sister in living room
-  "22": "Sister: uncle said you can't leave now, you must spend quality time with the Family",
+  "22": "Sister: Uncle said you can't leave now. You must spend quality time with the Family.",
 
   // Show photo to the ghost
   "24": "Ghost: You found it! Photo of us before the ritual in the attic. Let me show you the way, upstairs",
@@ -59,10 +59,10 @@ export const texts = {
   GHOST_UNCLE_DEAD_SAYS:
     "Ohhh, you did it James. Find a way to remember what happened here",
   // Give cocktail to uncle
-  "28": "Uncle: Give me the glass James, one sip before we start! Khh, this shit is strong... I need to sit down. Khhr",
+  "28": "Uncle: Give me the glass, James. One sip before we start! Khh, this shit is strong... I need to sit down. Khhr",
   // Sit and write a letter
   BAD_END:
-    "Afraid of loosing memory again you sit down and write a letter to yourself to come to the house as soon as possible. Then you suddenly black out...",
+    "Afraid of loosing memory again, you sit down and write a letter to yourself to come to the house as soon as possible. Then you suddenly black out...",
 
   SHIT_UNCLE_SAYS_INITIAL:
     "Uncle: Hey, the Family didn't expect you that early, but we're incredibly happy that you came by yourself",
