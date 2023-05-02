@@ -6,24 +6,24 @@
   position: relative;
   overflow: hidden;
   transition: all 1s;
+
   &.darker {
     filter: brightness(0.8) saturate(0.8);
   }
   &.darkest {
-    filter: brightness(0.6) saturate(0.7);
-    animation: glitch 8s infinite;
+    animation: glitch 4s infinite;
   }
 }
 
 @keyframes glitch {
   0% {
-    filter: brightness(0.6) saturate(0.7);
+    filter: brightness(0.6) saturate(0.8);
   }
   40% {
-    filter: brightness(0.5) saturate(0.6);
+    filter: brightness(0.45) saturate(0.8);
   }
   100% {
-    filter: brightness(0.6) saturate(0.7);
+    filter: brightness(0.6) saturate(0.8);
   }
 }
 

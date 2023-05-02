@@ -28,6 +28,7 @@ export function Letter({ onExit, skipTitle, ...rest }) {
             target="_blank"
             href="https://ldjam.com/events/ludum-dare/53/"
           >
+            Game about mysterious de-livery <br />
             Please unmute music in top right corner, this is game-changing
             experience
           </span>
@@ -48,9 +49,9 @@ export function Letter({ onExit, skipTitle, ...rest }) {
           }}
         >
           <div className={styles.subtitle}>
-            Yesterday you got a very strange letter in your mailbox, you don't
-            know who sent it, and it does not contain a lot of information
-            neither...
+            Yesterday you were delivered a very strange letter in your mailbox,
+            you don't know who sent it, and it does not contain a lot of
+            information neither...
           </div>
         </div>
       )}
