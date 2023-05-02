@@ -37,6 +37,24 @@ function App() {
       setBlackAnimation(false);
     }, 2000);
   };
+  const [style, setStyle] = useState({ transform: "scale(1)" });
+
+  const updateSize = () => {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 1000) {
+      return;
+    }
+    const ratio = (window.innerWidth - 200) / 1000;
+    console.log(ratio);
+    setStyle({ transform: `scale(${ratio})` });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", (event) => {
+      updateSize();
+    });
+    updateSize();
+  }, []);
 
   useEffect(() => {
     if (loaded) {
@@ -59,7 +77,7 @@ function App() {
     );
   }
   return (
-    <div className={styles.App}>
+    <div className={styles.App} style={style}>
       {showMenu ? (
         <Letter onExit={() => menuClick()} skipTitle={wasReset} />
       ) : (
