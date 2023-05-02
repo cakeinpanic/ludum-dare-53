@@ -36,11 +36,11 @@ export const texts = {
   "19": "Ghost: James! You don't remember me, do you? We don't have much time, come upstairs",
 
   SHIT_SISTER_SAYS_act_2_1:
-    "Father is probably upstairs playing with his bird. Stupid bird scream all night, can't sleep because of that",
+    "Sister: Father is probably upstairs playing with his bird. Stupid bird scream all night, can't sleep because of that",
   SHIT_SISTER_SAYS_act_2_2:
-    "I just do what uncle says. He cares about us. Right?",
+    "Sister: I just do what uncle says. He cares about us. Right?",
   SHIT_PA_SAYS_act_2_1:
-    "What did I say to you last time, boy? Never come back to this house. Such a waste",
+    "Father: What did I say to you last time, boy? Never come back to this house. Such a waste",
 
   // Act 3
   // exit Basement After Meeting Ghost
@@ -57,7 +57,7 @@ export const texts = {
   // Ghost says when uncle follows
   GHOST_UNCLE_FOLLOW_SAYS: "Uncle... I still feel the pain, stop him",
   GHOST_UNCLE_DEAD_SAYS:
-    "Ohhh, you did it James. Find a way to remember what happened here",
+    "Ghost: Ohhh, you did it James. Find a way to remember what happened here",
   // Give cocktail to uncle
   "28": "Uncle: Give me the glass, James. One sip before we start! Khh, this shit is strong... I need to sit down. Khhr",
   // Sit and write a letter
@@ -65,13 +65,13 @@ export const texts = {
     "Afraid of loosing memory again, you sit down and write a letter to yourself to come to the house as soon as possible. Then you suddenly black out...",
 
   SHIT_UNCLE_SAYS_INITIAL:
-    "Uncle: Hey, the Family didn't expect you that early, but we're incredibly happy that you came by yourself",
+    "Uncle: Look who decided to show up unannounced. The family didn't expect you that early, but we're incredibly happy that you came by yourself. Don't worry, we'll make sure you feel right at home... whether you like it or not",
   SHIT_UNCLE_SAYS_1:
     "Uncle: Whole Family can't wait to de-liver you... on the table",
   SHIT_UNCLE_SAYS_2:
-    "Uncle: Almost everything is ready for the ritual, don't go far from the Family",
+    "Uncle: If you have any ideas of wandering away from the Family, think again. We won't tolerate any disobedience. So, stay close, or face the consequences. Believe me, you won't like what happens to those who defy us",
   SHIT_UNCLE_SAYS_3:
-    "Uncle: We must remember our family responsibilities and be ready to sacrifice everything for the sake of the family",
+    "Uncle: We all must eat to survive... You know, family responsibilities are so important. We must be willing to make sacrifices for the greater good of the family. And sometimes, those sacrifices can be... significant.",
 
   SHIT_PA_SAYS_act_3_1:
     "Father: Leave me alone, boy. You knew the drill when you came here",
@@ -83,13 +83,13 @@ export const texts = {
     "Mother: I'm so proud of my Family, all together. Like it was last time, ten years ago",
 
   UNCLE_SAYS_NO:
-    "Uncle: Don't make your family wait, we have things to prepare",
+    "Uncle: Why are you wasting time writing? We have important things to prepare, and we can't wait forever. Trust me, you wouldn't want to keep the family waiting. They can be... impatient. So, let's get moving before it's too late",
 
   NO_SCISSORS: "I can't cut these flowers without some tool",
   NO_BLANKET: "This bird looks anxious, maybe put something on the cage",
   NO_SHOVEL: "Beautiful tree",
   NO_SKULL:
-    "If this is a place for human sacrifices, I need to bring something",
+    "If this is a place for sacrifices, I need to bring something",
   NO_BOURBON: "Where would I put this?",
 
   GHOST_AFTER_OPENING: "Look, there is a door to the attic upstairs",
