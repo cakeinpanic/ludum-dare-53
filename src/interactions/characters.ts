@@ -283,15 +283,26 @@ const talkToUncle = (
         updateCharactersObject: {
             uncle: {
                 ...characters[CharacterName.uncle],
-                isSaidHi: true,
             },
         },
         newSubs: sample([
             getText('SHIT_UNCLE_SAYS_1'),
             getText('SHIT_UNCLE_SAYS_2'),
-            getText('SHIT_UNCLE_SAYS_3'),
+            getText('SHIT_UNCLE_SAYS_4'),
         ]),
     };
+};
+
+export const uncleTalksWhenMove = (
+) => {
+  return {
+      newSubs: sample([
+          getText('SHIT_UNCLE_SAYS_1'),
+          getText('SHIT_UNCLE_SAYS_2'),
+          getText('SHIT_UNCLE_SAYS_3'),
+          getText('SHIT_UNCLE_SAYS_4'),
+      ]),
+  };
 };
 
 const showPhotoToGhost = (

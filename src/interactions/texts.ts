@@ -72,6 +72,8 @@ export const texts = {
     "Uncle: If you have any ideas of wandering away from the Family, think again. We won't tolerate any disobedience. Believe me, you won't like what happens to those who defy us",
   SHIT_UNCLE_SAYS_3:
     "Uncle: We all must eat to survive... You know, we must be willing to make sacrifices for the greater good of the family. And sometimes, those sacrifices can be... significant.",
+  SHIT_UNCLE_SAYS_4:
+    "Your dear mother shall soon be cooking, and you must be ready for her demented culinary concoctions. Family's love for meat is not for the faint of heart",
 
   SHIT_PA_SAYS_act_3_1:
     "Father: Leave me alone, boy. You knew the drill when you came here",
