@@ -35,10 +35,11 @@ export const texts = {
   // talk to ghost
   "19": "Ghost: James! You can't remember me, aren't you? We don't have much time, come upstairs",
 
-  SHIT_SISTER_SAYS_act2_1:
+  SHIT_SISTER_SAYS_act_2_1:
     "Father upstairs, probably playing with his bird. Stupid bird scream all night, can't sleep because of that",
-  SHIT_SISTER_SAYS_act2_2:
+  SHIT_SISTER_SAYS_act_2_2:
     "I just do what uncle says. He care about us. Right?",
+  SHIT_PA_SAYS_act_2_1: "What did I say to you last time? Never come back to this house. Such a waste",
 
   // Act 3
   // exit Basement After Meeting Ghost
@@ -67,13 +68,13 @@ export const texts = {
   SHIT_UNCLE_SAYS_3:
     "Uncle: We must remember our family responsibilities and be ready to sacrifice everything for the sake of the family",
 
-  SHIT_PA_SAYS_1:
+  SHIT_PA_SAYS_act_3_1:
     "Father: Leave me alone, boy. You knew the drill when you came here",
-  SHIT_PA_SAYS_2:
+  SHIT_PA_SAYS_act_3_2:
     "Father: Just... Boy, I don't have other choice. You know what happens when you messes up with uncle",
-  SHIT_MA_SAYS_1:
+  SHIT_MA_SAYS_act_3_1:
     "Mother: There are so many to feed. So much trouble with these Family holidays, huh, honey?",
-  SHIT_MA_SAYS_2:
+  SHIT_MA_SAYS_act_3_2:
     "Mother: I'm so proud of my Family, all together. Like it was last time, ten years ago",
 
   UNCLE_SAYS_NO:
