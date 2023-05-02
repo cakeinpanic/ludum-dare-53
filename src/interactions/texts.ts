@@ -69,9 +69,9 @@ export const texts = {
   SHIT_UNCLE_SAYS_1:
     "Uncle: Whole Family can't wait to de-liver you... on the table",
   SHIT_UNCLE_SAYS_2:
-    "Uncle: If you have any ideas of wandering away from the Family, think again. We won't tolerate any disobedience. So, stay close, or face the consequences. Believe me, you won't like what happens to those who defy us",
+    "Uncle: If you have any ideas of wandering away from the Family, think again. We won't tolerate any disobedience. Believe me, you won't like what happens to those who defy us",
   SHIT_UNCLE_SAYS_3:
-    "Uncle: We all must eat to survive... You know, family responsibilities are so important. We must be willing to make sacrifices for the greater good of the family. And sometimes, those sacrifices can be... significant.",
+    "Uncle: We all must eat to survive... You know, we must be willing to make sacrifices for the greater good of the family. And sometimes, those sacrifices can be... significant.",
 
   SHIT_PA_SAYS_act_3_1:
     "Father: Leave me alone, boy. You knew the drill when you came here",
@@ -83,7 +83,7 @@ export const texts = {
     "Mother: I'm so proud of my Family, all together. Like it was last time, ten years ago",
 
   UNCLE_SAYS_NO:
-    "Uncle: Why are you wasting time writing? We have important things to prepare, and we can't wait forever. Trust me, you wouldn't want to keep the family waiting. They can be... impatient. So, let's get moving before it's too late",
+    "Uncle: Why are you wasting time writing? Trust me, you wouldn't want to keep the family waiting. They can be... impatient. So, let's get moving before it's too late",
 
   NO_SCISSORS: "I can't cut these flowers without some tool",
   NO_BLANKET: "This bird looks anxious, maybe put something on the cage",
