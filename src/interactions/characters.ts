@@ -1,3 +1,4 @@
+import { sample } from "lodash";
 import {
   CharacterName,
   CharactersCollection,
@@ -49,7 +50,16 @@ export const clickOnCharacterInteraction = (
     if (currentItem?.id === ItemName.poisonedDrink) {
       return killUncle(items, characters, currentItem, act);
     }
-    return talkToUncleInitial(items, characters, currentItem, act);
+
+    if (characters[CharacterName.uncle].isDead) {
+      return result;
+    }
+
+    if (!characters[CharacterName.uncle].isSaidHi) {
+      return talkToUncleInitial(items, characters, currentItem, act);
+    }
+
+    return talkToUncle(items, characters, currentItem, act);
   }
   return result;
 };
@@ -125,7 +135,10 @@ const talkToMother = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newSubs: getText("7"),
+    newSubs:
+      act === 3
+        ? sample([getText("SHIT_MA_SAYS_1"), getText("SHIT_MA_SAYS_2")])
+        : getText("7"),
   };
 };
 
@@ -139,7 +152,15 @@ const talkToSister = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newSubs: act === 3 ? getText("22") : getText("4"),
+    newSubs:
+      act === 3
+        ? getText("22")
+        : act === 2
+        ? sample([
+            getText("SHIT_SISTER_SAYS_act2_1"),
+            getText("SHIT_SISTER_SAYS_act2_2"),
+          ])
+        : getText("4"),
   };
 };
 const talkToGhost = (
@@ -165,8 +186,36 @@ const talkToUncleInitial = (
   return {
     newCurrentItem: currentItem,
     updateItemsObject: {},
-    updateCharactersObject: {},
+    updateCharactersObject: {
+      uncle: {
+        ...characters[CharacterName.uncle],
+        isSaidHi: true,
+      },
+    },
     newSubs: getText("SHIT_UNCLE_SAYS_INITIAL"),
+  };
+};
+
+const talkToUncle = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {
+      uncle: {
+        ...characters[CharacterName.uncle],
+        isSaidHi: true,
+      },
+    },
+    newSubs: sample([
+      getText("SHIT_UNCLE_SAYS_1"),
+      getText("SHIT_UNCLE_SAYS_2"),
+      getText("SHIT_UNCLE_SAYS_3"),
+    ]),
   };
 };
 
