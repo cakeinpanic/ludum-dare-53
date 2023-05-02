@@ -40,10 +40,22 @@ export const clickOnCharacterInteraction = (
     return talkToSister(items, characters, currentItem, act);
   }
 
+  if (characterName === "pa") {
+    
+    return talkToFather(items, characters, currentItem, act);
+  }
+
   if (characterName === CharacterName.ghost) {
     if (currentItem?.id === "photo") {
       return showPhotoToGhost(items, characters, currentItem, act);
     }
+    if (characters[CharacterName.uncle].isDead) {
+      return talkToGhostWhenUncleDead(items, characters, currentItem, act);
+    }
+    if (characters[CharacterName.uncle].isSaidHi) {
+      return talkToGhostWhenUncleFollows(items, characters, currentItem, act);
+    }
+    
     return talkToGhost(items, characters, currentItem, act);
   }
   if (characterName === CharacterName.uncle) {
@@ -137,8 +149,25 @@ const talkToMother = (
     updateCharactersObject: {},
     newSubs:
       act === 3
-        ? sample([getText("SHIT_MA_SAYS_1"), getText("SHIT_MA_SAYS_2")])
+        ? sample([getText("SHIT_MA_SAYS_act_3_1"), getText("SHIT_MA_SAYS_act_3_2")])
         : getText("7"),
+  };
+};
+
+const talkToFather = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newSubs:
+      act === 3
+        ? sample([getText("SHIT_PA_SAYS_act_3_1"), getText("SHIT_PA_SAYS_act_3_2")])
+        : getText("SHIT_PA_SAYS_act_2_1"),
   };
 };
 
@@ -157,8 +186,8 @@ const talkToSister = (
         ? getText("22")
         : act === 2
         ? sample([
-            getText("SHIT_SISTER_SAYS_act2_1"),
-            getText("SHIT_SISTER_SAYS_act2_2"),
+            getText("SHIT_SISTER_SAYS_act_2_1"),
+            getText("SHIT_SISTER_SAYS_act_2_2"),
           ])
         : getText("4"),
   };
@@ -174,6 +203,34 @@ const talkToGhost = (
     updateItemsObject: {},
     updateCharactersObject: {},
     newSubs: act === 3 ? getText("21") : getText("19"),
+  };
+};
+
+const talkToGhostWhenUncleFollows = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newSubs: getText("GHOST_UNCLE_FOLLOW_SAYS")
+  };
+};
+
+const talkToGhostWhenUncleDead = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newSubs: getText("GHOST_UNCLE_DEAD_SAYS")
   };
 };
 
