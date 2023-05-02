@@ -10,7 +10,7 @@ import { Music } from "../music/Music";
 import styles from "./App.module.scss";
 
 function App() {
-  const [showMenu, setShowMenu] = React.useState<boolean>(false);
+  const [showMenu, setShowMenu] = React.useState<boolean>(true);
   const [loaded, setLoaded] = React.useState<boolean>(false);
 
   const [blackAnimation, setBlackAnimation] = React.useState<boolean>(false);

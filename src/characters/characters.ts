@@ -34,7 +34,7 @@ export const characters: CharactersCollection = Object.freeze({
     },
     size: {
       height: 300,
-      width: 190,
+      width: 150,
     },
   },
   [CharacterName.sister]: {
