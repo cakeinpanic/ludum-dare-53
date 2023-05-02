@@ -39,7 +39,7 @@ export const texts = {
     "Father upstairs, probably playing with his bird. Stupid bird scream all night, can't sleep because of that",
   SHIT_SISTER_SAYS_act_2_2:
     "I just do what uncle says. He care about us. Right?",
-  SHIT_PA_SAYS_act_2_1: "What did I say to you last time? Never come back to this house. Such a waste",
+  SHIT_PA_SAYS_act_2_1: "What did I say to you last time boy? Never come back to this house. Such a waste",
 
   // Act 3
   // exit Basement After Meeting Ghost
@@ -53,6 +53,9 @@ export const texts = {
   "24": "Ghost: You found it! Photo of us before the ritual in the attic. Let me show you the way, upstairs",
   // You mixing a poison with burbon
   "25": "Ghost: Yes, yes! Old drunkard wouldn't resist. Gift him with eternal sleep, before it's too late",
+  // Ghost says when uncle follows
+  GHOST_UNCLE_FOLLOW_SAYS: "Uncle... I still feel the pain, stop him",
+  GHOST_UNCLE_DEAD_SAYS: "Ohhh, you did it James. Find a way to remember what happened here",
   // Give cocktail to uncle
   "28": "Uncle: Give me the glass James, one sip before we start! Khh, this shit is strong... I need to sit down. Khhr",
   // Sit and write a letter

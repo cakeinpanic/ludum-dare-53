@@ -49,6 +49,13 @@ export const clickOnCharacterInteraction = (
     if (currentItem?.id === "photo") {
       return showPhotoToGhost(items, characters, currentItem, act);
     }
+    if (characters[CharacterName.uncle].isDead) {
+      return talkToGhostWhenUncleDead(items, characters, currentItem, act);
+    }
+    if (characters[CharacterName.uncle].isSaidHi) {
+      return talkToGhostWhenUncleFollows(items, characters, currentItem, act);
+    }
+    
     return talkToGhost(items, characters, currentItem, act);
   }
   if (characterName === CharacterName.uncle) {
@@ -196,6 +203,34 @@ const talkToGhost = (
     updateItemsObject: {},
     updateCharactersObject: {},
     newSubs: act === 3 ? getText("21") : getText("19"),
+  };
+};
+
+const talkToGhostWhenUncleFollows = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newSubs: getText("GHOST_UNCLE_FOLLOW_SAYS")
+  };
+};
+
+const talkToGhostWhenUncleDead = (
+  items: ItemsCollection,
+  characters: CharactersCollection,
+  currentItem: Item,
+  act: number
+): InteractionResult => {
+  return {
+    newCurrentItem: currentItem,
+    updateItemsObject: {},
+    updateCharactersObject: {},
+    newSubs: getText("GHOST_UNCLE_DEAD_SAYS")
   };
 };
 
