@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 
 import styles from "./Letter.module.scss";
 
-export function Letter({ onExit, skipTitle, ...rest }) {
+export function Letter({
+  onExit,
+  skipTitle,
+  isAllMuted,
+  setIsAllMuted,
+  ...rest
+}) {
   const [showPreText, setShowPreText] = React.useState<boolean>(false);
   const [showTitle, setShowTitle] = React.useState<boolean>(true);
   const [showLetter, setShowLetter] = React.useState<boolean>(false);
@@ -16,21 +22,40 @@ export function Letter({ onExit, skipTitle, ...rest }) {
   return (
     <div className={styles.letter} {...rest}>
       {!skipTitle && showTitle && (
-        <div
-          onClick={() => {
-            setShowTitle(false);
-            setShowPreText(true);
-          }}
-        >
+        <div>
           <div className={styles.title}>Return to sender</div>
           <span
             className={styles.subsubtitle}
             target="_blank"
             href="https://ldjam.com/events/ludum-dare/53/"
           >
-            Game about mysterious de-livery <br />
-            Please unmute music in top right corner, this is game-changing
-            experience
+            <span style={{ fontSize: "1.3em" }}>
+              Game about mysterious de-livery
+            </span>{" "}
+            <br />
+            <span style={{ opacity: ".8", marginTop: "10px" }}>
+              {" "}
+              Please{" "}
+              <span
+                style={{ textDecoration: "underline", cursor: "pointer" }}
+                onClick={() => {
+                  setIsAllMuted(false);
+                }}
+              >
+                unmute music
+              </span>{" "}
+              in top right corner, this is game-changing experience{" "}
+            </span>
+            <br />
+            <span
+              className={styles.start}
+              onClick={() => {
+                setShowTitle(false);
+                setShowPreText(true);
+              }}
+            >
+              Start
+            </span>
           </span>
           <a
             className={styles.sublink}

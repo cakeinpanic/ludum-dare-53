@@ -34,12 +34,15 @@ export function Music({
   gameStarted,
   room,
   act,
+  isAllMuted,
+  setIsAllMuted,
 }: {
   gameStarted: boolean;
   room: RoomName;
   act: number;
+  isAllMuted: boolean;
+  setIsAllMuted: Function;
 }) {
-  const [isAllMuted, setIsAllMuted] = useState(true);
   const [, { sound: firstActSound }] = useSound(firstActMainMusic, {
     ...params,
     id: "act1",

@@ -25,6 +25,8 @@ function App() {
     currentItem,
     availableWays,
     gameState,
+    isAllMuted,
+    setIsAllMuted,
     resetWholeGame,
   } = gameProps;
 
@@ -80,7 +82,12 @@ function App() {
   return (
     <div className={styles.App} style={style}>
       {showMenu ? (
-        <Letter onExit={() => menuClick()} skipTitle={wasReset} />
+        <Letter
+          onExit={() => menuClick()}
+          skipTitle={wasReset}
+          isAllMuted={isAllMuted}
+          setIsAllMuted={setIsAllMuted}
+        />
       ) : (
         <>
           <Game gameProps={gameProps} />
@@ -112,6 +119,8 @@ function App() {
         gameStarted={true}
         room={gameState.currentRoom}
         act={gameState.act}
+        isAllMuted={isAllMuted}
+        setIsAllMuted={setIsAllMuted}
       />
       {blackAnimation && <div className={styles.blackAnimation} />}
     </div>

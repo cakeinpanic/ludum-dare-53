@@ -23,11 +23,12 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: white;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 40px;
 }
+
 .subtitle,
 .sublink,
 .subsubtitle {
@@ -38,18 +39,49 @@
 
   line-height: 2;
   display: block;
-  margin: 70px 80px;
-  cursor: pointer;
+  margin: 0px 80px;
   animation-name: fade;
   animation-duration: 3s;
   opacity: 1;
 }
+
 .subsubtitle {
-  margin-top: 30px;
+  margin-top: 0;
+  top: -10px;
+  position: relative;
 }
+
+.start {
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  animation: breathe 3s infinite;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 0 20px;
+}
+
 .sublink {
-  margin-top: 30px;
+  margin-top: 10px;
+  font-size: 0.8em;
 }
+
+@keyframes breathe {
+  0% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
+
 @keyframes fade {
   0% {
     opacity: 0;
@@ -62,6 +94,7 @@
 .subtitle {
   margin: 150px 80px;
 }
+
 .container {
   width: $gameHeight * 0.9;
   height: $gameHeight * 0.9;
