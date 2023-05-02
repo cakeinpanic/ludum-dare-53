@@ -134,7 +134,7 @@ export const useGame = (): useGameReturn => {
         ...items,
         ...updateItemsObject,
       });
-      console.log(updateItemsObject);
+
       setCharacters({
         ...characters,
         ...updateCharactersObject,

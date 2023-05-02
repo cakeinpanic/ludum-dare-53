@@ -28,7 +28,7 @@ export function Letter({ onExit, skipTitle, ...rest }) {
             target="_blank"
             href="https://ldjam.com/events/ludum-dare/53/"
           >
-            Please turn on music in top right corner, this is game-changing
+            Please unmute music in top right corner, this is game-changing
             experience
           </span>
           <a

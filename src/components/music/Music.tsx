@@ -91,6 +91,7 @@ export function Music({
   }, [currentActSound]);
 
   useEffect(() => {
+    console.log({ isAllMuted });
     muteSound(currentActSound, isAllMuted);
     muteSound(currentRoomSound, isAllMuted);
   }, [currentActSound, currentRoomSound, isAllMuted]);
@@ -145,6 +146,10 @@ export function Music({
   };
 
   useEffect(() => {
+    if (localStorage.getItem("mute") === null) {
+      setIsAllMuted(true);
+      return;
+    }
     setIsAllMuted(localStorage.getItem("mute") === "true");
   }, []);
 
