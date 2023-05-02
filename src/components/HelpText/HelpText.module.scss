@@ -18,7 +18,15 @@
   opacity: 1;
   font-size: 0.8rem;
 }
-
+@media only screen and (max-width: 800px) {
+  .helpText {
+    bottom: -2px;
+    background: black;
+    z-index: 100;
+    height: 36px;
+    padding-top: 10px;
+  }
+}
 .inventory,
 .subs {
   width: 50%;

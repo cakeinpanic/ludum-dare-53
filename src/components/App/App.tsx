@@ -55,7 +55,7 @@ function App() {
     }
 
     const ratioX = (innerWidth - 50) / 1000;
-    const ratioY = (innerHeight - 110) / 500;
+    const ratioY = innerHeight / 500;
 
     setStyle({ transform: `scale(${Math.min(ratioY, ratioX)})` });
   };

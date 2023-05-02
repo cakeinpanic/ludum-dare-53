@@ -14,10 +14,12 @@ $shift: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  
 }
-
+@media only screen and (max-width: 800px) {
+  .button {
+    transform: scale(1.6);
+  }
+}
 .button {
   position: absolute;
   cursor: pointer;
