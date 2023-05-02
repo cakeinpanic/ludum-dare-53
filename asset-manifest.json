@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ludum-dare-53/static/css/main.8543bbb5.css",
-    "main.js": "/ludum-dare-53/static/js/main.02a4b910.js",
+    "main.js": "/ludum-dare-53/static/js/main.851861b6.js",
     "static/js/926.364f565f.chunk.js": "/ludum-dare-53/static/js/926.364f565f.chunk.js",
     "static/js/5.87683bc8.chunk.js": "/ludum-dare-53/static/js/5.87683bc8.chunk.js",
     "ld_53_main_1.mp3": "/ludum-dare-53/9757c4c5376aba997f93d3e5d1fe98c4.mp3",
@@ -16,7 +16,6 @@
     "static/media/blanket.png": "/ludum-dare-53/static/media/blanket.d873140050fa3e1976ca.png",
     "static/media/pile.png": "/ludum-dare-53/static/media/pile.4f2ec9c40102b71344d6.png",
     "static/media/mama.png": "/ludum-dare-53/static/media/mama.a6e4ae358ed6ab0c95df.png",
-    "static/media/uncle.png": "/ludum-dare-53/static/media/uncle.66cdd6631aae4ccae4c6.png",
     "static/media/birdCage.png": "/ludum-dare-53/static/media/birdCage.f6199b1dc9cfb3cf27ee.png",
     "static/media/sister.png": "/ludum-dare-53/static/media/sister.138cc5f784fa81addf5a.png",
     "static/media/father.png": "/ludum-dare-53/static/media/father.0a69931dd9267eb4d245.png",
@@ -37,16 +36,17 @@
     "static/media/library.jpg": "/ludum-dare-53/static/media/library.7dba64937ec8d7dc0f59.jpg",
     "static/media/book.png": "/ludum-dare-53/static/media/book.21b726b46c9ce5ee692a.png",
     "static/media/living.jpg": "/ludum-dare-53/static/media/living.8351f48a986ecea5a8b9.jpg",
+    "static/media/uncle.png": "/ludum-dare-53/static/media/uncle.24837aa5a929894238ce.png",
     "static/media/shovel.png": "/ludum-dare-53/static/media/shovel.db6f4050c1874085d962.png",
     "static/media/letter.jpg": "/ludum-dare-53/static/media/letter.189591b6278aa8e0b841.jpg",
     "index.html": "/ludum-dare-53/index.html",
     "main.8543bbb5.css.map": "/ludum-dare-53/static/css/main.8543bbb5.css.map",
-    "main.02a4b910.js.map": "/ludum-dare-53/static/js/main.02a4b910.js.map",
+    "main.851861b6.js.map": "/ludum-dare-53/static/js/main.851861b6.js.map",
     "926.364f565f.chunk.js.map": "/ludum-dare-53/static/js/926.364f565f.chunk.js.map",
     "5.87683bc8.chunk.js.map": "/ludum-dare-53/static/js/5.87683bc8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8543bbb5.css",
-    "static/js/main.02a4b910.js"
+    "static/js/main.851861b6.js"
   ]
 }
