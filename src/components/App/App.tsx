@@ -42,14 +42,22 @@ function App() {
   const [style, setStyle] = useState({ transform: "scale(1)" });
 
   const updateSize = () => {
-    console.log(window.innerWidth);
-    if (window.innerWidth > 1000) {
+    const { innerWidth, innerHeight } = window;
+    if (innerWidth > 1000) {
       setStyle({});
       return;
     }
-    const ratio = (window.innerWidth - 200) / 1000;
-    console.log(ratio);
-    setStyle({ transform: `scale(${ratio})` });
+
+    if (innerWidth < innerHeight) {
+      const ratio = innerWidth / 1000;
+      setStyle({ transform: `scale(${ratio})` });
+      return;
+    }
+
+    const ratioX = (innerWidth - 50) / 1000;
+    const ratioY = (innerHeight - 110) / 500;
+
+    setStyle({ transform: `scale(${Math.min(ratioY, ratioX)})` });
   };
 
   useEffect(() => {
