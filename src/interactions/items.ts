@@ -11,11 +11,26 @@ import { getText } from "./texts";
 import { InteractionResult } from "./types";
 
 const interactionPrerequisites = {
-  [ItemName.flowers]: ItemName.scissors,
-  [ItemName.birdCage]: ItemName.blanket,
-  [ItemName.tree]: ItemName.shovel,
-  [ItemName.altar]: ItemName.skull,
-  [ItemName.poison]: ItemName.bourbon,
+  [ItemName.flowers]: {
+    required: ItemName.scissors,
+    phrase: getText("NO_SCISSORS"),
+  },
+  [ItemName.birdCage]: {
+    required: ItemName.blanket,
+    phrase: getText("NO_BLANKET"),
+  },
+  [ItemName.tree]: {
+    required: ItemName.shovel,
+    getText: getText("NO_SHOVEL"),
+  },
+  [ItemName.altar]: {
+    required: ItemName.skull,
+    getText: getText("NO_SKULL"),
+  },
+  [ItemName.poison]: {
+    required: ItemName.bourbon,
+    getText: getText("NO_BOURBON"),
+  },
 };
 
 export const clickOnItemInteraction = (
@@ -39,10 +54,9 @@ export const clickOnItemInteraction = (
 
   if (
     interactionPrerequisites[item.id] &&
-    currentItem?.id !== interactionPrerequisites[item.id]
+    currentItem?.id !== interactionPrerequisites[item.id].required
   ) {
-    // todo: use better phrases here
-    result.newHelpText = `Something's missing to interact with ${item.id}`;
+    result.newHelpText = interactionPrerequisites[item.id].phrase;
     return result;
   }
 
