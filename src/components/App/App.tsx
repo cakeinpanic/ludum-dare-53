@@ -42,6 +42,7 @@ function App() {
   const updateSize = () => {
     console.log(window.innerWidth);
     if (window.innerWidth > 1000) {
+      setStyle({ transform: `scale(1)` });
       return;
     }
     const ratio = (window.innerWidth - 200) / 1000;
