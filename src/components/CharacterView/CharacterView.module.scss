@@ -6,6 +6,7 @@
   cursor: pointer;
   position: absolute;
   transition: all 1s;
+  
   &:hover {
     filter: brightness(120%);
     transition: all 0.2s;
@@ -17,6 +18,9 @@
   }
   &.dead {
     transform: rotate(90deg);
+   &, &:hover {
+     filter: brightness(40%);
+    }
   }
 }
 

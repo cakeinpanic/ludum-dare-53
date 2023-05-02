@@ -91,6 +91,10 @@ export const texts = {
   NO_SKULL:
     "If this is a place for human sacrifices, I need to bring something",
   NO_BOURBON: "Where would I put this?",
+
+  GHOST_AFTER_OPENING: "Look, there is a door to the attic upstairs",
+  GHOST_IN_THE_BASEMENT:
+    "Uncle is afraid of me, so he does not go downstairs. And you should be afraid of him!",
 };
 
 export const getText = (id: string) => {

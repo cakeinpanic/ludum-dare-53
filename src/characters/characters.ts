@@ -67,7 +67,7 @@ export const characters: CharactersCollection = Object.freeze({
     sprite: ghost,
     description: "Small ghost",
     roomPosition: {
-      shiftX: -200,
+      shiftX: -230,
       shiftY: 0,
     },
     size: {

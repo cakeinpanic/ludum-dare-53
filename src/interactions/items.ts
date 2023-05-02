@@ -17,15 +17,15 @@ const interactionPrerequisites = {
   },
   [ItemName.tree]: {
     required: ItemName.shovel,
-    getText: getText("NO_SHOVEL"),
+    phrase: getText("NO_SHOVEL"),
   },
   [ItemName.altar]: {
     required: ItemName.skull,
-    getText: getText("NO_SKULL"),
+    phrase: getText("NO_SKULL"),
   },
   [ItemName.poison]: {
     required: ItemName.bourbon,
-    getText: getText("NO_BOURBON"),
+    phrase: getText("NO_BOURBON"),
   },
 };
 

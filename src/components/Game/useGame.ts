@@ -233,7 +233,7 @@ export const useGame = (): useGameReturn => {
           items,
           characters,
           currentItem,
-          gameState.act
+          gameState
         )
       );
     },

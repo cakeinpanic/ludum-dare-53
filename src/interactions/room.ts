@@ -111,13 +111,19 @@ export const changeMainLocation = (
 
   if (
     status.uncleFollows &&
+      !characters[CharacterName.uncle].isDead &&
     characters[CharacterName.uncle].room === oldRoom &&
     newRoom !== RoomName.basement
   ) {
     uncleUpdate.room = newRoom;
     uncleUpdate.roomPosition = { ...roomPosition };
-    uncleUpdate.roomPosition.shiftX += 150;
-    uncleUpdate.roomPosition.shiftY -= 0;
+      uncleUpdate.roomPosition.shiftY -= 70;
+    if(newRoom === RoomName.kitchen){
+        uncleUpdate.roomPosition.shiftX -= 500;
+
+    } else {
+        uncleUpdate.roomPosition.shiftX += 150;
+    }
   }
 
   return {
