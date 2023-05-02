@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ludum-dare-53/static/css/main.8543bbb5.css",
-    "main.js": "/ludum-dare-53/static/js/main.851861b6.js",
+    "main.css": "/ludum-dare-53/static/css/main.0bcbf5bb.css",
+    "main.js": "/ludum-dare-53/static/js/main.2df66ac5.js",
     "static/js/926.364f565f.chunk.js": "/ludum-dare-53/static/js/926.364f565f.chunk.js",
     "static/js/5.87683bc8.chunk.js": "/ludum-dare-53/static/js/5.87683bc8.chunk.js",
     "ld_53_main_1.mp3": "/ludum-dare-53/9757c4c5376aba997f93d3e5d1fe98c4.mp3",
@@ -40,13 +40,13 @@
     "static/media/shovel.png": "/ludum-dare-53/static/media/shovel.db6f4050c1874085d962.png",
     "static/media/letter.jpg": "/ludum-dare-53/static/media/letter.189591b6278aa8e0b841.jpg",
     "index.html": "/ludum-dare-53/index.html",
-    "main.8543bbb5.css.map": "/ludum-dare-53/static/css/main.8543bbb5.css.map",
-    "main.851861b6.js.map": "/ludum-dare-53/static/js/main.851861b6.js.map",
+    "main.0bcbf5bb.css.map": "/ludum-dare-53/static/css/main.0bcbf5bb.css.map",
+    "main.2df66ac5.js.map": "/ludum-dare-53/static/js/main.2df66ac5.js.map",
     "926.364f565f.chunk.js.map": "/ludum-dare-53/static/js/926.364f565f.chunk.js.map",
     "5.87683bc8.chunk.js.map": "/ludum-dare-53/static/js/5.87683bc8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8543bbb5.css",
-    "static/js/main.851861b6.js"
+    "static/css/main.0bcbf5bb.css",
+    "static/js/main.2df66ac5.js"
   ]
 }
