@@ -41,7 +41,6 @@ export const clickOnCharacterInteraction = (
   }
 
   if (characterName === "pa") {
-    
     return talkToFather(items, characters, currentItem, act);
   }
 
@@ -55,7 +54,7 @@ export const clickOnCharacterInteraction = (
     if (characters[CharacterName.uncle].isSaidHi) {
       return talkToGhostWhenUncleFollows(items, characters, currentItem, act);
     }
-    
+
     return talkToGhost(items, characters, currentItem, act);
   }
   if (characterName === CharacterName.uncle) {
@@ -108,7 +107,7 @@ const giveFlowersToMother = (
         isActive: false,
       },
       [ItemName.vase]: { ...items[ItemName.vase], isActive: false },
-      [ItemName.blanket]: { ...items[ItemName.blanket], collectable: true },
+      [ItemName.blanket]: { ...items[ItemName.blanket], collectable: false },
     },
     updateCharactersObject: {
       ma: {
@@ -149,7 +148,10 @@ const talkToMother = (
     updateCharactersObject: {},
     newSubs:
       act === 3
-        ? sample([getText("SHIT_MA_SAYS_act_3_1"), getText("SHIT_MA_SAYS_act_3_2")])
+        ? sample([
+            getText("SHIT_MA_SAYS_act_3_1"),
+            getText("SHIT_MA_SAYS_act_3_2"),
+          ])
         : getText("7"),
   };
 };
@@ -166,7 +168,10 @@ const talkToFather = (
     updateCharactersObject: {},
     newSubs:
       act === 3
-        ? sample([getText("SHIT_PA_SAYS_act_3_1"), getText("SHIT_PA_SAYS_act_3_2")])
+        ? sample([
+            getText("SHIT_PA_SAYS_act_3_1"),
+            getText("SHIT_PA_SAYS_act_3_2"),
+          ])
         : getText("SHIT_PA_SAYS_act_2_1"),
   };
 };
@@ -216,7 +221,7 @@ const talkToGhostWhenUncleFollows = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newSubs: getText("GHOST_UNCLE_FOLLOW_SAYS")
+    newSubs: getText("GHOST_UNCLE_FOLLOW_SAYS"),
   };
 };
 
@@ -230,7 +235,7 @@ const talkToGhostWhenUncleDead = (
     newCurrentItem: currentItem,
     updateItemsObject: {},
     updateCharactersObject: {},
-    newSubs: getText("GHOST_UNCLE_DEAD_SAYS")
+    newSubs: getText("GHOST_UNCLE_DEAD_SAYS"),
   };
 };
 

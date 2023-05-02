@@ -15,10 +15,6 @@ const interactionPrerequisites = {
     required: ItemName.scissors,
     phrase: getText("NO_SCISSORS"),
   },
-  [ItemName.birdCage]: {
-    required: ItemName.blanket,
-    phrase: getText("NO_BLANKET"),
-  },
   [ItemName.tree]: {
     required: ItemName.shovel,
     getText: getText("NO_SHOVEL"),
@@ -80,8 +76,8 @@ export const clickOnItemInteraction = (
   if (itemName === ItemName.poison) {
     return mixBourbonAndPoison(items, characters, currentItem, act);
   }
-  if (itemName === ItemName.birdCage) {
-    return putBlanketOnABird(items, characters, currentItem, act);
+  if (itemName === ItemName.blanket) {
+    return removeBlanketFromABird(items, characters, currentItem, act);
   }
   if (itemName === ItemName.tree && currentItem?.id === ItemName.shovel) {
     return digUnderTheTree(items, characters, currentItem, act);
@@ -104,7 +100,7 @@ export const clickOnItemInteraction = (
   return result;
 };
 
-export const putBlanketOnABird = (
+export const removeBlanketFromABird = (
   items: ItemsCollection,
   characters: CharactersCollection,
   currentItem: Item,
@@ -115,22 +111,13 @@ export const putBlanketOnABird = (
     updateItemsObject: {
       [ItemName.birdCage]: {
         ...items[ItemName.birdCage],
-        isActive: false,
+        isActive: true,
         isVisible: true,
       },
       [ItemName.blanket]: {
         ...items[ItemName.blanket],
         isActive: false,
-        isVisible: true,
-        room: RoomName.bedroom,
-        roomPosition: {
-          shiftX: 40,
-          shiftY: -30,
-        },
-        size: {
-          width: 300,
-          height: 300,
-        },
+        isVisible: false,
       },
     },
     updateCharactersObject: {},

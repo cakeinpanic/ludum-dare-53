@@ -14,6 +14,7 @@ import bourbon from "./bourbon.png";
 import poison from "./poison.png";
 import table from "./table.png";
 import { getText } from "../interactions/texts";
+
 export const items: ItemsCollection = {
   [ItemName.letter]: {
     id: ItemName.letter,
@@ -269,14 +270,15 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     sprite: blanket,
-    room: RoomName.living,
+      description: "This blanket is hovering something...",
+    room: RoomName.bedroom,
     roomPosition: {
-      shiftX: -260,
-      shiftY: 70 - 46,
+      shiftX: 40,
+      shiftY: -30,
     },
     size: {
-      width: 100,
-      height: 100,
+      width: 300,
+      height: 300,
     },
   },
   [ItemName.table]: {

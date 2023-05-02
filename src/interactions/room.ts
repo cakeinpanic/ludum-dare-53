@@ -37,7 +37,7 @@ export const moveRoomInteraction = (
     newRoom === RoomName.library &&
     oldRoom === RoomName.bedroom &&
     items[ItemName.blanket].room === RoomName.bedroom &&
-    items[ItemName.blanket].isVisible
+    !items[ItemName.blanket].isVisible
   ) {
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
@@ -148,7 +148,8 @@ export const fatherRunsToTheBird = (
     updateItemsObject: {
       [ItemName.blanket]: {
         ...items[ItemName.blanket],
-        isVisible: false,
+        isVisible: true,
+        isActive: false,
       },
     },
     newSubs: getText("11"),
