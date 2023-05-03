@@ -145,15 +145,11 @@ export function Music({
 
   const muteAll = () => {
     setIsAllMuted(!isAllMuted);
-    localStorage.setItem("mute", "" + !isAllMuted);
+    localStorage.setItem("muteAll", "" + !isAllMuted);
   };
 
   useEffect(() => {
-    if (localStorage.getItem("mute") === null) {
-      setIsAllMuted(true);
-      return;
-    }
-    setIsAllMuted(localStorage.getItem("mute") === "true");
+    setIsAllMuted(localStorage.getItem("muteAll") === "true");
   }, []);
 
   return (

@@ -33,7 +33,7 @@ export function Letter({
               Game about mysterious de-livery
             </span>{" "}
             <br />
-            <span style={{ opacity: ".8", marginTop: "10px" }}>
+            <span style={{ display: "none", opacity: ".8", marginTop: "10px" }}>
               {" "}
               Please{" "}
               <span

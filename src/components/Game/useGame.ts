@@ -36,7 +36,7 @@ export interface useGameReturn {
 }
 
 export const useGame = (): useGameReturn => {
-  const [isAllMuted, setIsAllMuted] = useState(true);
+  const [isAllMuted, setIsAllMuted] = useState(false);
   const [gameState, setGameState] = useState<Game>(startState.game);
   const [scale, setScale] = React.useState(MAX_SCALE);
   const [availableWays, setAvailableWays] = useState<AvailableWays>(
