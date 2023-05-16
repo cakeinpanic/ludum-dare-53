@@ -55,7 +55,7 @@ export const moveRoomInteraction = (
       exitBasementAfterMeetingGhost(items, characters, gameState.act)
     );
   }
-  if (newRoom === RoomName.attick) {
+  if (newRoom === RoomName.attick && !characters[CharacterName.uncle].isDead) {
     return merge(
       { updateCharactersObject: result.updateCharactersObject },
       goToAtticFirstTime(items, characters, currentItem)
@@ -95,6 +95,12 @@ export const changeMainLocation = (
       shiftY: 0,
     };
   }
+  if (newRoom === RoomName.attick) {
+    roomPosition = {
+      shiftX: 20,
+      shiftY: 0,
+    };
+  }
 
   if (newRoom === RoomName.kitchen) {
     roomPosition = {
@@ -111,18 +117,17 @@ export const changeMainLocation = (
 
   if (
     status.uncleFollows &&
-      !characters[CharacterName.uncle].isDead &&
+    !characters[CharacterName.uncle].isDead &&
     characters[CharacterName.uncle].room === oldRoom &&
     newRoom !== RoomName.basement
   ) {
     uncleUpdate.room = newRoom;
     uncleUpdate.roomPosition = { ...roomPosition };
-      uncleUpdate.roomPosition.shiftY -= 70;
-    if(newRoom === RoomName.kitchen){
-        uncleUpdate.roomPosition.shiftX -= 500;
-
+    uncleUpdate.roomPosition.shiftY -= 70;
+    if (newRoom === RoomName.kitchen) {
+      uncleUpdate.roomPosition.shiftX -= 500;
     } else {
-        uncleUpdate.roomPosition.shiftX += 150;
+      uncleUpdate.roomPosition.shiftX += 150;
     }
   }
 

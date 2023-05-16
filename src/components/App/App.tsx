@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { clickOnSubs } from "../../interactions/subs";
 import { Controls } from "../Controls/Controls";
 import { Game } from "../Game/Game";
 import { useGame, useGameReturn } from "../Game/useGame";
@@ -118,7 +119,8 @@ function App() {
                 resetGame();
                 return;
               }
-              setSubs("");
+              const nextPhrase = clickOnSubs(gameState.subtitles);
+              setSubs(nextPhrase);
             }}
           />
         </>

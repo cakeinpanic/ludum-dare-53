@@ -136,13 +136,6 @@ export const items: ItemsCollection = {
       shiftY: 0,
     },
   },
-  [ItemName.table]: {
-    id: ItemName.table,
-    isActive: true,
-    isVisible: false,
-    collectable: false,
-    room: RoomName.living,
-  },
   [ItemName.cabinet]: {
     id: ItemName.cabinet,
     isActive: true,
@@ -270,7 +263,7 @@ export const items: ItemsCollection = {
     isVisible: true,
     collectable: false,
     sprite: blanket,
-      description: "This blanket is hovering something...",
+    description: "This blanket is hovering something...",
     room: RoomName.bedroom,
     roomPosition: {
       shiftX: 40,
@@ -283,7 +276,7 @@ export const items: ItemsCollection = {
   },
   [ItemName.table]: {
     id: ItemName.table,
-    isActive: true,
+    isActive: false,
     isVisible: true,
     collectable: false,
     room: RoomName.attick,

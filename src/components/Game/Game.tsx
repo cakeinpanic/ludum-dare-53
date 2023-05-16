@@ -52,11 +52,11 @@ export function Game({ gameProps }) {
 
   return (
     <>
-      {/* {currentExpress < express.length && (
-        <div onClick={onExpressClick} className={styles.express}>
-          Debug: Next move express({express.length - currentExpress} left)
-        </div>
-      )} */}
+      {/* {currentExpress < express.length && (*/}
+      {/*  <div onClick={onExpressClick} className={styles.express}>*/}
+      {/*    Debug: Next move express({express.length - currentExpress} left)*/}
+      {/*  </div>*/}
+      {/*)}*/}
       <div
         className={
           styles.game +
